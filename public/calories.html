@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang='eng'>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>Track Your Calories</title>
+    <!--Bootstrap Scripts(CSS)-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <!--Awesome Fonts-->
+    <script src='https://kit.fontawesome.com/fd6cc398e6.js' crossorigin='anonymous'></script>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Roboto+Mono&family=Instrument+Sans&display=swap" rel="stylesheet">
+    <style>
+      body{
+        text-align: center;
+        /* line-height: 2rem; */
+        background-color: #5F264A;
+      }
+      h1{
+        color: gold;
+        font-family: 'Open Sans', sans-serif;
+      }
+      h2{
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+      }
+      h3{
+        color: white;
+        display: inline-block;
+        font-size: small;
+        font-family: 'Open Sans', sans-serif;
+      }
+      a{
+        text-decoration: none;
+        color: white;
+        margin: 3%;
+      }
+      p{
+        color: white;
+        text-align: right;
+        margin-top: 8%;
+        margin-right: 1%;
+      }
+      #edamam-path{
+        color: rgb(165, 33, 252);
+        text-decoration: underline;
+        margin: 0%;
+      }
+      .nav-brand{
+        margin: 1%;
+        color: white;
+      }
+      .nav-links{
+        width: 40%;
+        margin-right: 0%;
+      }
+      .dropdown{
+        display: inline;
+      }
+      .w-220px{
+        width: 220px;
+      }
+      .tracker{
+        background-color: #C88EA7;
+        margin: 5% 25% 0% 30%;
+        width: 40%;
+        border-radius: 2%;
+        border: black solid;
+        padding: 1%;
+      }
+      input, select{
+        margin: 1% 0% 4% 0%;
+        font-weight: 500;
+      }
+      label{
+        font-family: 'Instrument Sans', sans-serif;          
+        color: black;
+        font-weight: 600;
+        margin-right: 2%;
+      }
+      .btn{
+        margin: 1% 0% 1% 0%;
+      }
+      .btn:hover{
+        background-color: white;
+        color: black;
+        font-weight: bold;
+      }
+      .btn-secondary{
+        background-color: #19376D;
+      }
+      .btn-secondary:hover{
+        background-color: green;
+        color: white;
+      }      
+      .tracked{
+        display: none;
+        background-color: #E7CBCB;
+        margin: 4% 5% 0% 10%;
+        width: 80%;
+        padding: 0%;
+        border-radius: 2%;
+        border: black solid;
+        overflow: auto;
+      }
+      .tracked-chart{
+        float: left;
+        color: #D14D72;
+        width: 50%;
+      }
+      .nutrition-chart{
+        float: right;
+        color: #D14D72;
+        width: 50%;
+      }
+      #meal-table{
+        display: inline-block;
+        margin-top: 5%;
+        border-collapse: collapse;
+      }
+      #meal-table th, #meal-table tr, #meal-table td{
+        font-family: 'Open Sans', sans-serif;
+        border: #6D5D6E solid 4px;
+        width: 33.33%;
+        padding: 2%;
+        margin: 0%;
+      }
+      #nutrition-table{
+        display: inline-block;
+        width: 50%;
+        margin-top: 1%;
+        border-collapse: collapse;
+      }
+      #nutrition-table th, #nutrition-table tr, #nutrition-table td{
+        font-family: 'Open Sans', sans-serif;
+        border: #6D5D6E solid 4px;
+        width: 50%;
+        padding: 1%;
+      }
+      
+      @media screen and (max-width: 500px) {
+            .nav-brand{
+              margin: 0%;
+            }
+            a{
+              margin: 0.5%
+            }
+            .nav-links{
+              margin: 0%;
+              width: 75%;
+            }
+            .tracker{
+              width: 70%;
+              margin: 15% 5% 1% 15%;
+            }
+            .tracked{
+              width: 100%;
+              margin: 10% 0% 0% 0%;
+            }
+            p{
+              margin: 22% 5% 2% 0%;
+              font-size: small;
+            }
+            select{
+              margin-top: 8%;
+            }
+            .tracked-chart{
+              width: 100%;
+            }
+            .nutrition-chart{
+              width: 100%;
+            }
+            #meal-table{
+              margin: 5% 0% 5% 0%;
+            }
+            #nutrition-table{
+              margin: 1% 0% 0% 0%;
+            }
+          }
+          </style> 
+  </head>
+  <body>
+    <header>
+      <nav class="navbar bg-dark fixed-top" data-bs-theme="dark">
+        <div class="nav-brand">
+          <h1>FITIFY</h1>
+        </div>
+        <div class="nav-links">
+          <a href="./index.html">HOME</a>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              FEATURES
+            </button>
+            <ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow w-220px" data-bs-theme="light">
+              <li><a class="dropdown-item rounded-2" href="./bmi.html">BMI CALCULATOR</a></li>
+              <li><a class="dropdown-item rounded-2" href="./calories.html">TRACK CALORIES</a></li>
+              <li><a class="dropdown-item rounded-2" href="./goal.html">KNOW YOUR GOAL</a></li>
+              <li><a class="dropdown-item rounded-2" href="./basic_redirect.html">STORE YOUR DETAILS</a></li>
+            </ul>
+          </div>
+          <a href="./about.html">ABOUT US</a>
+          <a href="./contacts.html">CONTACT US</a>
+        </div>
+      </nav>
+    </header>  
+    <main>
+      <p>*The nutritional data is being fetched from <a id="edamam-path" href="https://www.edamam.com/" target="_blank">EDAMAM API</a></p>
+      <div class="tracker">
+        <h2>TRACK YOUR CALORIES</h2>
+        <label for="meal">Meal Name: </label><input name="meal" id="meal_name" type="text" placeholder="Enter Meal"><br>
+        <label for="serving">Serving Size: </label><input type="text" name="serving" id="serving_size" placeholder="Enter Serving Size"><br>
+        <label for="size-type">Serving Type: </label>
+        <select name="size-type">
+          <option value="counts">Pieces/Counts</option>
+          <option value="grams">Gram</option>
+          <option value="ounces">Oz</option>
+          <option value="tablespoon">Tablespoon</option>
+          <option value="cups">Cup</option>
+          <option value="bowls">Bowl</option>
+        </select><br>
+        <button type="button" class="btn btn-dark">TRACK</button>
+      </div>
+      <div class="tracked">
+        <div class="tracked-chart">
+            <h2>MEALS TRACKED</h2>
+            <table id="meal-table">
+              <tr>
+                <th>Meal</th>
+                <th>Serving Size</th>
+                <th>Calories</th>
+              </tr>
+            </table>
+        </div>
+        <div class="nutrition-chart">
+            <h2>NUTRITION DETAILS</h2><br>
+            <table id="nutrition-table">
+              <tr><td>CALORIES</td><td id="calories">0</td></tr>
+              <tr><td>PROTEIN(g)</td><td id="protein">0</td></tr>
+              <tr><td>FAT(g)</td><td id="fat">0</td></tr>
+              <tr><td>CARBOHYDRATES(g)</td><td id="carbs">0</td></tr>
+              <tr><td>FIBRE(g)</td><td id="fibre">0</td></tr>
+            </table>
+        </div>
+      </div>
+    </main>
+    <!--Bootstrap Scripts(JAVASCRIPT AND POPPER)-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+        <script src="../calorie.js"></script>
+        <script>
+          //Dynamic Behavior for the frontend 
+          var total_calories = 0, total_proteins = 0, total_fats = 0, total_carbs = 0, total_fibres = 0;
+          const track_btn = document.getElementsByTagName('button')[1];
+          const track_box = document.getElementsByClassName('tracked')[0];
+          const meal_table = document.getElementById('meal-table'); 
+          const nutrition_table = document.getElementById('nutrition-table'); 
+          const caloriesElement = document.getElementById('calories');
+          const proteinsElement = document.getElementById('protein');
+          const fatsElement = document.getElementById('fat');
+          const carbsElement = document.getElementById('carbs');
+          const fibreElement = document.getElementById('fibre');
+          
+          window.onload = function() {
+            document.getElementById("meal_name").focus();
+          };
+          
+          function correctInput(mealName, serving){
+            console.log('Started input authentication: ' + mealName + ',' + serving);
+            if (!serving && !mealName){
+              alert("**Fill the empty fields");
+              return false;
+            }
+            if (!serving){
+              alert("**Serving Size Field is empty");
+              return false;
+            }
+            if (!mealName){
+              alert("**Meal Name Field is empty");
+              return false;
+            }
+            if (serving < 0 || isNaN(parseFloat(serving))){
+              alert("Incorrect Serving Size");
+              return false;
+            }
+            return true;
+          }
+
+          function create_row_meal_table(meal_name, serving, serving_type, current_calories){
+            let newRow = document.createElement("tr");
+            let mealCell = document.createElement("td");
+            let servingSizeCell = document.createElement("td");
+            let caloriesCell = document.createElement("td");
+            mealCell.textContent = meal_name;
+            servingSizeCell.textContent = serving + " " + serving_type;
+            caloriesCell.textContent = current_calories;
+            newRow.appendChild(mealCell);
+            newRow.appendChild(servingSizeCell);
+            newRow.appendChild(caloriesCell);
+            meal_table.appendChild(newRow);
+          }
+          
+          function update_nutrition(calories, protein, fat, carbs, fibre){
+            caloriesElement.innerHTML = calories;
+            proteinsElement.innerHTML = protein;
+            carbsElement.innerHTML = carbs;
+            fibreElement.innerHTML = fibre;
+            fatsElement.innerHTML = fat;
+          }
+
+          track_btn.addEventListener('click', function() {
+            let mealName = document.getElementById('meal_name').value;
+            let serving = document.getElementById('serving_size').value;
+            const select_option = document.getElementsByTagName('select')[0];
+            let serving_type = select_option.options[select_option.selectedIndex].text;
+            if (serving_type == "Pieces/Counts") serving_type = ""; //As per the EDAMAM Documentation
+            let meal = encodeURIComponent(serving + " " + serving_type + " " + mealName);
+            console.log(meal);
+
+            if (correctInput(mealName, serving)){
+              fetch('/nutrition?meal=' + meal)
+                .then(response => response.json())
+                .then(data => {
+                  console.log(data);
+                  let current_calories = data.calories;
+                  if (parseFloat(current_calories) == 0) {                    
+                    console.log("Food not found!!");
+                    alert('"' + mealName + '"' + " not found!!");
+                    return;
+                  }
+                  let current_fat = data.totalNutrients.FAT.quantity.toFixed(2);  
+                  let current_protein = data.totalNutrients.PROCNT.quantity.toFixed(2); 
+                  let current_carbs = data.totalNutrients.CHOCDF.quantity.toFixed(2); 
+                  let current_fibre = data.totalNutrients.FIBTG.quantity.toFixed(2);   
+                  console.log('Calories:', current_calories);
+                  console.log('Proteins: ', current_protein);
+                  console.log('Fat: ' , current_fat);
+                  console.log('Carbs: ', current_carbs);
+                  console.log('Fibres:' ,current_fibre);
+  
+                  track_box.style.display = 'block';
+                  create_row_meal_table(mealName, serving, serving_type, current_calories);
+                  total_calories += current_calories;
+                  total_proteins += parseFloat(current_protein);
+                  total_carbs += parseFloat(current_carbs);
+                  total_fats += parseFloat(current_fat);
+                  total_fibres += parseFloat(current_fibre);
+                  update_nutrition(total_calories, total_proteins, total_fats, total_carbs, total_fibres);
+                  track_box.scrollIntoView();
+                })
+                .catch(error => {
+                  console.error('Error:', error);
+                });
+            }
+          });
+        </script>
+  </body>
+</html>

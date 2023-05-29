@@ -1,0 +1,26 @@
+{
+  "name": "fitness-tracker",
+  "version": "1.0.0",
+  "description": "A Fitness Tracker Website",
+  "main": "basic.js",
+  "scripts": {
+    "start": "node basic.js",
+    "dev": "nodemon basic.js"
+  },
+  "author": "Chayan Surana",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.0",
+    "node.js": "^0.0.1-security",
+    "nodemon": "^2.0.22",
+    "request": "^2.88.2",
+    "require.js": "^1.0.0",
+    "requirejs": "^2.3.6",
+    "webpack": "^5.84.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.1"
+  }
+}
