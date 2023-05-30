@@ -3,9 +3,10 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
+const dotenv = require('dotenv').config();
 const PORT = process.env.PORT || 3000;
-const username = "chayansurana3";
-const password = "Motorblade3";
+const username = process.env.MONGODB_USERNAME;
+const password = process.env.MONGODB_PASSWORD;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public'), { index: 'update_basic.html' }));

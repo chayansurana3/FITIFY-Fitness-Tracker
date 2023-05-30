@@ -3,9 +3,10 @@ const https = require('https');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
-
-const app_id = "919d8178";
-const app_key = "5cf5bed128e7e603778b156f81436f54";
+const dotenv = require('dotenv');
+const dot = dotenv.config();
+const app_id = process.env.EDAMAM_API_ID;
+const app_key = process.env.EDAMAM_API_KEY;
 
 app.use(express.static(path.join(__dirname, 'public'), { index: 'calories.html' }));
 app.get('/nutrition', function(req, res) {

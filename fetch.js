@@ -2,9 +2,11 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const app = express();
+const dotenv = require('dotenv');
+const dot = dotenv.config();
 const PORT = process.env.PORT || 3000;
-const username = "chayansurana3";
-const password = "Motorblade3";
+const username = process.env.MONGODB_USERNAME;
+const password = process.env.MONGODB_PASSWORD;
 
 app.use(express.static(path.join(__dirname, 'public'), { index: 'fetch_basic.html' }));
 
