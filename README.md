@@ -1,6 +1,6 @@
-# 🚀 Fitness Tracking Website 🚀
+# 🚀 FITIFY - Fitness Tracking Website 🚀
 
-This is a fitness tracking website built using Node.js, Express, HTML, CSS, and JavaScript. It provides various features for tracking and managing fitness-related information. It is designed to help you in your fitness journey by providing powerful tools to track your progress. 
+FITIFY is a fitness tracking website built using Node.js, Express, HTML, CSS, and JavaScript. It provides various features for tracking and managing fitness-related information. It is designed to help you in your fitness journey by providing powerful tools to track your progress. 
 
 ## Table of Contents
 - [Features](#features)
@@ -13,8 +13,8 @@ This is a fitness tracking website built using Node.js, Express, HTML, CSS, and 
 The website includes the following features:
 
 - **BMI Calculator**: Calculate your Body Mass Index (BMI) based on your height and weight.
-- **Calorie Calculator**: Track your daily caloric intake and calculate the number of calories burned through exercises.
-- **Ideal Weight Calculation**: Calculate your ideal weight based on your height, gender, and age.
+- **Calorie Calculator**: Calculate your calorie intake and other nutritional data by tracking your meals.
+- **Ideal Weight Calculation**: Calculate your ideal weight based on your height and bmi.
 - **User Data Storage**: Store and manage user data using MongoDB.
 - **External API Integration**: Utilize the Edamam API for retrieving nutritional information and tracking calories.
 
@@ -37,6 +37,6 @@ The website includes the following features:
 
 - Chayan Surana
 - [Linkedin](https://www.linkedin.com/in/chayan-surana-a93857136/)
-- [Email](chayan.surana3@gmail.com)
+- Email - chayan.surana3@gmail.com
 - Contact- +91 6262675641
 
