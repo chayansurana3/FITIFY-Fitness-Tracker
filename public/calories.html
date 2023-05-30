@@ -318,7 +318,7 @@
             console.log(meal);
 
             if (correctInput(mealName, serving)){
-              fetch('/.netlify/functions/nutrition.js?meal=' + meal)
+              fetch('/nutrition.js?meal=' + meal)
                 .then(response => response.json())
                 .then(data => {
                   console.log(data);
