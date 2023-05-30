@@ -1,1 +1,1 @@
-/nutrition/*    /nutrition/:splat   200
+/nutrition/*    /.netlify/functions/nutrition/:splat   200
