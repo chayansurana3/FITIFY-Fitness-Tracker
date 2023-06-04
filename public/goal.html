@@ -97,7 +97,9 @@
             display: inline;
         }
         #feedback{
-            display: none;
+          margin-left: 0%;
+          width: 100%;
+          display: none;
         }
         input{
           background-color: white;
@@ -109,41 +111,128 @@
        #resultM, #resultS{
           text-align: center;
        }
-       
-       @media screen and (max-width: 500px) {
-            .nav-brand{
-                margin: 0%;
-            }
+       @media screen and (min-width: 320px) and (max-width: 480px) {
             h2{
-                font-size: 1.8rem;
-              }
+                font-size: 1.5rem;
+                margin-right: 0%;
+            }
             a{
-                margin: 0.5%
+                margin: 0%;
+                font-size: 60%;
+            }
+            .btn{
+                font-size: 60%;
             }
             .nav-links{
                 margin: 0%;
-                width: 75%;
+                width: 67%;
             }
             h1{
-                font-size: 2rem;
-                margin: 20% 10% 5% 25%;
+                font-size: 1.5rem;
+                margin: 20% 15% 3% 30%;
             }
             .calculator{
                 width: 80%;
                 margin: 1% 2% 0% 10%;
             }
-            h3, p{
-                text-align: center;
-            }
             .btns, .reset_btn{
                 margin-left: 0%;
+                margin-right: 5%;
             }
-            #cms{
-                margin-left: 0%;
+            h3, p{
+                font-size: 70%;
+                text-align: center;
             }
-            #feedback{
-                margin-left: 0%;
-                width: 100%;
+          }
+          @media screen and (min-width: 481px) and (max-width: 680px) {
+            h2{
+                font-size: 2rem;
+                margin-right: 0%;
+            }
+            a{
+                margin: 2%;
+                font-size: 80%;
+              }
+              .btn{
+                font-size: 80%;
+            }
+            .nav-links{
+              margin: 0%;
+              width: 65%;
+            }
+            h1{
+                font-size: 2rem;
+                margin: 15% 5% 2% 30%;
+            }
+            .calculator{
+                width: 80%;
+                margin: 1% 2% 0% 10%;
+            }
+            p{
+               font-size: 90%;
+            }
+          }
+          @media screen and (min-width: 681px) and (max-width: 1200px) {
+              h2{
+                font-size: 2rem;
+                margin-right: 0%;
+            }
+            a{
+                margin: 2%;
+                font-size: 80%;
+            }
+            .btn{
+                font-size: 80%;
+            }
+            .nav-links{
+              margin: 0%;
+                width: 45%;
+            }
+            h1{
+                font-size: 2.5rem;
+                margin: 10% 5% 2% 25%;
+              }
+              .calculator{
+                width: 70%;
+                margin: 1% 2% 0% 15%;
+              }
+            p{
+              font-size: large;
+            }
+          }
+          @media screen and (min-width: 1851px) and (max-width: 2560px) {  /* 4k */
+            h2{
+                font-size: 4rem;
+                margin-right: 0%;
+            }
+            a{
+                margin: 3%;
+                font-size: 2rem;
+            }
+            .btn{
+                font-size: 2rem;
+                width: 25%;
+                height: 90%;
+            }
+            .nav-links{
+                margin: 0%;
+                width: 45%;
+            }
+            h1{
+                font-size: 4rem;
+                margin: 6% 5% 2% 35%;
+            }
+            .calculator{
+                width: 35%;
+                margin: 1% 2% 0% 35%;
+                font-size: 1.5rem;
+                font-weight: bolder;
+            }
+            h3{
+              font-size: 3.5rem;
+            }
+            p{
+                font-size: 2rem;
             }
         }
     </style>

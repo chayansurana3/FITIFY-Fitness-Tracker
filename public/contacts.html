@@ -48,6 +48,13 @@
             font-family: 'Open Sans';
             text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
         }
+        .links{
+            color: blue; 
+            text-decoration: underline; 
+            text-shadow: none; 
+            margin: 0%; 
+            font-size: 25px;
+        }
         .nav-brand{
             margin: 1%;
             color: white;
@@ -64,26 +71,110 @@
             height: 100vh;
             margin-top: 8%;
         }
-        
-        @media screen and (max-width: 700px) {
-            .nav-brand{
-                margin: 0%;
-            }
-            a{
-                margin: 0.5%
-            }
-            .nav-links{
-                margin: 0%;
-                width: 75%;
-            }
-            .main-box{
-                height: 100vh;
-                margin-top: 11%;
-            }
-            h2{
-                margin: 20% 2% 2% 20%;
-            }
+        @media screen and (min-width: 320px) and (max-width: 480px){
+        a{
+          margin: 1%;
+          font-size: 60%;
         }
+        .btn{
+          font-size: 60%;
+        }
+        .nav-links{
+          margin: 0%;
+          width: 65%;
+        }
+        h1{
+          font-size: 1.5rem;
+        }
+        h2:first-child{
+          margin-top: 20%;
+          margin-left: 30%;
+          font-size: 2rem;
+        }
+        .w-220px{
+            width: 30px;
+        }
+      }
+      @media screen and (min-width: 481px) and (max-width: 680px){
+        a{
+          margin: 2%;
+          font-size: 80%;
+        }
+        .btn{
+            font-size: 80%;
+        }
+        .nav-links{
+            width: 66%;
+            margin: 0%;
+        }
+        h1{
+            font-size: 2rem;
+        }
+        h2:first-child{
+            margin: 15% 15% 2% 30%;
+        }
+      }
+      @media screen and (min-width: 681px) and (max-width: 900px){
+        a{
+          margin: 4%;
+          font-size: 90%;
+        }
+        .btn{
+          font-size: 90%;
+        }
+        .nav-links{
+          width: 60%;
+          margin: 0%;
+        }
+        h2:first-child{
+          margin: 10% 15% 2% 35%;
+        }
+      }
+      @media screen and (min-width: 901px) and (max-width: 1200px){
+        a{
+          margin: 3%;
+          font-size: 100%;
+        }
+        .btn{
+          font-size: 100%;
+        }
+        .nav-links{
+          width: 50%;
+          margin: 0%;
+        }
+        .nav-brand{
+          margin-right: 10%;
+        }
+        h2:first-child{
+          margin-top: 10%;
+          margin-left: 30%;
+        }
+      }
+      @media screen and (min-width: 1851px) and (max-width: 2560px){   /*4k*/
+        a{
+          margin: 3%;
+          font-size: 1.5rem;
+        }
+        .btn{
+          font-size: 1.5rem;
+        }
+        .nav-links{
+          width: 40%;
+          margin: 0%;
+        }
+        .nav-brand{
+          margin-right: 10%;
+        }
+        h2:first-child{
+          margin-top: 7%;
+        }
+        h1{
+          font-size: 4rem;
+        }
+        body{
+          font-size: larger;
+        }
+      }
       </style>
     </head>
     <body>
