@@ -7,7 +7,7 @@ const Profile = require('./profileModel');
 
 exports.handler = async function (event, context, callback) {
   return new Promise(async (resolve, reject) => {
-    const unique_code = event.params.uniqueCode;
+    const unique_code = event.queryStringParameters.uniqueCode;
     console.log(unique_code);
 
     try {
