@@ -12,7 +12,6 @@
     <style>
       body{
         text-align: center;
-        /* line-height: 2rem; */
         background-color: #5F264A;
       }
       h1{
@@ -93,7 +92,7 @@
         color: white;
       }      
       .tracked{
-        display: none;
+        /* display: none; */
         background-color: #E7CBCB;
         margin: 4% 5% 0% 10%;
         width: 80%;
@@ -137,16 +136,23 @@
         padding: 1%;
       }
       
-      @media screen and (max-width: 500px) {
+      @media screen and (min-width: 320px) and (max-width: 500px) {
+          h1{
+            font-size: 1.2rem;
+          }
             .nav-brand{
               margin: 0%;
             }
             a{
-              margin: 0.5%
+              margin: 0%;
+              font-size: 60%;
             }
             .nav-links{
               margin: 0%;
-              width: 75%;
+              width: 80%;
+            }
+            .btn{
+              font-size: 70%;
             }
             .tracker{
               width: 70%;
@@ -157,8 +163,8 @@
               margin: 10% 0% 0% 0%;
             }
             p{
-              margin: 22% 5% 2% 0%;
-              font-size: small;
+              margin: 15% 2% 2% 3%;
+              font-size: 60%;
             }
             select{
               margin-top: 8%;
@@ -174,6 +180,207 @@
             }
             #nutrition-table{
               margin: 1% 0% 0% 0%;
+            }
+            .w-220px{
+              width: 50px;
+            }
+          }
+      @media screen and (min-width: 501px) and (max-width: 700px) {
+            h1{
+              font-size: 1.5rem;
+            }
+            .nav-brand{
+              margin: 0%;
+            }
+            a{
+              margin: 0%;
+              font-size: 80%;
+            }
+            .nav-links{
+              margin: 0%;
+              width: 70%;
+            }
+            .btn{
+              font-size: 80%;
+            }
+            .tracker{
+              width: 70%;
+              margin: 15% 5% 1% 15%;
+            }
+            .tracked{
+              width: 100%;
+              margin: 10% 0% 0% 0%;
+            }
+            p{
+              margin: 10% 2% 2% 3%;
+              font-size: 80%;
+            }
+            select{
+              margin-top: 2%;
+            }
+            .tracked-chart{
+              width: 100%;
+            }
+            .nutrition-chart{
+              width: 100%;
+            }
+            #meal-table{
+              margin: 5% 0% 5% 0%;
+            }
+            #nutrition-table{
+              margin: 1% 0% 0% 0%;
+            }
+            .w-220px{
+              width: 50px;
+            }
+          }
+      @media screen and (min-width: 701px) and (max-width: 1000px) {
+            h1{
+              font-size: 2rem;
+            }
+            .nav-brand{
+              margin: 0%;
+            }
+            a{
+              margin: 2%;
+              font-size: 90%;
+            }
+            .nav-links{
+              margin: 0%;
+              width: 50%;
+            }
+            .btn{
+              font-size: 90%;
+            }
+            .tracker{
+              width: 60%;
+              margin: 10% 5% 1% 20%;
+            }
+            .tracked{
+              width: 100%;
+              margin: 10% 0% 0% 0%;
+            }
+            p{
+              margin: 8% 2% 2% 3%;
+              font-size: 80%;
+            }
+            select{
+              margin-top: 2%;
+            }
+            .tracked-chart{
+              width: 100%;
+            }
+            .nutrition-chart{
+              width: 100%;
+            }
+            #meal-table{
+              margin: 5% 0% 5% 0%;
+            }
+            #nutrition-table{
+              margin: 1% 0% 0% 0%;
+            }
+            .w-220px{
+              width: 200px;
+            }
+          }
+      @media screen and (min-width: 1001px) and (max-width: 1300px) {
+            h1{
+              font-size: 2rem;
+            }
+            .nav-brand{
+              margin: 0%;
+            }
+            a{
+              margin: 2%;
+              font-size: 90%;
+            }
+            .nav-links{
+              margin: 0%;
+              width: 50%;
+            }
+            .btn{
+              font-size: 90%;
+            }
+            .tracker{
+              width: 40%;
+              margin: 8% 5% 1% 30%;
+            }
+            .tracked{
+              width: 100%;
+              margin: 10% 0% 0% 0%;
+            }
+            p{
+              margin: 6% 2% 2% 3%;
+              font-size: 80%;
+            }
+            select{
+              margin-top: 2%;
+            }
+            .tracked-chart{
+              width: 100%;
+            }
+            .nutrition-chart{
+              width: 100%;
+            }
+            #meal-table{
+              margin: 5% 0% 5% 0%;
+            }
+            #nutrition-table{
+              margin: 1% 0% 0% 22%;
+            }
+            .w-220px{
+              width: 200px;
+            }
+          }
+      @media screen and (min-width: 1800px) and (max-width: 2600px) {
+            h1{
+              font-size: 4rem;
+            }
+            .nav-brand{
+              margin: 0%;
+            }
+            a{
+              margin: 4%;
+              font-size: 2rem;
+            }
+            .nav-links{
+              margin: 4%;
+              width: 50%;
+            }
+            .btn{
+              font-size: 1.5rem;
+              width: 20%;
+              height: 50px;
+            }
+            .tracker{
+              width: 30%;
+              margin: 10% 5% 1% 35%;
+            }
+            .tracked{
+              width: 80%;
+              margin: 10% 0% 0% 10%;
+            }
+            p{
+              margin: 14% 2% 2% 3%;
+              font-size: 2rem;
+            }
+            select{
+              margin-top: 2%;
+            }
+            .tracked-chart{
+              width: 100%;
+            }
+            .nutrition-chart{
+              width: 100%;
+            }
+            #meal-table{
+              margin: 5% 0% 5% 0%;
+            }
+            #nutrition-table{
+              margin: 1% 0% 0% 22%;
+            }
+            .w-220px{
+              width: 400px;
             }
           }
           </style> 
@@ -299,10 +506,10 @@
           
           function update_nutrition(calories, protein, fat, carbs, fibre){
             caloriesElement.innerHTML = calories;
-            proteinsElement.innerHTML = protein;
-            carbsElement.innerHTML = carbs;
-            fibreElement.innerHTML = fibre;
-            fatsElement.innerHTML = fat;
+            proteinsElement.innerHTML = protein + "g";
+            carbsElement.innerHTML = carbs + "g";
+            fibreElement.innerHTML = fibre + "g";
+            fatsElement.innerHTML = fat + "g";
           }
 
           track_btn.addEventListener('click', function() {

@@ -70,15 +70,19 @@
           color: black;
       }
 
-      @media screen and (max-width: 500px) {
+      @media screen and (min-width: 320px) and (max-width: 600px) {
             .nav-brand{
                 margin: 0%;
             }
             h1{
-                font-size: 2.1rem;
+                font-size: 1.5rem;
             }
             a{
-                margin: 0.5%
+                margin: 0%;
+                font-size: 0.8rem;
+            }
+            .btn-secondary{
+              font-size: 0.8rem;
             }
             .nav-links{
                 margin: 0%;
@@ -86,6 +90,54 @@
             }
             .redirect-links{
                 margin-top: 30%;
+            }
+        }
+      @media screen and (min-width: 601px) and (max-width: 1200px) {
+            .nav-brand{
+                margin: 0%;
+            }
+            h1{
+                font-size: 2rem;
+            }
+            a{
+                margin: 0.5%;
+                font-size: 0.9rem;
+            }
+            .btn-secondary{
+              font-size: 0.9rem;
+            }
+            .nav-links{
+                margin: 0%;
+                width: 55%;
+            }
+            .redirect-links{
+                margin-top: 25%;
+            }
+        }
+      @media screen and (min-width: 1800px) and (max-width: 2600px) { 
+            .nav-brand{
+                margin: 0%;
+            }
+            h1{
+                font-size: 4rem;
+            }
+            a{
+                margin: 2%;
+                font-size: 2rem;
+            }
+            .btn-secondary{
+              font-size: 2rem;
+            }
+            .nav-links{
+                margin: 0%;
+                width: 50%;
+            }
+            .redirect-links{
+                margin-top: 15%;
+                font-size: 1.5rem;
+            }
+            .w-220px{
+              width: 350px;
             }
         }
     </style> 
