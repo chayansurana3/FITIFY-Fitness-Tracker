@@ -10,7 +10,7 @@ const connectToMongoDB = async () => {
     });
     console.log('Connected to MongoDB');
   } catch (error) {
-    console.log('Error connecting to MongoDB:', error);
+    console.log('Error connecting to MongoDB: ', error);
   }
 };
 
@@ -20,21 +20,22 @@ exports.handler = async function (event, context, callback) {
     await connectToMongoDB();
     const formData = JSON.parse(event.body);
     const unique_code = Math.floor(Math.random() * 10000);
+    if (formData.gender == "select") formData.gender = "Not Specified";
     const profile = new Profile({
       uniqueCode: unique_code, 
       firstName: formData.FirstName,
       lastName: formData.LastName,
       email: formData.Email,
-      age: formData.Age,
-      gender: formData.gender,
-      height: formData.Feets * 12 + formData.Inches,
-      weight: formData.Weight,
-      bmi: formData.BMI,
-      waist: formData.Waist,
-      chest: formData.Chest,
-      hip: formData.Hip,
-      thigh: formData.Thigh,
-      calf: formData.Calf,
+      age: formData.Age || 0,
+      gender: formData.gender || 0,
+      height: formData.Feets * 12 + formData.Inches || 0,
+      weight: formData.Weight || 0,
+      bmi: formData.BMI || 0,
+      waist: formData.Waist || 0,
+      chest: formData.Chest || 0,
+      hip: formData.Hip || 0,
+      thigh: formData.Thigh || 0,
+      calf: formData.Calf || 0,
     });
 
     const savedProfile = await profile.save();
@@ -45,7 +46,7 @@ exports.handler = async function (event, context, callback) {
 
     return callback(null, {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Profile saved successfully' }, { uniqueCode: unique_code}),
+      body: JSON.stringify({ message: 'Profile saved successfully', uniqueCode: unique_code}),
     });
   } catch (error) {
     console.log(error);
