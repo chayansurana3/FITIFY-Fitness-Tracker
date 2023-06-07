@@ -226,7 +226,7 @@
           const form = document.getElementById('profile-form');
           form.addEventListener('submit', async (event) => {
             event.preventDefault(); // Prevent the default form submission behavior
-            alert("⏳ Submitting Your Data ⏳");
+            alert("⏳ Submitting Your Data ⏳. Thanks for your patience!!");
             const formData = new FormData(form);
             const response = await fetch('/.netlify/functions/submit', {
               method: 'POST',

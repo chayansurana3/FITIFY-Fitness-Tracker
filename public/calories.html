@@ -92,7 +92,6 @@
         color: white;
       }      
       .tracked{
-        /* display: none; */
         background-color: #E7CBCB;
         margin: 4% 5% 0% 10%;
         width: 80%;
@@ -100,6 +99,7 @@
         border-radius: 2%;
         border: black solid;
         overflow: auto;
+        display: none;
       }
       .tracked-chart{
         float: left;
@@ -464,10 +464,6 @@
           const fatsElement = document.getElementById('fat');
           const carbsElement = document.getElementById('carbs');
           const fibreElement = document.getElementById('fibre');
-          
-          window.onload = function() {
-            document.getElementById("meal_name").focus();
-          };
           
           function correctInput(mealName, serving){
             console.log('Started input authentication: ' + mealName + ',' + serving);

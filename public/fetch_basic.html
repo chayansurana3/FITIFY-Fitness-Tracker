@@ -316,7 +316,7 @@
         
         button.addEventListener('click', function() {
           let id = unique_id.value;
-          alert("⏳ Fetching your data from our servers⏳");
+          alert("⏳ Fetching your data from our servers⏳. Thanks for your patience!!");
           fetch(`/.netlify/functions/profile?uniqueCode=${id}`)
           .then(response => response.json())
           .then(data => {
@@ -335,7 +335,7 @@
             document.getElementById('hip').textContent = data.hip || '-';
             document.getElementById('thigh').textContent = data.thigh || '-';
             document.getElementById('calf').textContent = data.calf || '-';
-            document.getElementById('gender').textContent = data.gender || '-';
+            document.getElementById('gender').textContent = data.gender || 'Not Specified';
 
             box.style.display = 'block';
             box.scrollIntoView();
