@@ -228,6 +228,7 @@
         const form = document.getElementById('profile-form');
         form.addEventListener('submit', async (event) => {
           event.preventDefault(); 
+          alert("⏳ Updating Your Data ⏳");
           const formData = new FormData(form);
           const response = await fetch('/.netlify/functions/update', {
             method: 'POST',
