@@ -316,8 +316,8 @@
         
         button.addEventListener('click', function() {
           let id = unique_id.value;
-          alert("⏳ Fetching your data from our servers⏳. Thanks for your patience!!");
           fetch(`/.netlify/functions/profile?uniqueCode=${id}`)
+          .then(alert("⏳ Fetching your data from our servers⏳. Thanks for your patience!!"))
           .then(response => response.json())
           .then(data => {
             const inches = data.height % 12;
