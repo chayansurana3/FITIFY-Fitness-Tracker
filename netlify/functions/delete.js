@@ -1,16 +1,13 @@
 const mongoose = require('mongoose');
 
-exports.handler = async function(event, context, callback) {
+exports.handler = async function (event, context, callback) {
   try {
     const username = process.env.MONGODB_USERNAME;
     const password = process.env.MONGODB_PASSWORD;
-    await mongoose.connect(
-      `mongodb+srv://${username}:${password}@cluster0.e6wowbu.mongodb.net/FITIFY_PROFILES?retryWrites=true&w=majority`,
-      {
+    await mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.e6wowbu.mongodb.net/FITIFY_PROFILES?retryWrites=true&w=majority`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-      }
-    );
+    });
     console.log('Connected to MongoDB');
     const Profile = require('./profileModel');
 
