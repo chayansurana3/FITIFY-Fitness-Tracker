@@ -234,6 +234,8 @@
         form.addEventListener('submit', function(event) {
           event.preventDefault();
           const formData = new FormData(form);
+          let areYouSure = confirm("Are you sure you want to submit your data?");
+          if (!areYouSure) return;
           fetch('/.netlify/functions/submit', {
             method: 'POST',
             body: JSON.stringify(Object.fromEntries(formData)),
