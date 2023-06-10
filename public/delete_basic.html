@@ -251,7 +251,7 @@
           .then(data => {
             if (data.status === 404) {
               alert("⚠️⚠️ Profile not found");
-            } else if (data.status === 200) {
+            } else if (data.status >= 200 && data.status < 300) {
               alert("✅✅ Profile deleted successfully");
             } else {
               alert("⚠️⚠️ An error occurred while deleting the profile");
