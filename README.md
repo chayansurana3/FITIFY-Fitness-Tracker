@@ -1,6 +1,6 @@
 # 🚀 FITIFY - Fitness Tracking Website 🚀
 
-FITIFY is a fitness tracking website built using Node.js, Express, HTML, CSS, and JavaScript. It provides various features for tracking and managing fitness-related information. It is designed to help you in your fitness journey by providing powerful tools to track your progress. 
+FITIFY is a fitness tracking website built using HTML, CSS, Javascript, Node.js, Express. It provides various features for calculating, tracking and managing your fitness-related information. It is designed to help you in your fitness journey by providing powerful tools to track your progress. 
 
 ## Table of Contents
 - [Screenshorts](#screenshorts)
@@ -21,7 +21,7 @@ The website includes the following features:
 - **Calorie Calculator**: Calculate your calorie intake and other nutritional data by tracking your meals.
 - **Ideal Weight Calculation**: Calculate your ideal weight based on your height and bmi.
 - **User Data Storage**: Store and manage user data using MongoDB.
-- **External API Integration**: Utilize the Edamam API for retrieving nutritional information and tracking calories.
+- **External API Integration**: Utilize the EDAMAM API for retrieving nutritional information and tracking calories.
 
 ## Built With
 
@@ -35,7 +35,7 @@ The website includes the following features:
 
 ## Links
 
-- Live Site: [Click Here](https://647588085889951e15242ed7--inquisitive-muffin-bd7dd0.netlify.app/)
+- Live Site: [Click Here](https://fitify-fitness-tracker.netlify.app/)
 - Source Code Repo: [Click Here](https://github.com/chayansurana3/FITIFY-Fitness-Tracker.git)
 
 ## Author
@@ -44,4 +44,3 @@ The website includes the following features:
 - [Linkedin](https://www.linkedin.com/in/chayan-surana-a93857136/)
 - Email - chayan.surana3@gmail.com
 - Contact- +91 6262675641
-
