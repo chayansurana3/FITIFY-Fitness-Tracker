@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang='eng'>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-     <title>FITIFY || IDEAL WEIGHT</title>
+     <title>FITIFY | IDEAL WEIGHT</title>
      <!--Bootstrap Scripts(CSS)-->
      <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65' crossorigin='anonymous'>
      <!--Awesome Fonts-->
@@ -43,6 +42,7 @@
             text-align: center;
             font-weight: bold;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 2% 20% 0% 20%;
         }
         h6{
             display: inline-block;
@@ -111,74 +111,8 @@
        #resultM, #resultS{
           text-align: center;
        }
-       @media screen and (min-width: 320px) and (max-width: 480px) {
-            h2{
-                font-size: 1.7rem;
-                margin-right: 0%;
-            }
-            a{
-                margin: 1%;
-                font-size: 75%;
-            }
-            .btn{
-                font-size: 75%;
-            }
-            .nav-links{
-                margin: 0%;
-                width: 75%;
-            }
-            h1{
-                font-size: 1.5rem;
-                margin: 20% 15% 3% 30%;
-            }
-            .calculator{
-                width: 80%;
-                margin: 1% 2% 0% 10%;
-            }
-            .btns, .reset_btn{
-                margin-left: 0%;
-                margin-right: 5%;
-            }
-            h3, p{
-                font-size: 85%;
-                text-align: center;
-            }
-            #cms{
-              margin: 0%;
-            }
-          }
-          @media screen and (min-width: 481px) and (max-width: 680px) {
-            h2{
-                font-size: 2rem;
-                margin-right: 0%;
-            }
-            a{
-                margin: 2%;
-                font-size: 80%;
-              }
-              .btn{
-                font-size: 80%;
-            }
-            .nav-links{
-              margin: 0%;
-              width: 65%;
-            }
-            h1{
-              font-size: 2rem;
-              margin: 15% 5% 2% 30%;
-            }
-            .calculator{
-              width: 80%;
-              margin: 1% 2% 0% 10%;
-            }
-            p{
-              font-size: 90%;
-            }
-            #cms{
-              margin: 0%;
-            }
-          }
-          @media screen and (min-width: 681px) and (max-width: 1200px) {
+       
+          @media screen and (max-width: 1200px) {
             h2{
               font-size: 2rem;
                 margin-right: 0%;
@@ -198,10 +132,13 @@
                 font-size: 2.5rem;
                 margin: 10% 5% 2% 25%;
               }
-              .calculator{
-                width: 70%;
-                margin: 1% 2% 0% 15%;
-              }
+            .calculator{
+              width: 70%;
+              margin: 1% 2% 0% 15%;
+            }
+            h3{
+               margin: 2% 20% 2% 40%;
+            }
             p{
               font-size: large;
             }
@@ -323,7 +260,9 @@
           let foot = document.getElementById('foot').value;
           let inches = document.getElementById('inches').value;
           let weight = document.getElementById('kgsS').value;
-          if (!foot || !inches || !weight) return;
+          if (!foot) foot = 0;
+          if (!inches) inches = 0;
+          if (!weight) return;
           let height = (parseInt(12 * foot) + parseInt(inches)) / 39.3700787;
           let weightLower = 18.5 * parseFloat(height * height);
           let weightHigher = 25 * parseFloat(height * height);
