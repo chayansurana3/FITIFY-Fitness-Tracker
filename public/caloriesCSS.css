@@ -1,0 +1,341 @@
+body {
+    text-align: center;
+    background-color: #5F264A;
+}
+
+h1 {
+    color: gold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h3 {
+    color: white;
+    display: inline-block;
+    font-size: small;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin: 3%;
+}
+
+p {
+    color: white;
+    text-align: right;
+    margin-top: 8%;
+    margin-right: 1%;
+}
+
+#edamam-path {
+    color: rgb(165, 33, 252);
+    text-decoration: underline;
+    margin: 0%;
+}
+
+.nav-brand {
+    margin: 1%;
+    color: white;
+}
+
+.nav-links {
+    width: 40%;
+    margin-right: 0%;
+}
+
+.dropdown {
+    display: inline;
+}
+
+.tracker {
+    background-color: #E893CF;
+    margin: 5% 25% 0% 30%;
+    width: 40%;
+    border-radius: 2%;
+    border: black solid;
+    padding: 1%;
+}
+
+input,
+select {
+    margin: 1% 0% 4% 0%;
+    font-weight: 500;
+}
+
+label {
+    font-family: 'Instrument Sans', sans-serif;
+    color: black;
+    font-weight: 600;
+    margin-right: 2%;
+}
+
+.btn {
+    margin: 1% 0% 1% 0%;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+.btn-secondary {
+    background-color: #19376D;
+}
+
+.btn-secondary:hover {
+    background-color: green;
+    color: white;
+}
+
+.tracked {
+    background-color: #E7CBCB;
+    margin: 4% 5% 0% 10%;
+    width: 80%;
+    padding: 0%;
+    border-radius: 2%;
+    border: black solid;
+    overflow: auto;
+    display: none;
+}
+
+.tracked-chart {
+    float: left;
+    color: #D14D72;
+    width: 50%;
+}
+
+.nutrition-chart {
+    float: right;
+    color: #D14D72;
+    width: 50%;
+}
+
+#meal-table {
+    display: inline-block;
+    margin-top: 5%;
+    border-collapse: collapse;
+}
+
+#meal-table th,
+#meal-table tr,
+#meal-table td {
+    font-family: 'Open Sans', sans-serif;
+    border: #6D5D6E solid 4px;
+    width: 33.33%;
+    padding: 2%;
+    margin: 0%;
+}
+
+#nutrition-table {
+    display: inline-block;
+    width: 50%;
+    margin-top: 1%;
+    border-collapse: collapse;
+}
+
+#nutrition-table th,
+#nutrition-table tr,
+#nutrition-table td {
+    font-family: 'Open Sans', sans-serif;
+    border: #6D5D6E solid 4px;
+    width: 50%;
+    padding: 1%;
+}
+
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .nav-brand {
+        margin: 0%;
+    }
+
+    a {
+        margin: 2%;
+        font-size: 90%;
+    }
+
+    .nav-links {
+        margin: 0%;
+        width: 50%;
+    }
+
+    .btn {
+        font-size: 90%;
+    }
+
+    .tracker {
+        width: 60%;
+        margin: 10% 5% 1% 20%;
+    }
+
+    .tracked {
+        width: 100%;
+        margin: 10% 0% 0% 0%;
+    }
+
+    p {
+        margin: 8% 2% 2% 3%;
+        font-size: 80%;
+    }
+
+    select {
+        margin-top: 2%;
+    }
+
+    .tracked-chart {
+        width: 100%;
+    }
+
+    .nutrition-chart {
+        width: 100%;
+    }
+
+    #meal-table {
+        margin: 5% 0% 5% 0%;
+    }
+
+    #nutrition-table {
+        margin: 1% 0% 0% 0%;
+    }
+
+    .w-220px {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1200px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .nav-brand {
+        margin: 0%;
+    }
+
+    a {
+        margin: 2%;
+        font-size: 90%;
+    }
+
+    .nav-links {
+        margin: 0%;
+        width: 50%;
+    }
+
+    .btn {
+        font-size: 90%;
+    }
+
+    .tracker {
+        width: 40%;
+        margin: 8% 5% 1% 30%;
+    }
+
+    .tracked {
+        width: 100%;
+        margin: 10% 0% 0% 0%;
+    }
+
+    p {
+        margin: 6% 2% 2% 3%;
+        font-size: 80%;
+    }
+
+    select {
+        margin-top: 2%;
+    }
+
+    .tracked-chart {
+        width: 100%;
+    }
+
+    .nutrition-chart {
+        width: 100%;
+    }
+
+    #meal-table {
+        margin: 5% 0% 5% 0%;
+    }
+
+    #nutrition-table {
+        margin: 1% 0% 0% 22%;
+    }
+
+    .w-220px {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 2600px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .nav-brand {
+        margin: 0%;
+    }
+
+    a {
+        margin: 4%;
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        margin: 4%;
+        width: 50%;
+    }
+
+    .btn {
+        font-size: 1.5rem;
+        width: 20%;
+        height: 50px;
+    }
+
+    .tracker {
+        width: 30%;
+        margin: 10% 5% 1% 35%;
+    }
+
+    .tracked {
+        width: 80%;
+        margin: 10% 0% 0% 10%;
+    }
+
+    p {
+        margin: 14% 2% 2% 3%;
+        font-size: 2rem;
+    }
+
+    select {
+        margin-top: 2%;
+    }
+
+    .tracked-chart {
+        width: 100%;
+    }
+
+    .nutrition-chart {
+        width: 100%;
+    }
+
+    #meal-table {
+        margin: 5% 0% 5% 0%;
+    }
+
+    #nutrition-table {
+        margin: 1% 0% 0% 22%;
+    }
+
+    .w-220px {
+        width: 400px;
+    }
+}

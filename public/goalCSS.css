@@ -1,0 +1,205 @@
+body {
+    background-color: #FFD3A3;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin: 4%;
+}
+
+h1 {
+    margin-left: 26%;
+    margin-top: 8%;
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    color: gold;
+    font-size: 2.5rem;
+    font-family: 'Open Sans', 'sans serif';
+}
+
+h3 {
+    margin: 4% 40% 1% 40%;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 2% 20% 0% 20%;
+}
+
+h6 {
+    display: inline-block;
+}
+
+.calculator {
+    background-color: #FFF7D4;
+    margin: 2% 30% 0% 30%;
+    border-radius: 2%;
+    border-color: black;
+    border-style: solid;
+    padding: 0.5%;
+}
+
+.btns {
+    background-color: #19376D;
+    border-color: black;
+    color: white;
+    margin: 2rem 0rem 0rem 7rem;
+}
+
+.btn1 {
+    margin-left: 32%;
+}
+
+#cms {
+    margin-left: 12%;
+}
+
+.btn2 {
+    margin-left: 30%;
+}
+
+.reset_btn {
+    background-color: #19376D;
+    border-color: black;
+    color: white;
+    margin: 0;
+}
+
+.btn {
+    background-color: #19376D;
+    border-color: black;
+    color: white;
+}
+
+.btn:hover {
+    background-color: green;
+    font-weight: bold;
+}
+
+.nav-brand {
+    margin: 1%;
+    color: white;
+}
+
+.nav-links {
+    width: 40%;
+    margin-right: 0%;
+}
+
+.dropdown {
+    display: inline;
+}
+
+#feedback {
+    margin-left: 0%;
+    width: 100%;
+    display: none;
+}
+
+input {
+    background-color: white;
+    color: black;
+    padding: 2px 2px;
+    margin: 0px 4px 8px 0px;
+    border-radius: 4px;
+}
+
+#resultM,
+#resultS {
+    text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+    h2 {
+        font-size: 2rem;
+        margin-right: 0%;
+    }
+
+    a {
+        margin: 2%;
+        font-size: 80%;
+    }
+
+    .btn {
+        font-size: 80%;
+    }
+
+    .nav-links {
+        margin: 0%;
+        width: 45%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin: 10% 5% 2% 25%;
+    }
+
+    .calculator {
+        width: 70%;
+        margin: 1% 2% 0% 15%;
+    }
+
+    h3 {
+        margin: 2% 20% 2% 40%;
+    }
+
+    p {
+        font-size: large;
+    }
+}
+
+@media screen and (min-width: 1851px) and (max-width: 2560px) {
+
+    /* 4k */
+    h2 {
+        font-size: 4rem;
+        margin-right: 0%;
+    }
+
+    a {
+        margin: 3%;
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 2rem;
+        width: 25%;
+        height: 90%;
+    }
+
+    .nav-links {
+        margin: 0%;
+        width: 45%;
+    }
+
+    h1 {
+        font-size: 4rem;
+        margin: 6% 5% 2% 35%;
+    }
+
+    .calculator {
+        width: 35%;
+        margin: 1% 2% 0% 35%;
+        font-size: 1.5rem;
+        font-weight: bolder;
+    }
+
+    h3 {
+        font-size: 3.5rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+}

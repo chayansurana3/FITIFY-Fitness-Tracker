@@ -1,0 +1,260 @@
+h1 {
+    color: gold;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
+h2,
+h3 {
+    color: white;
+    margin: 6%;
+    text-align: center;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h5 {
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin: 3%;
+}
+
+.nav-brand {
+    margin: 1%;
+    color: white;
+}
+
+.btn {
+    background-color: #19376D;
+}
+
+.btn:hover {
+    background-color: green;
+    font-weight: bold;
+}
+
+.nav-links {
+    width: 40%;
+    margin-right: 0%;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.main-box {
+    background: linear-gradient(to bottom right, #3d97ce 0%, #12debb 100%);
+    width: 100%;
+    height: 90vh;
+    border-bottom: solid black 3px;
+    margin-top: 6%;
+    position: relative;
+}
+
+.main-text-box {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+#main-para {
+    color: white;
+    text-align: left;
+    margin: 2% 2% 2% 10%;
+    font-size: 22px;
+    visibility: hidden;
+    font-weight: 400;
+}
+
+.main-image-box {
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+#main-img {
+    width: 80%;
+    height: 80%;
+    margin: 5%;
+    border: white solid 3px;
+}
+
+#to-features {
+    background-color: black;
+    color: white;
+    border: solid 2.5px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    margin: 0% 40% 0% 20%;
+    bottom: 10%;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.feature-box {
+    background: linear-gradient(to top right, #3d97ce 0%, #12debb 100%);
+    background-size: cover;
+    height: auto;
+}
+
+.card {
+    color: black;
+    background-color: white;
+    width: 21%;
+    height: 250px;
+    margin: 14% 2% 10% 2%;
+}
+
+.row {
+    margin-right: 0%;
+}
+
+.cards-btn {
+    background-color: black;
+    color: white;
+    border: solid 3px;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    padding: 2%;
+    margin: 50px 10% 2% 20%;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.cards-btn:hover {
+    color: green;
+}
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 5rem;
+    }
+
+    a {
+        margin: 3%;
+        font-size: 2.5vw;
+    }
+
+    .nav-links {
+        margin: 0%;
+        width: 70%;
+    }
+
+    .btn {
+        font-size: 2.5vw;
+        margin-right: 1%;
+    }
+
+    .main-box {
+        margin-top: 8%;
+        height: 100vh;
+    }
+
+    .main-text-box {
+        width: 100%;
+    }
+
+    #main-para {
+        font-size: 6vw;
+    }
+
+    .main-image-box {
+        display: none;
+    }
+
+    #to-features {
+        width: 30%;
+        height: 5%;
+        padding: 1%;
+        margin: 0% 20% 15% 35%;
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+
+    .card {
+        width: 35%;
+        height: 30%;
+        margin: 15% 10% 5% 35%;
+        font-size: 1.4rem;
+    }
+
+    .cards-btn {
+        margin: 5% 5% 2% 30%;
+    }
+
+    #goal-btn {
+        margin-left: 25%;
+    }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 2600px) {
+
+    /* 4k */
+    h1 {
+        font-size: 6rem;
+    }
+
+    h2 {
+        font-size: 5rem;
+        font-weight: bolder;
+    }
+
+    a {
+        margin: 5%;
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        margin: 0%;
+        width: 55%;
+    }
+
+    .btn {
+        font-size: 3rem;
+        margin-right: 10%;
+    }
+
+    .main-box {
+        margin-top: 6%;
+        height: 100vh;
+    }
+
+    #main-para {
+        font-size: 60px;
+    }
+
+    #to-features {
+        width: 20%;
+        height: 9%;
+        padding: 1%;
+        font-size: 40px;
+        margin: 10% 0% 0% 15%;
+    }
+
+    .card {
+        width: 20%;
+        height: 250px;
+        margin: 15% 3% 10% 2%;
+    }
+
+    #goal-btn {
+        margin-left: 10%;
+    }
+}
