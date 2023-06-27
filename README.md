@@ -27,6 +27,7 @@ The website includes the following features:
 
 - HTML
 - CSS
+- Bootstrap
 - JavaScript
 - Node.js
 - Express

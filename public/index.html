@@ -92,15 +92,15 @@
         const feature_box = document.querySelector('.feature-box');
         const paragraph = document.getElementById("main-para");
         let para_text = paragraph.textContent
-        let speed = 20, i = 0;
+        let speed = 18, i = 0;
         paragraph.textContent = "";
-        function typeWriter_para() {
-          if (i< para_text.length) {
-            paragraph.innerHTML += para_text.charAt(i++);
-            setTimeout(typeWriter_para, speed);
+        function completePara() {
+          if (i < para_text.length) {
+            paragraph.textContent += para_text.charAt(i++);
+            setTimeout(completePara, speed);
           }
         }
-        setTimeout(typeWriter_para, 100); 
+        setTimeout(completePara, 100); 
         paragraph.style.visibility = "visible"; 
         button.addEventListener('click', function(){
           feature_box.scrollIntoView();
