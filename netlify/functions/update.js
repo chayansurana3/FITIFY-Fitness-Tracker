@@ -35,8 +35,7 @@ exports.handler = async function (event, context, callback) {
     if (Object.keys(updateObj).length > 0) {
       await Profile.updateOne({ _id: existingProfile._id }, { $set: updateObj });
     }
-    const updatedProfile = await Profile.findById(existingProfile._id);
-
+    
     await mongoose.disconnect();
     console.log("Disconnected from MongoDB");
     
