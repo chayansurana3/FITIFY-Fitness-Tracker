@@ -62,6 +62,10 @@ a {
     display: inline-block;
 }
 
+.dropdown-item{
+    font-family: 'Stylish', sans-serif;
+}
+
 .main-box {
     background-size: cover;
     height: 100vh;

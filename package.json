@@ -2,10 +2,10 @@
   "name": "my-webpack-project",
   "version": "1.0.0",
   "description": "My webpack project",
-  "main": "basic.js",
+  "main": "netlify/functions/recipe.js",
   "scripts": {
-    "start": "node calorie.js",
-    "dev": "nodemon calorie.js",
+    "start": "node netlify/functions/recipe.js",
+    "dev": "nodemon netlify/functions/recipe.js",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",

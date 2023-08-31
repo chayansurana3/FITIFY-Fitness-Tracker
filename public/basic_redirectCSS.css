@@ -16,6 +16,10 @@ a {
     margin: 3%;
 }
 
+a:hover{
+    color: blue;
+}
+
 .nav-brand {
     margin: 1%;
     color: white;
@@ -37,6 +41,10 @@ a {
 
 .dropdown {
     display: inline;
+}
+
+.dropdown-item{
+    font-family: 'Stylish', sans-serif;
 }
 
 .w-220px {

@@ -83,6 +83,10 @@ p {
     display: inline;
 }
 
+.dropdown-item{
+    font-family: 'Stylish', sans-serif;
+}
+
 #feedback {
     display: none;
 }

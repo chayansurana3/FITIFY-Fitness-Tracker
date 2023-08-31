@@ -101,6 +101,10 @@ h6 {
     display: inline;
 }
 
+.dropdown-item{
+    font-family: 'Stylish', sans-serif;
+}
+
 #feedback {
     margin-left: 0%;
     width: 100%;

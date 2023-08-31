@@ -50,6 +50,10 @@ a {
     display: inline-block;
 }
 
+.dropdown-item{
+    font-family: 'Stylish', sans-serif;
+}
+
 .main-box {
     background: linear-gradient(to bottom right, #3d97ce 0%, #12debb 100%);
     width: 100%;

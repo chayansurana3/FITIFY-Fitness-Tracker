@@ -3,19 +3,19 @@ const https = require('https');
 exports.handler = async function (event, context, callback) {
   return new Promise((resolve, reject) => {
     const meal = event.queryStringParameters.meal;
-    const app_key = process.env.SPOONACULAR_API_KEY;
-    const url = `https://api.edamam.com/api/nutrition-data?app_id=${app_id}&app_key=${app_key}&nutrition-type=cooking&ingr=${meal}`;
+    const apiKey = process.env.SPOONACULAR_API_KEY;
+    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${meal}&number=1`;
 
-    https.get(url, function (response) {
+    https.get(apiUrl, function (response) {
       let data = '';
       response.on('data', function (chunk) {
         data += chunk;
       });
       response.on('end', function () {
-        const meal_data = JSON.parse(data);
+        const recipe_data = JSON.parse(data);
         resolve({
           statusCode: 200,
-          body: JSON.stringify(meal_data),
+          body: JSON.stringify(recipe_data),
         });
       });
     }).on('error', function (error) {

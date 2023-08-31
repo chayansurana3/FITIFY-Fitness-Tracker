@@ -1,0 +1,95 @@
+body {
+    text-align: center;
+    background-color: #FFB7B7;
+}
+
+h1 {
+    color: gold;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2{
+    margin-bottom: 15%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    margin: 3%;
+}
+
+a:hover{
+    color: blue;
+}
+
+p {
+    color: white;
+    text-align: right;
+    margin-top: 8%;
+    margin-right: 1%;
+}
+
+.nav-brand {
+    margin: 1%;
+    color: white;
+}
+
+.nav-links {
+    width: 40%;
+    margin-right: 0%;
+}
+
+.dropdown {
+    display: inline;
+}
+
+.dropdown-item{
+    font-family: 'Stylish', sans-serif;
+}
+
+.btn-secondary {
+    background-color: #19376D;
+}
+
+.btn-secondary:hover {
+    background-color: green;
+    color: white;
+}
+
+.search-box{
+    background-color: white;
+    width: 30%;
+    margin: 15% 35% 5% 35%;
+    padding: 5%;
+    border-radius: 4%;
+}
+
+::placeholder {
+    text-align: center; 
+ } 
+
+ .suggestions-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 30%;
+    max-height: 100px;
+    margin: 15% 35% 5% 35%;
+    overflow-y: auto;
+    z-index: 1;
+}
+  
+.suggestion-item {
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+  
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}
+  
+.btn-success{
+    margin-top: 10%;
+}

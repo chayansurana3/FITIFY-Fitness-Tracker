@@ -42,6 +42,10 @@ a {
     display: inline;
 }
 
+.dropdown-item{
+    font-family: 'Stylish', sans-serif;
+}
+
 .w-220px {
     width: 220px;
 }

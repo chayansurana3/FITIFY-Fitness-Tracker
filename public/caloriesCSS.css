@@ -26,6 +26,10 @@ a {
     margin: 3%;
 }
 
+a:hover{
+    color: blue;
+}
+
 p {
     color: white;
     text-align: right;
@@ -51,6 +55,10 @@ p {
 
 .dropdown {
     display: inline;
+}
+
+.dropdown-item{
+    font-family: 'Stylish', sans-serif;
 }
 
 .tracker {
