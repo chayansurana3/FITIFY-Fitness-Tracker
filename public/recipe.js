@@ -11,6 +11,7 @@ async function updateSuggestions(inputValue) {
     let data = await response.json();
     let names = Array.isArray(data) ? data : [];
     suggestionDropdown.style.display = "block";
+    console.log(names);
     names.forEach((recipe) => {
       const suggestionItem = document.createElement("div");
       suggestionItem.classList.add("suggestion-item");
