@@ -8,9 +8,10 @@ async function updateSuggestions(inputValue) {
 
   try {
     const response = await fetch('/.netlify/functions/recipeNames?inputValue=' + inputValue);
-    const data = await response.json();
+    let data = await response.json();
+    let names = Array.isArray(data) ? data : [];
     suggestionDropdown.style.display = "block";
-    data.forEach((recipe) => {
+    names.forEach((recipe) => {
       const suggestionItem = document.createElement("div");
       suggestionItem.classList.add("suggestion-item");
       suggestionItem.textContent = recipe.title;
