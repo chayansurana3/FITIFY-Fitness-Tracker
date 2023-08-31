@@ -7,7 +7,7 @@ async function updateSuggestions(inputValue) {
   suggestionDropdown.innerHTML = "";
 
   try {
-    const response = await fetch('netlify/functions/recipeNames?inputValue=' + inputValue);
+    const response = await fetch('/.netlify/functions/recipeNames?inputValue=' + inputValue);
     const data = await response.json();
     suggestionDropdown.style.display = "block";
     data.forEach((recipe) => {
@@ -27,6 +27,7 @@ async function updateSuggestions(inputValue) {
 
 input.addEventListener("input", (event) => {
   const inputValue = event.target.value;
+  console.log(inputValue);
   updateSuggestions(inputValue);
 });
 

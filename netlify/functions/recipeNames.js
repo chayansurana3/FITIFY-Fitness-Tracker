@@ -6,8 +6,7 @@ exports.handler = async function(event, context, callback) {
     const apiKey = process.env.SPOONACULAR_API_KEY;
     const apiUrl = `https://api.spoonacular.com/recipes/autocomplete?apiKey=${apiKey}&number=5&query=${inputValue}`;
 
-    https
-      .get(apiUrl, (response) => {
+    https.get(apiUrl, (response) => {
         let data = "";
         response.on("data", (chunk) => {
           data += chunk;
