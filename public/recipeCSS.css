@@ -70,12 +70,11 @@ p {
 
  .suggestions-dropdown {
     display: none;
-    position: absolute;
     background-color: white;
     border: 1px solid #ccc;
-    width: 30%;
+    width: 80%;
     max-height: 100px;
-    margin: 15% 35% 5% 35%;
+    margin: 0% 35% 2% 10%;
     overflow-y: auto;
     z-index: 1;
 }
