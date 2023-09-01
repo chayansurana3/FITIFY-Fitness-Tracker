@@ -4,7 +4,6 @@ const suggestionDropdown = document.getElementById("suggestionDropdown");
 
 async function updateSuggestions(inputValue) {
   if (inputValue.length === 0) return;
-  suggestionDropdown.innerHTML = "";
 
   try {
     const response = await fetch('/.netlify/functions/recipeNames?inputValue=' + inputValue);
@@ -17,7 +16,7 @@ async function updateSuggestions(inputValue) {
       suggestionItem.textContent = recipe.title;
       suggestionItem.addEventListener("click", () => {
         input.value = recipe.title;
-        suggestionDropdown.innerHTML = "";
+        suggestionDropdown.style.display = "none";
       });
       suggestionDropdown.appendChild(suggestionItem);
     });
