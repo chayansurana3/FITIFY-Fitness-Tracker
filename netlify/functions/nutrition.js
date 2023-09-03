@@ -3,7 +3,8 @@ const https = require('https');
 exports.handler = async function (event, context, callback) {
   return new Promise((resolve, reject) => {
     const meal = event.queryStringParameters.meal;
-    const app_key = process.env.SPOONACULAR_API_KEY;
+    const app_id = process.env.EDAMAM_API_ID;
+    const app_key = process.env.EDAMAM_API_KEY;
     const url = `https://api.edamam.com/api/nutrition-data?app_id=${app_id}&app_key=${app_key}&nutrition-type=cooking&ingr=${meal}`;
 
     https.get(url, function (response) {
