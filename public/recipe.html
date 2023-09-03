@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Roboto+Mono&family=Instrument+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./recipeCSS.css">
+    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Recursive:wght@700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./recipeCSS.css">
   </head>
   <body>
     <header>
@@ -37,12 +37,24 @@
       </nav>
     </header>  
     <main>
-        <div class="search-box">
-            <h2>RECIPE FINDER</h2>
-            <input type="text" placeholder="Enter Recipe Name">
-            <div id="suggestionDropdown" class="suggestions-dropdown"></div>
-            <button type="button" class="btn btn-success">Search</button>
+      <p>*The recipe data is being fetched from <a id="spoonacular-path" href="https://spoonacular.com/food-api" target="_blank">SPOONACULAR API</a></p>
+      <div class="search-box">
+        <h2>RECIPE FINDER</h2>
+        <input type="text" placeholder="Enter Recipe Name"><br>
+        <div id="suggestionDropdown" class="suggestions-dropdown"></div>
+        <button type="button" class="btn btn-success">Search</button>
+      </div>
+      <div class="result-box">
+        <h2 id="recipe-title"></h2>
+        <img id="recipe-image" src="" alt="Recipe Image Not Found">
+        <div id="ingredients">
+          <h4>Ingredients: </h4>
         </div>
+        <div id="recipe-steps-box">
+          <h4>Recipe:</h4>
+          <ol id="recipe-steps"></ol>
+        </div>
+      </div>
     </main>
     <!--Bootstrap Scripts(JAVASCRIPT AND POPPER)-->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

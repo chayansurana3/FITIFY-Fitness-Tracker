@@ -3,8 +3,9 @@ const https = require('https');
 exports.handler = async function (event, context, callback) {
   return new Promise((resolve, reject) => {
     const meal = event.queryStringParameters.meal;
+    const id = event.queryStringParameters.id;
     const apiKey = process.env.SPOONACULAR_API_KEY;
-    const apiUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${meal}&number=1`;
+    const apiUrl = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${apiKey}`;
 
     https.get(apiUrl, (response) => {
       let data = '';
