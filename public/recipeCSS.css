@@ -1,6 +1,9 @@
 body {
     text-align: center;
-    background-color: #FFB7B7;
+    background-image: url(./re.avif);
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
 }
 
 h1 {
@@ -10,7 +13,7 @@ h1 {
 
 h2{
     margin-bottom: 15%;
-    color: lightseagreen;
+    color: red;
     font-weight: bolder;
 }
 
@@ -142,6 +145,113 @@ p {
 #recipe-steps{
     font-family: 'Coming Soon', cursive;
     font-weight: bolder;
+}
+
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .search-box{
+        margin: 50% 25% 0% 25%;
+        width: 50%;
+    }
+
+    .nav-brand {
+        margin: 0%;
+    }
+
+    a {
+        margin: 2%;
+        font-size: 90%;
+    }
+
+    .nav-links {
+        margin: 0%;
+        width: 50%;
+    }
+
+    .btn {
+        font-size: 90%;
+    }
+
+    p {
+        margin: 8% 2% 2% 3%;
+        font-size: 80%;
+    }
+
+    .w-220px {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1200px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .nav-brand {
+        margin: 0%;
+    }
+
+    a {
+        margin: 2%;
+        font-size: 90%;
+    }
+
+    .nav-links {
+        margin: 0%;
+        width: 50%;
+    }
+
+    .btn {
+        font-size: 90%;
+    }
+
+    p {
+        margin: 6% 2% 2% 3%;
+        font-size: 80%;
+    }
+
+
+    .w-220px {
+        width: 200px;
+    }
+}
+
+@media screen and (min-width: 1800px) and (max-width: 2600px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    .nav-brand {
+        margin: 0%;
+    }
+
+    a {
+        margin: 4%;
+        font-size: 2rem;
+    }
+
+    .nav-links {
+        margin: 4%;
+        width: 50%;
+    }
+
+    .btn {
+        font-size: 1.5rem;
+        width: 20%;
+        height: 50px;
+    }
+
+    p {
+        margin: 14% 2% 2% 3%;
+        font-size: 2rem;
+    }
+
+    .w-220px {
+        width: 400px;
+    }
 }
 
 @keyframes rainbow {
