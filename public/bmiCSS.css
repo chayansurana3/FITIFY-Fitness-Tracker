@@ -129,13 +129,14 @@ input {
 
     h1 {
         font-size: 4rem;
-        margin: 20% 20% 2% 25%;
+        margin: 40% 20% 2% 25%;
     }
 
     .calculator {
         width: 70%;
         margin: 1% 2% 0% 15%;
         font-size: 1.5rem;
+        font-weight: bolder;
     }
 
     p {
