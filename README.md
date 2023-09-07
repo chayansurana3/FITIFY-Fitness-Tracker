@@ -20,8 +20,9 @@ The website includes the following features:
 - **BMI Calculator**: Calculate your Body Mass Index (BMI) based on your height and weight.
 - **Calorie Calculator**: Calculate your calorie intake and other nutritional data by tracking your meals.
 - **Ideal Weight Calculation**: Calculate your ideal weight based on your height and bmi.
+- **Recipe Finder**: Find delicious recipes to satisfy your cravings.
 - **User Data Storage**: Store and manage user data using MongoDB.
-- **External API Integration**: Utilize the EDAMAM API for retrieving nutritional information and tracking calories.
+- **External API Integrations**: Utilize the SPOONACULAR API & EDAMAM API for retrieving nutritional information and tracking calories.  
 
 ## Built With
 
@@ -32,7 +33,7 @@ The website includes the following features:
 - Node.js
 - Express
 - Mongoose (MongoDB)
-- Integration with EDAMAM API
+- Integrations with SPOONACULAR API AND EDAMAM API
 
 ## Links
 
