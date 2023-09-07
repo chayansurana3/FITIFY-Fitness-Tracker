@@ -30,9 +30,11 @@ h6 {
 }
 
 p {
-    color: black;
+    color: black; /* Set the text color to red */
+    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
     text-align: center;
     font-size: 20px;
+    font-weight: bolder;
     letter-spacing: 0.5px;
     margin: 2% 10% 0% 10%;
 }
