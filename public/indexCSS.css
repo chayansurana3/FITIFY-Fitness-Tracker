@@ -116,9 +116,10 @@ a {
 .card {
     color: black;
     background-color: white;
-    width: 21%;
+    width: 25%;
     height: 250px;
-    margin: 14% 2% 10% 2%;
+    margin: 2% 37% 2% 37%;
+    display: block;
 }
 
 .row {
@@ -132,7 +133,7 @@ a {
     border-image-slice: 1;
     border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
     padding: 2%;
-    margin: 50px 10% 2% 20%;
+    margin: 50px 10% 2% 25%;
     font-family: 'Instrument Sans', sans-serif;
     font-size: 13px;
     font-weight: bold;

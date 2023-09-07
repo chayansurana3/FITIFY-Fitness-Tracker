@@ -88,9 +88,9 @@ p {
     display: none;
     background-color: white;
     border: 1px solid #ccc;
-    width: 80%;
+    width: 60%;
     max-height: 100px;
-    margin: 0% 35% 2% 10%;
+    margin: 0% 35% 2% 20%;
     overflow-y: auto;
     z-index: 1;
 }

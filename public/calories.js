@@ -1,5 +1,7 @@
 var total_calories = 0, total_proteins = 0, total_fats = 0, total_carbs = 0, total_fibres = 0;
 const track_btn = document.getElementsByTagName("button")[1];
+const suggestionDropdown = document.getElementById("suggestion-dropdown");
+const input = document.getElementById('meal_name');
 const track_box = document.getElementsByClassName("tracked")[0];
 const meal_table = document.getElementById("meal-table");
 const nutrition_table = document.getElementById("nutrition-table");
@@ -52,7 +54,7 @@ function update_nutrition(calories, protein, fat, carbs, fibre) {
   fatsElement.innerHTML = fat + "g";
 }
 
-track_btn.addEventListener("click", function() {
+track_btn.addEventListener("click", () => {
   let mealName = document.getElementById("meal_name").value;
   let serving = document.getElementById("serving_size").value;
   const select_option = document.getElementsByTagName("select")[0];
@@ -62,7 +64,7 @@ track_btn.addEventListener("click", function() {
   console.log(meal);
 
   if (correctInput(mealName, serving)) {
-    fetch("/.netlify/functions/nutrition?meal=" + meal)
+    fetch("/.netlify/functions/meal?meal=" + meal)
       .then((response) => response.json())
       .then((data) => {
         let current_calories = data.calories;

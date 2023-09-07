@@ -1,5 +1,7 @@
 body {
-    background-color: #D25380;
+    background-image: url(./aboutImage.jpg);
+    background-size: cover;
+    overflow: hidden;
 }
 
 h1 {
@@ -69,12 +71,14 @@ a {
 .main-box {
     background-size: cover;
     height: 100vh;
-    /*vh is viewport - height*/
     margin-top: 8%;
 
 }
 
 @media screen and (max-width: 1200px) {
+    body{
+        overflow: scroll;
+    }
     a {
         margin: 3%;
         font-size: 100%;

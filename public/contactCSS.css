@@ -1,5 +1,6 @@
 body {
     background-color: #EEE3CB;
+    overflow: hidden;
 }
 
 h1 {
@@ -74,6 +75,9 @@ ol {
 }
 
 @media screen and (min-width: 901px) and (max-width: 1200px) {
+    body{
+        overflow: scroll;
+    }
     a {
         margin: 3%;
         font-size: 100%;
