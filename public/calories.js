@@ -73,10 +73,11 @@ track_btn.addEventListener("click", () => {
           alert('"' + mealName + '"' + " not found!!");
           return;
         }
-        let current_fat = data.totalNutrients.FAT.quantity.toFixed(2) || 0;
-        let current_protein = data.totalNutrients.PROCNT.quantity.toFixed(2) || 0;
-        let current_carbs = data.totalNutrients.CHOCDF.quantity.toFixed(2) || 0;
-        let current_fibre = data.totalNutrients.FIBTG.quantity.toFixed(2) || 0;
+        
+        let current_fat = data.totalNutrients.FAT ? data.totalNutrients.FAT.quantity.toFixed(2) : 0;
+        let current_carbs = data.totalNutrients.CHOCDF ? data.totalNutrients.CHOCDF.quantity.toFixed(2) : 0;
+        let current_protein = data.totalNutrients.PROCNT ? data.totalNutrients.PROCNT.quantity.toFixed(2) : 0;
+        let current_fibre = data.totalNutrients.FIBTG ? data.totalNutrients.FIBTG.quantity.toFixed(2) : 0;
 
         track_box.style.display = "block";
         create_row_meal_table(mealName, serving, serving_type, current_calories);
