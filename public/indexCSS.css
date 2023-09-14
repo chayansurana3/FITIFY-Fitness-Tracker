@@ -14,13 +14,6 @@ h3 {
     font-weight: bold;
 }
 
-h5 {
-    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
 a {
     text-decoration: none;
     color: white;
@@ -107,41 +100,77 @@ a {
     font-weight: bold;
 }
 
-.feature-box {
+.features-para{
+    text-align: center;
+}
+
+.features-line{
+    width: 45%;
+    display: inline-block;
+    margin: 3% 1% 5% 3%;
+}
+
+i{
+    margin-left: 50%;
+}
+
+.features-box{
     background: linear-gradient(to top right, #3d97ce 0%, #12debb 100%);
-    background-size: cover;
-    height: auto;
+    padding-top: 5%;
 }
 
-.card {
-    color: black;
+.features{
     background-color: white;
-    width: 25%;
-    height: 250px;
-    margin: 2% 37.5% 2% 37.5%;
-    display: block;
+    z-index: 1;
+    width: 80%;
+    border-radius: 3%;
+    margin: 0% 10% 0% 10%;
 }
 
-.row {
-    margin-right: 0%;
+.feature-links {
+    display: inline-block; 
+    padding: 10px 20px; 
+    background-color: black; 
+    color: red;
+    text-shadow: 
+    -1px -1px 0 white,
+     1px -1px 0 white,
+    -1px  1px 0 white,
+     1px  1px 0 white; 
+    font-weight: bold; 
+    font-size: xx-large;
+    text-align: center; 
+    text-decoration: none; 
+    border: none; 
+    cursor: pointer; 
+    margin: 5% 0% 5% 25%;
 }
 
-.cards-btn {
-    background-color: black;
+.feature-links:hover{
+    background-color: green;
     color: white;
-    border: solid 3px;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-    padding: 2%;
-    margin: 50px 10% 2% 25%;
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 13px;
-    font-weight: bold;
+    font-weight: lighter;
 }
 
-.cards-btn:hover {
-    color: green;
+#last-feature{
+    margin-left: 28%;
 }
+
+#feature-heading{
+    color: red;
+    background-color: orange;
+    display: inline-block;
+    margin: 3% 40% 4% 40%;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 
+    -1.5px -1.5px 0 black,
+     1.5px -1.5px 0 black,
+    -1.5px  1.5px 0 black,
+     1.5px  1.5px 0 black; 
+}
+
 
 @media screen and (max-width: 1200px) {
     h1 {
@@ -193,73 +222,23 @@ a {
         font-weight: bolder;
     }
 
-    .card {
-        width: 35%;
-        height: 30%;
-        margin: 15% 10% 5% 35%;
-        font-size: 1.4rem;
+    .features-line{
+        width: 50%;
+        display: block;
+        margin: 3% 0% 5% 23%;
     }
 
-    .cards-btn {
-        margin: 5% 5% 2% 30%;
+    .features{
+        margin: 0% 10% 0% 10%;
+        padding-bottom: 2%;
     }
 
-    #goal-btn {
-        margin-left: 25%;
-    }
-}
-
-@media screen and (min-width: 1800px) and (max-width: 2600px) {
-
-    /* 4k */
-    h1 {
-        font-size: 6rem;
+    .features-para{
+        font-size: x-large;
+        margin-left: 12%;
     }
 
-    h2 {
-        font-size: 5rem;
-        font-weight: bolder;
-    }
-
-    a {
-        margin: 5%;
-        font-size: 3rem;
-    }
-
-    .nav-links {
-        margin: 0%;
-        width: 55%;
-    }
-
-    .btn {
-        font-size: 3rem;
-        margin-right: 10%;
-    }
-
-    .main-box {
-        margin-top: 6%;
-        height: 100vh;
-    }
-
-    #main-para {
-        font-size: 60px;
-    }
-
-    #to-features {
-        width: 20%;
-        height: 9%;
-        padding: 1%;
-        font-size: 40px;
-        margin: 10% 0% 0% 15%;
-    }
-
-    .card {
-        width: 20%;
-        height: 250px;
-        margin: 15% 3% 10% 2%;
-    }
-
-    #goal-btn {
-        margin-left: 10%;
+    #last-feature{
+        margin-left: 23%;
     }
 }

@@ -38,7 +38,7 @@
           </div>
         </nav>
       </header>  
-        <main>
+      <main>
           <div class="main-box">
             <div class="main-text-box">
               <h2>Transform yourself today.</h2>
@@ -49,61 +49,46 @@
               <img src="./nutri.webp" id="main-img" alt="Display Image">
             </div>
           </div>
-          <div class="feature-box">
-            <div class="row">
-                <div class="card">
-                    <i class="fa-sharp fa-solid fa-dumbbell"></i>
-                    <div class="card-body">
-                      <h5 class="card-title">CALCULATE YOUR BMI</h5>
-                      <p class="card-text">Calculate your Body Mass Index (BMI) to know your health status right away.</p><br>
-                      <a href="./bmi.html" class="cards-btn">CALCULATE</a>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <i class="fa-solid fa-utensils"></i>
-                    <div class="card-body">
-                      <h5 class="card-title">TRACK YOUR CALORIES</h5>
-                      <p class="card-text">Gain control over your nutrition by effortlessly tracking your daily calorie intake.</p>
-                      <a href="./calories.html" class="cards-btn">TRACK NOW</a>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <i class="fa-solid fa-person-dress"></i>
-                    <div class="card-body">
-                      <h5 class="card-title">YOUR IDEAL WEIGHT</h5>
-                      <p class="card-text">Discover your path to a healthier you by calculating your ideal weight based on your unique measurements.</p>
-                      <a href="./goal.html" class="cards-btn" id="goal-btn">KNOW YOUR GOAL</a>
-                    </div>
-                  </div>
-                  <div class="card">
-                      <i class="fa-solid fa-carrot"></i>
-                      <div class="card-body">
-                        <h5 class="card-title">FIND RECIPES</h5>
-                        <p class="card-text">Looking for culinary inspiration? Our Recipe Finder is your kitchen companion!</p>
-                        <a href="./recipe.html" class="cards-btn">RECIPE FINDER</a>
-                      </div>
-                  </div>
-                  <div class="card">
-                      <i class="fa-solid fa-info"></i>
-                      <div class="card-body">
-                        <h5 class="card-title">STORE YOUR BASIC DETAILS</h5>
-                        <p class="card-text">Unlock the convenience of storing your essential information securely in our database.</p>
-                        <a href="./basic_redirect.html" class="cards-btn">STORE DETAILS</a>
-                      </div>
-                  </div>
-                </div>
+          <div class="features-box">
+            <div class="features">
+              <div id="feature-heading">FEATURES</div>
+              <div class="features-line">
+                <i class="fa-2xl fa-solid fa-dumbbell"></i>
+                <a href="./bmi.html" class="feature-links">BMI Calculator</a>
+                <p class="features-para">Calculate your Body Mass Index (BMI) to know your health status right away</p>
               </div>
-        </main>          
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+              <div class="features-line">
+                <i class="fa-solid fa-utensils fa-2xl"></i>
+                <a href="./calories.html" class="feature-links">Track Calories</a>
+                <p class="features-para">Gain control over your nutrition by effortlessly tracking your daily calorie intake</p>
+              </div>
+              <div class="features-line">
+                <i class="fa-solid fa-person-dress fa-2xl"></i>
+                <a href="./goal.html" class="feature-links">Ideal Weight</a>
+                <p class="features-para">Discover your path to a healthier you by calculating your ideal weight based on your unique measurements</p>
+              </div>
+              <div class="features-line">
+                <i class="fa-solid fa-carrot fa-2xl"></i>
+                <a href="./recipe.html" class="feature-links">Recipe Finder</a>
+                <p class="features-para">Looking for culinary inspiration? Our Recipe Finder is your kitchen companion!</p>
+              </div>
+              <div class="features-line" id="last-feature">
+                <i class="fa-solid fa-info fa-2xl"></i>
+                <a href="./basic_redirect.html" class="feature-links">Store Details</a>
+                <p class="features-para">Unlock the convenience of storing your essential information securely in our database</p>
+              </div>
+            </div>
+          </div>
+      </main>          
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
       <script>
         const button = document.getElementById('to-features');
-        const feature_box = document.querySelector('.feature-box');
+        const feature_box = document.getElementsByClassName('features')[0];
         const paragraph = document.getElementById("main-para");
         let para_text = paragraph.textContent
-        let speed = 16, i = 0;
+        let speed = 17, i = 0;
         paragraph.textContent = "";
-        function completePara() {
+        var completePara = () => {
           if (i < para_text.length) {
             paragraph.textContent += para_text.charAt(i++);
             setTimeout(completePara, speed);
@@ -111,9 +96,7 @@
         }
         setTimeout(completePara, 100); 
         paragraph.style.visibility = "visible"; 
-        button.addEventListener('click', function(){
-          feature_box.scrollIntoView();
-        });
+        button.addEventListener('click', () => feature_box.scrollIntoView());
       </script>
     </body>
 </html>
