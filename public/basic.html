@@ -108,8 +108,9 @@
                 Swal.fire({
                   icon: "success",
                   title: "Success!!",
-                  text: "Form submitted successfully! Your Unique FITIFY Code is: " + result.uniqueCode + ". NEVER SHARE THIS CODE WITH ANYONE",
+                  html: "Form submitted successfully! Your Unique FITIFY Code is: <strong>" + result.uniqueCode + "</strong>. <span style='color: red; text-decoration: underline;'>NEVER SHARE THIS CODE WITH ANYONE</span>",
                 });
+
               })
               .catch(error => {
                 console.error('Form submission error:', error);
