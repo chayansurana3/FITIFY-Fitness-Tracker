@@ -52,24 +52,50 @@
       const unique_id = document.getElementById('unique-id');
 
       button.addEventListener('click', function () {
-        let areYouSure = confirm("😔 Are you sure you want to delete your record?");
-        if (!areYouSure) return;
-        let id = unique_id.value;
-
-        fetch(`/.netlify/functions/delete?uniqueCode=${id}`)
-          .then(response => {
-            if (response.ok) {
-              alert("✅✅ Profile deleted successfully");
-            } else if (response.status === 404) {
-              alert("⚠️⚠️ Profile not found");
-            } else {
-              alert("⚠️⚠️ An error occurred while deleting the profile");
+        Swal.fire({
+            title: "Are you sure you want to delete this record?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              let id = unique_id.value;
+              if (id == "") return;
+              fetch(`/.netlify/functions/delete?uniqueCode=${id}`)
+                .then(response => {
+                  if (response.ok) {
+                    Swal.fire({
+                      icon: "success",
+                      title: "Success!!",
+                      text: "Profile deleted successfully!"
+                    });
+                  } else if (response.status === 404) {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Profile not found! Check whether you entered the correct profile id",
+                    });
+                  } else {
+                    Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Something went wrong! Try Again",
+                    });
+                  }
+                })
+                .catch(error => {
+                  console.log('Error:', error);
+                  Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Try Again",
+                  });
+                });
             }
           })
-          .catch(error => {
-            console.log('Error:', error);
-            alert("⚠️⚠️ An error occurred while deleting the profile");
-          });
       });
     </script>    
   </body>

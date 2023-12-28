@@ -88,7 +88,6 @@
                 icon: "info",
                 showConfirmButton: false,
               });
-              
               fetch('/.netlify/functions/submit', {
                 method: 'POST',
                 body: JSON.stringify(Object.fromEntries(formData)),
@@ -108,9 +107,8 @@
                 Swal.fire({
                   icon: "success",
                   title: "Success!!",
-                  html: "Form submitted successfully! Your Unique FITIFY Code is: <strong>" + result.uniqueCode + "</strong>. <span style='color: red; text-decoration: underline;'>NEVER SHARE THIS CODE WITH ANYONE</span>",
+                  html: "Form submitted successfully! Your Unique FITIFY Code is: <strong>" + result.uniqueCode + "</strong>. <span style='color: red; text-decoration: underline; font-weight: bold'>NEVER SHARE THIS CODE WITH ANYONE.</span>",
                 });
-
               })
               .catch(error => {
                 console.error('Form submission error:', error);

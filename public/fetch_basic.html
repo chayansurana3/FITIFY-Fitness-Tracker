@@ -115,8 +115,13 @@
         
         button.addEventListener('click', function() {
           let id = unique_id.value;
+          if (id == "") return;
           fetch(`/.netlify/functions/profile?uniqueCode=${id}`)
-          .then(alert("⏳ Fetching your data from our servers⏳. Thanks for your patience!!"))
+          .then(Swal.fire({
+                title: "⏳Fetching your data from our servers⏳. Thanks for your patience!!",
+                icon: "info",
+                showConfirmButton: false,
+          }))
           .then(response => response.json())
           .then(data => {
             const inches = data.height % 12;
@@ -140,7 +145,7 @@
             box.scrollIntoView();
             console.log(data);
           })
-            .catch(error => {
+          .catch(error => {
               console.log('Error:', error);
             });
           });

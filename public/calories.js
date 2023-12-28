@@ -14,19 +14,35 @@ const fibreElement = document.getElementById("fibre");
 function correctInput(mealName, serving) {
   console.log("Started input authentication: " + mealName + "," + serving);
   if (!serving && !mealName) {
-    alert("**Fill the empty fields");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "**Fill the empty fields!",
+    });
     return false;
   }
   if (!serving) {
-    alert("**Serving Size Field is empty");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "**Serving Size Field is empty!",
+    });
     return false;
   }
   if (!mealName) {
-    alert("**Meal Name Field is empty");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "**Meal Name Field is empty!",
+    });
     return false;
   }
   if (serving < 0 || isNaN(parseFloat(serving))) {
-    alert("Incorrect Serving Size");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Incorrect Serving Size!",
+    });
     return false;
   }
   return true;
@@ -70,7 +86,11 @@ track_btn.addEventListener("click", () => {
         let current_calories = data.calories;
         if (parseFloat(current_calories) == 0) {
           console.log("Food not found!!");
-          alert('"' + mealName + '"' + " not found!!");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: '"' + mealName + '"' + " not found!!",
+          });
           return;
         }
         

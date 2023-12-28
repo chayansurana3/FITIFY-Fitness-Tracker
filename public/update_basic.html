@@ -73,33 +73,54 @@
         form.addEventListener('submit', function(event) {
           event.preventDefault();
           const formData = new FormData(form);
-          let areYouSure = confirm("Are you sure you want to update your record?");
-          if (!areYouSure) return;
-          fetch('/.netlify/functions/update', {
-            method: 'POST',
-            body: JSON.stringify(Object.fromEntries(formData)),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          })
-            .then(alert("⏳ Updating Your Data ⏳. Thanks for your patience!!"))
-            .then(function(response) {
-              if (response.ok) {
-                return response.json();
-              } else {
-                throw new Error('Form submission failed');
-              }
-            })
-            .then(function(result) {
-              console.log('Form submission result:', result);
-              alert('✅✅ Form updated successfully!!!');
-            })
-            .catch(function(error) {
-              console.error('Form submission error:', error);
-              alert('⚠️⚠️ Form submission failed. Please try again.');
-            });
+          Swal.fire({
+            title: "Are you sure you want to submit?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, submit it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              fetch('/.netlify/functions/update', {
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData)),
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              })
+                .then(Swal.fire({
+                  title: "⏳ Submitting Your Data ⏳. Thanks for your patience!!",
+                  icon: "info",
+                  showConfirmButton: false,
+                }))
+                .then(function(response) {
+                  if (response.ok) {
+                    return response.json();
+                  } else {
+                    throw new Error('Form submission failed');
+                  }
+                })
+                .then(function(result) {
+                  console.log('Form submission result:', result);
+                  Swal.fire({
+                    icon: "success",
+                    title: "Success!!",
+                    text: "Profile updated successfully!!",
+                  });
+                })
+                .catch(function(error) {
+                  console.error('Form submission error:', error);
+                  Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Try Again",
+                  });
+              });
+            }
         });
+      });
       </script>
-      
   </body>
 </html>
