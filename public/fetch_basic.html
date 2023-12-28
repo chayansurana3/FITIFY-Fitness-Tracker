@@ -119,7 +119,7 @@
           if (id == "") return;
           fetch(`/.netlify/functions/profile?uniqueCode=${id}`)
           .then(Swal.fire({
-                title: "⏳Fetching your data from our servers⏳. Thanks for your patience!!",
+                title: "⏳Fetching your data from our servers. Thanks for your patience!!",
                 icon: "info",
                 showConfirmButton: false,
           }))
@@ -148,6 +148,11 @@
           })
           .catch(error => {
               console.log('Error:', error);
+              Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Profile not found! Check whether you entered the correct profile id",
+              });
             });
           });
     </script>  
