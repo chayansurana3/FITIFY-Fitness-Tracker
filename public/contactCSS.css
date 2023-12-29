@@ -1,11 +1,14 @@
 body {
-    background-color: #EEE3CB;
+    background-image: url(./contactImage.jpg);
+    background-size: cover;
     overflow: hidden;
 }
 
-h1 {
+#brand {
     color: gold;
     font-family: 'Open Sans', 'sans serif';
+    font-weight: bold;
+    font-size: 2.4rem;
 }
 
 h2 {

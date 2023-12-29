@@ -4,10 +4,11 @@ body {
     background-color: #fb8378;
 }
 
-h1 {
+#brand {
     color: gold;
     font-weight: bold;
     font-family: 'Open Sans', 'sans serif';
+    font-size: 2.4rem;
 }
 
 h2 {

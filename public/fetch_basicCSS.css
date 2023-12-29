@@ -3,10 +3,11 @@ body {
     background-color: #7F8487;
 }
 
-h1 {
+#brand {
     color: gold;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
+    font-size: 2.4rem;
 }
 
 h2 {

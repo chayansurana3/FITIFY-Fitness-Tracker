@@ -1,7 +1,8 @@
-h1 {
+#brand {
     color: gold;
     font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
+    font-size: 2.4rem;
 }
 
 h2,
@@ -170,7 +171,6 @@ i{
     -1.5px  1.5px 0 black,
      1.5px  1.5px 0 black; 
 }
-
 
 @media screen and (max-width: 1200px) {
     h1 {
