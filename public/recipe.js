@@ -21,10 +21,8 @@ const updateSuggestions = async (inputValue) => {
   if (inputValue.length === 0) return;
 
   try {
-    loader.style.display = 'inline-block';
     const response = await fetch("/.netlify/functions/recipeNames?inputValue=" + inputValue);
     let data = await response.json();
-    loader.style.display = 'none';
     suggestionDropdown.style.display = "block";
     suggestionDropdown.textContent = "";
     console.log(data);
@@ -40,7 +38,6 @@ const updateSuggestions = async (inputValue) => {
       suggestionDropdown.appendChild(suggestionItem);
     });
   } catch (error) {
-    loader.style.display = 'none';
     console.error("Error fetching data:", error);
   }
 };
@@ -52,6 +49,7 @@ const findRecipe = async (meal) => {
   }
 
   try {
+    loader.style.display = 'inline-block';
     if (id == -1){
       const response = await fetch("/.netlify/functions/recipeNames?inputValue=" + meal);
       let data = await response.json();
@@ -60,6 +58,7 @@ const findRecipe = async (meal) => {
     }
     const response = await fetch('/.netlify/functions/recipe?meal=' + meal + '&id=' + id);
     let data = await response.json();
+    loader.style.display = 'none';
     if (data.length === 0){
       alert("Recipe Not Found");
       return;
@@ -78,6 +77,7 @@ const findRecipe = async (meal) => {
       recipeSteps.innerHTML += `<li>${item}</li>`;
     });
   } catch (error) {
+    loader.style.display = 'none';
     console.error("Error fetching recipe data:", error);
   }
 };
