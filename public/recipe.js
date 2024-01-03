@@ -6,6 +6,7 @@ const recipeTitle = document.getElementById("recipe-title");
 const recipeImage = document.getElementById("recipe-image");
 const recipeSteps = document.getElementById("recipe-steps");
 const recipeIngredients = document.getElementById("ingredients");
+const loader =  document.getElementsByClassName('loader')[0];
 var id = -1;
 
 function capitalizeEachWord(str) {
@@ -20,8 +21,10 @@ const updateSuggestions = async (inputValue) => {
   if (inputValue.length === 0) return;
 
   try {
+    loader.style.display = 'inline-block';
     const response = await fetch("/.netlify/functions/recipeNames?inputValue=" + inputValue);
     let data = await response.json();
+    loader.style.display = 'none';
     suggestionDropdown.style.display = "block";
     suggestionDropdown.textContent = "";
     console.log(data);
@@ -37,6 +40,7 @@ const updateSuggestions = async (inputValue) => {
       suggestionDropdown.appendChild(suggestionItem);
     });
   } catch (error) {
+    loader.style.display = 'none';
     console.error("Error fetching data:", error);
   }
 };
