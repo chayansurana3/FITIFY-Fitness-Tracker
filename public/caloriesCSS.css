@@ -120,13 +120,13 @@ label {
 
 .tracked-chart {
     float: left;
-    color: #D14D72;
+    color: #11009E;
     width: 50%;
 }
 
 .nutrition-chart {
     float: right;
-    color: #D14D72;
+    color: #11009E;
     width: 50%;
 }
 
@@ -140,7 +140,7 @@ label {
 #meal-table tr,
 #meal-table td {
     font-family: 'Open Sans', sans-serif;
-    border: #6D5D6E solid 4px;
+    border: #2D3250 solid 4px;
     width: 33.33%;
     padding: 2%;
     margin: 0%;
