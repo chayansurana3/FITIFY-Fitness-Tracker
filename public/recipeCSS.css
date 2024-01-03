@@ -108,7 +108,10 @@ p {
 }
   
 .btn-success{
-    margin-top: 15%;
+    margin: auto;
+    margin-top: 25px;
+    display: block;
+    margin-bottom: 2px;
 }
 
 .result-box{
