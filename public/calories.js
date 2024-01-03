@@ -10,6 +10,7 @@ const proteinsElement = document.getElementById("protein");
 const fatsElement = document.getElementById("fat");
 const carbsElement = document.getElementById("carbs");
 const fibreElement = document.getElementById("fibre");
+const loader =  document.getElementsByClassName('loader')[0];
 
 function correctInput(mealName, serving) {
   console.log("Started input authentication: " + mealName + "," + serving);
@@ -74,7 +75,6 @@ track_btn.addEventListener("click", () => {
   let mealName = document.getElementById("meal_name").value;
   let serving = document.getElementById("serving_size").value;
   const select_option = document.getElementsByTagName("select")[0];
-  const loader =  document.getElementsByClassName('loader');
   let serving_type = select_option.options[select_option.selectedIndex].text;
   if (serving_type == "Pieces/Counts") serving_type = ""; //As per the EDAMAM Documentation
   let meal = encodeURIComponent(serving + " " + serving_type + " " + mealName);
