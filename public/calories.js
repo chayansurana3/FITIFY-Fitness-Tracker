@@ -74,15 +74,19 @@ track_btn.addEventListener("click", () => {
   let mealName = document.getElementById("meal_name").value;
   let serving = document.getElementById("serving_size").value;
   const select_option = document.getElementsByTagName("select")[0];
+  const loader =  document.getElementsByClassName('loader');
   let serving_type = select_option.options[select_option.selectedIndex].text;
   if (serving_type == "Pieces/Counts") serving_type = ""; //As per the EDAMAM Documentation
   let meal = encodeURIComponent(serving + " " + serving_type + " " + mealName);
   console.log(meal);
 
+  
   if (correctInput(mealName, serving)) {
+    loader.style.display = 'inline-block';
     fetch("/.netlify/functions/meal?meal=" + meal)
       .then((response) => response.json())
       .then((data) => {
+        loader.style.display = 'none';
         let current_calories = data.calories;
         if (parseFloat(current_calories) == 0) {
           console.log("Food not found!!");
@@ -110,6 +114,7 @@ track_btn.addEventListener("click", () => {
         track_box.scrollIntoView();
       })
       .catch((error) => {
+        loader.style.display = 'none';
         console.error("Error:", error);
       });
   }
