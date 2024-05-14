@@ -50,8 +50,8 @@ p {
     color: black;
 }
 
-.btn {
-    margin: 1rem 0rem 0rem 7rem;
+.btn1, .btn2 {
+    margin: 0.5rem 0rem 0rem 7rem;
 }
 
 .reset_btn {
