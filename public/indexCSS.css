@@ -60,6 +60,7 @@ a {
 .main-text-box {
     /* float: left; */
     /* width: 50%; */
+    margin-top: 20%;
     height: 100%;
 }
 
@@ -94,7 +95,7 @@ a {
     width: 10%;
     height: 10%;
     position: absolute;
-    margin: 0% 40% 0% 20%;
+    margin: 0% 40% 0% 40%;
     bottom: 10%;
     font-family: 'Instrument Sans', sans-serif;
     font-size: 20px;
