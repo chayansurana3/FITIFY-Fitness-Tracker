@@ -50,31 +50,21 @@ p {
     color: black;
 }
 
-.btns {
-    background-color: #19376D;
-    border-color: black;
-    color: white;
+.btn {
     margin: 2rem 0rem 0rem 7rem;
 }
 
 .reset_btn {
-    background-color: #19376D;
-    border-color: black;
-    color: white;
     margin: 0;
 }
 
-.submitBtns{
-    margin: auto;
-}
-
-.btn {
+.btnTop {
     background-color: #19376D;
     border-color: black;
     color: white;
 }
 
-.btn:hover {
+.btnTop:hover {
     background-color: green;
     font-weight: bold;
 }
@@ -125,7 +115,7 @@ input {
         font-size: 80%;
     }
 
-    .btn {
+    .btnTop {
         font-size: 80%;
     }
 
@@ -166,7 +156,7 @@ input {
         font-size: 3rem;
     }
 
-    .btn {
+    .btnTop {
         font-size: 3rem;
     }
 
