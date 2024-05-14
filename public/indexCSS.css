@@ -58,11 +58,8 @@ a {
 }
 
 .main-text-box {
-    /* float: left; */
-    /* width: 50%; */
-    /* margin-top: 20%;
-     */
-    padding-top: 20%;
+    float: left;
+    width: 50%;
     height: 100%;
 }
 
@@ -97,7 +94,7 @@ a {
     width: 10%;
     height: 10%;
     position: absolute;
-    margin: 0% 40% 0% 50%;
+    margin: 0% 40% 0% 20%;
     bottom: 10%;
     font-family: 'Instrument Sans', sans-serif;
     font-size: 20px;
