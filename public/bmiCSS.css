@@ -64,6 +64,10 @@ p {
     margin: 0;
 }
 
+.submitBtns{
+    margin: auto;
+}
+
 .btn {
     background-color: #19376D;
     border-color: black;
