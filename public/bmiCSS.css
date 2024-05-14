@@ -51,7 +51,8 @@ p {
 }
 
 .btn1, .btn2 {
-    margin: 0.5rem 0rem 0rem 7rem;
+    margin: 0;
+    margin-left: 7rem;
 }
 
 .reset_btn {
