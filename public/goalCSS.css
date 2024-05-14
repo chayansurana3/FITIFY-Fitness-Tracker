@@ -16,7 +16,7 @@ h1 {
     margin-top: 8%;
     font-size: 3em;
     font-weight: bold;
-    color: black;
+    color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -97,7 +97,7 @@ h6 {
 
 .nav-link{
     font-style: bolder;
-    font-size: larger;
+    font-size: large;
     color: black;
 }
 
