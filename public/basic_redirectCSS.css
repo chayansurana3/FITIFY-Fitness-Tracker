@@ -48,10 +48,6 @@ a:hover{
     font-family: 'Stylish', sans-serif;
 }
 
-.w-220px {
-    width: 220px;
-}
-
 .redirect-links {
     margin: 22% 4% 4% 4%;
     display: inline-block;
@@ -128,9 +124,5 @@ a:hover{
     .redirect-links {
         margin-top: 15%;
         font-size: 1.5rem;
-    }
-
-    .w-220px {
-        width: 350px;
     }
 }
