@@ -71,9 +71,6 @@ h6 {
 }
 
 .reset_btn {
-    background-color: #19376D;
-    border-color: black;
-    color: white;
     margin: 0;
 }
 
@@ -96,6 +93,12 @@ h6 {
 .nav-links {
     width: 40%;
     margin-right: 0%;
+}
+
+.nav-link{
+    font-style: bolder;
+    font-size: larger;
+    color: black;
 }
 
 .dropdown {

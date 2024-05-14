@@ -82,7 +82,8 @@ p {
 
 .nav-link{
     color: black;
-    font-style: bold;
+    font-style: bolder;
+    font-size: larger;
 }
 
 .dropdown {
