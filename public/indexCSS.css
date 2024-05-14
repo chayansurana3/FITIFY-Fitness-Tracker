@@ -58,8 +58,8 @@ a {
 }
 
 .main-text-box {
-    float: left;
-    width: 50%;
+    /* float: left; */
+    /* width: 50%; */
     height: 100%;
 }
 
