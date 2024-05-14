@@ -80,6 +80,11 @@ p {
     margin-right: 0%;
 }
 
+.nav-link{
+    color: black;
+    font-style: bold;
+}
+
 .dropdown {
     display: inline;
 }

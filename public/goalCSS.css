@@ -54,12 +54,9 @@ h6 {
     padding: 0.5%;
 }
 
-.btns {
-    background-color: #19376D;
-    border-color: black;
-    color: white;
+/* .btn {
     margin: 2rem 0rem 0rem 7rem;
-}
+} */
 
 .btn1 {
     margin-left: 32%;
@@ -80,13 +77,13 @@ h6 {
     margin: 0;
 }
 
-.btn {
+.btnTop {
     background-color: #19376D;
     border-color: black;
     color: white;
 }
 
-.btn:hover {
+.btnTop:hover {
     background-color: green;
     font-weight: bold;
 }
@@ -139,7 +136,7 @@ input {
         font-size: 80%;
     }
 
-    .btn {
+    .btnTop {
         font-size: 80%;
     }
 
@@ -186,7 +183,7 @@ input {
         font-size: 2rem;
     }
 
-    .btn {
+    .btnTop {
         font-size: 2rem;
         width: 25%;
         height: 90%;
