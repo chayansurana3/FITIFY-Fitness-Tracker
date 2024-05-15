@@ -1,7 +1,7 @@
 body {
     text-align: center;
     line-height: 2rem;
-    background-color: #32012F;
+    background-color: #3f053c;
 }
 
 #brand {
@@ -75,7 +75,7 @@ select {
 }
 
 #profile-form{
-    padding-bottom: 10%;
+    padding-bottom: 2%;
 }
 
 @media screen and (max-width: 1200px) {
