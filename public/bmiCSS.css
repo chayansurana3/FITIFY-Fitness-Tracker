@@ -51,12 +51,11 @@ p {
 }
 
 .btn1, .btn2 {
-    margin: 0;
-    margin-left: 7rem;
+    margin: 1rem 0 0 6rem;
 }
 
 .reset_btn {
-    margin: 0;
+    margin: 1rem 0 0 0;
 }
 
 .btnTop {
