@@ -1,7 +1,7 @@
 body {
     text-align: center;
     line-height: 2rem;
-    background-color: #fb8378;
+    background-color: #32012F;
 }
 
 #brand {
@@ -72,6 +72,10 @@ select {
     border: solid black;
     border-radius: 4px;
     cursor: pointer;
+}
+
+#profile-form{
+    padding-bottom: 10%;
 }
 
 @media screen and (max-width: 1200px) {

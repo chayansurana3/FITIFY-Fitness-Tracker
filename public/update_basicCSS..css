@@ -74,6 +74,10 @@ select {
     cursor: pointer;
 }
 
+#profile-form{
+    padding-bottom: 10%;
+}
+
 @media screen and (max-width: 1200px) {
     a {
         margin: 3%;
