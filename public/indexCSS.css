@@ -118,6 +118,7 @@ i{
 .features-box{
     background: linear-gradient(to top right, #3d97ce 0%, #12debb 100%);
     padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .features{
