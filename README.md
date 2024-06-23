@@ -45,4 +45,3 @@ The website includes the following features:
 - Chayan Surana
 - [Linkedin](https://www.linkedin.com/in/chayan-surana-a93857136/)
 - Email - chayan.surana3@gmail.com
-- Contact- +91 6262675641
