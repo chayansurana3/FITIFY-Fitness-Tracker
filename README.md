@@ -10,7 +10,7 @@ FITIFY is a fitness tracking website built using HTML, CSS, Javascript, Node.js,
 - [Author](#author)
 
 ## Screenshorts
-![ScreenShot](./ScreenShot1.png)
+![ScreenShot](./ScreenShot3.png)
 ![ScreenShot](./ScreenShot2.png)
 
 ## Features
