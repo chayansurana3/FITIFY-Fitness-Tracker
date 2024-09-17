@@ -5,6 +5,7 @@
   "main": "netlify/functions/recipe.js",
   "scripts": {
     "start": "node netlify/functions/recipe.js",
+    "frontend": "lite-server --baseDir=public",
     "dev": "nodemon netlify/functions/recipe.js",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
@@ -36,6 +37,7 @@
     "babel-loader": "^9.1.2",
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.1",
+    "lite-server": "^2.6.1",
     "mini-css-extract-plugin": "^2.7.6",
     "style-loader": "^3.3.3",
     "webpack": "^5.84.1",
