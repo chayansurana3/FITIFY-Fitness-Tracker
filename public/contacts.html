@@ -10,10 +10,10 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
       <!--CSS Styling-->
       <link rel="stylesheet" href="./contactCSS.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF52CWD314"></script>
@@ -26,42 +26,63 @@
     </script>
     <body>
         <header>
-            <nav class="navbar bg-dark fixed-top" data-bs-theme="dark">
-              <div class="nav-brand">
-                <a id="brand" href="./index.html">FITIFY</a>
-              </div>
-              <div class="nav-links">
-                <a href="./index.html">HOME</a>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    FEATURES
-                  </button>
-                  <ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow w-220px" data-bs-theme="light">
-                    <li><a class="dropdown-item rounded-2" href="./bmi.html">BMI CALCULATOR</a></li>
-                    <li><a class="dropdown-item rounded-2" href="./calories.html">TRACK CALORIES</a></li>
-                    <li><a class="dropdown-item rounded-2" href="./goal.html">KNOW YOUR GOAL</a></li>
-                    <li><a class="dropdown-item rounded-2" href="./basic_redirect.html">STORE YOUR DETAILS</a></li>
-                    <li><a class="dropdown-item rounded-2" href="./recipe.html">RECIPE FINDER</a></li>
-                  </ul>
-                </div>
-                <a href="./about.html">ABOUT US</a>
-                <a href="./contacts.html">CONTACT US</a>
-              </div>
-            </nav>
+            <div data-navbar></div>
           </header>  
-        <main>
-            <div class="main-box">
-                <h2>CONTACT US</h2>
-                <ol>
-                    <li>Developed By : Chayan Surana</li>
-                    <li>Mail : chayan.surana3@gmail.com</li>
-                    <li>LinkedIN : <a href="https://www.linkedin.com/in/chayan-surana/" target="_blank" style="text-decoration: underline; color: blue; text-shadow: none;" >Click Here</a></li>
-                    <li>Twitter : <a href="https://twitter.com/chayan_surana_" target="_blank" style="text-decoration: underline; color: blue; text-shadow: none;">Click Here</a></li>
-                </ol>
-            </div>
+        <main id="main">
+            <section class="contact-shell">
+              <div class="contact-hero">
+                <div class="contact-kicker">CONTACT</div>
+                <h1 class="contact-title">Let’s build something clean, fast, and user-first.</h1>
+                <p class="contact-lede">
+                  If you’re hiring or collaborating, I’d love to chat. Fitify is built with a product mindset — strong UI polish, clear flows, and real features.
+                </p>
+              </div>
+
+              <div class="contact-grid">
+                <section class="contact-card">
+                  <h2 class="card-title">Reach out</h2>
+                  <ul class="contact-list">
+                    <li>
+                      <span class="label">Email</span>
+                      <a class="value" href="mailto:chayan.surana3@gmail.com">chayan.surana3@gmail.com</a>
+                    </li>
+                    <li>
+                      <span class="label">LinkedIn</span>
+                      <a class="value" href="https://www.linkedin.com/in/chayan-surana/" target="_blank" rel="noreferrer">View profile</a>
+                    </li>
+                    <li>
+                      <span class="label">Twitter</span>
+                      <a class="value" href="https://twitter.com/chayan_surana_" target="_blank" rel="noreferrer">Follow</a>
+                    </li>
+                  </ul>
+                </section>
+
+                <section class="contact-card">
+                  <h2 class="card-title">What I’m good at</h2>
+                  <ul class="card-list">
+                    <li><strong>UI engineering</strong> with consistent design systems and responsive layouts</li>
+                    <li><strong>UX + information architecture</strong> for multi-page feature suites</li>
+                    <li><strong>Polish</strong>: motion, accessibility, performance-minded details</li>
+                    <li><strong>Delivery</strong>: clean structure, maintainable styling, iteration speed</li>
+                  </ul>
+                </section>
+
+                <section class="contact-card contact-card-wide">
+                  <h2 class="card-title">Quick links</h2>
+                  <p class="card-para">Jump straight into the core features to see the product depth.</p>
+                  <div class="contact-cta-row">
+                    <a class="contact-cta" href="./index.html">Home</a>
+                    <a class="contact-cta secondary" href="./bmi.html">BMI</a>
+                    <a class="contact-cta secondary" href="./calories.html">Calories</a>
+                    <a class="contact-cta secondary" href="./recipe.html">Recipes</a>
+                  </div>
+                </section>
+              </div>
+            </section>
         </main>
         <!--index.js-->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+        <script src="./components/navbar.js"></script>
     </body>
 </html>

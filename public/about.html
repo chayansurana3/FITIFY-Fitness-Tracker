@@ -9,9 +9,9 @@
       <!--Google Fonts-->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Open+Sans:wght@800&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Instrument+Sans:wght@400;600;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="./aboutCSS.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF52CWD314"></script>
@@ -24,47 +24,64 @@
     </script>
     <body>
         <header>
-            <nav class="navbar bg-dark fixed-top" data-bs-theme="dark">
-              <div class="nav-brand">
-                <a id="brand" href="./index.html">FITIFY</a>
-              </div>
-              <div class="nav-links">
-                <a href="./index.html">HOME</a>
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    FEATURES
-                  </button>
-                  <ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow w-220px" data-bs-theme="light">
-                    <li><a class="dropdown-item rounded-2" href="./bmi.html">BMI CALCULATOR</a></li>
-                    <li><a class="dropdown-item rounded-2" href="./calories.html">TRACK CALORIES</a></li>
-                    <li><a class="dropdown-item rounded-2" href="./goal.html">KNOW YOUR GOAL</a></li>
-                    <li><a class="dropdown-item rounded-2" href="./basic_redirect.html">STORE YOUR DETAILS</a></li>
-                    <li><a class="dropdown-item rounded-2" href="./recipe.html">RECIPE FINDER</a></li>
-                  </ul>
-                </div>
-                <a href="./about.html">ABOUT US</a>
-                <a href="./contacts.html">CONTACT US</a>
-              </div>
-            </nav>
+            <div data-navbar></div>
           </header> 
-        <main>
-            <div class="main-box">
-                <h2>ABOUT US</h2>
-                <p>This main goal of this website is to keep a track of your fitness level. It has been developed by <a href="./contacts.html" style="color: purple; text-decoration: underline; text-shadow: none; margin: 0%;">Chayan Surana</a></p>
-                <p>
-                    It has multiple features :-
-                    <ul class="data">
-                        <li>BMI Calculator</li>
-                        <li>Calorie Tracker</li>
-                        <li>Know your ideal weight</li>
-                        <li>Recipe Finder</li>
-                        <li>Store your basic information</li>
-                    </ul>
+        <main id="main">
+            <section class="about-shell">
+              <div class="about-hero">
+                <div class="about-kicker">ABOUT FITIFY</div>
+                <h1 class="about-title">A modern fitness tracker built like a product.</h1>
+                <p class="about-lede">
+                  Fitify is a multi-feature fitness web app focused on clarity, speed, and a polished UI. It brings common health workflows into one place —
+                  so users can measure, track, and improve with fewer clicks.
                 </p>
-            </div>
+                <div class="about-meta">
+                  <div class="meta-pill">Responsive UI</div>
+                  <div class="meta-pill">Component-style layout</div>
+                  <div class="meta-pill">UX-first navigation</div>
+                  <div class="meta-pill">Smooth interactions</div>
+                </div>
+              </div>
+
+              <div class="about-grid">
+                <section class="about-card">
+                  <h2 class="card-title">What you can do</h2>
+                  <ul class="card-list">
+                    <li><strong>BMI Calculator</strong> for quick health benchmarks</li>
+                    <li><strong>Calorie Tracking</strong> to stay consistent day-to-day</li>
+                    <li><strong>Goal / Ideal Weight</strong> guidance based on measurements</li>
+                    <li><strong>Recipe Finder</strong> to support nutrition goals</li>
+                    <li><strong>Store Details</strong> to keep basics handy</li>
+                  </ul>
+                </section>
+
+                <section class="about-card">
+                  <h2 class="card-title">Engineering highlights</h2>
+                  <ul class="card-list">
+                    <li><strong>Information architecture</strong> with a clean feature hub + deep links</li>
+                    <li><strong>Performance-minded UI</strong> (preloaded hero image, reduced-motion support)</li>
+                    <li><strong>Accessible patterns</strong> (focus-visible, semantic structure, keyboard-friendly nav)</li>
+                    <li><strong>Design consistency</strong> via shared spacing, typography, and “glass” surfaces</li>
+                  </ul>
+                </section>
+
+                <section class="about-card about-card-wide">
+                  <h2 class="card-title">Why this project is portfolio-ready</h2>
+                  <p class="card-para">
+                    Fitify isn’t a single-page demo — it’s a small product suite. It shows end-to-end thinking: user flows, UI polish, reusable patterns,
+                    and feature completeness across multiple pages.
+                  </p>
+                  <div class="about-cta-row">
+                    <a class="about-cta" href="./index.html">Explore the app</a>
+                    <a class="about-cta secondary" href="./contacts.html">Contact</a>
+                  </div>
+                </section>
+              </div>
+            </section>
         </main>
         <!--index.js-->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
+        <script src="./components/navbar.js"></script>
     </body>
 </html>
