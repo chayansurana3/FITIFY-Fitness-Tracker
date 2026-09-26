@@ -1,77 +1,96 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <title> FITIFY || CALORIES</title>
-    <link rel="icon" href="favicon-32x32.png" type="image/svg+xml">
-
-    <!--Bootstrap Scripts(CSS)-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!--Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Roboto+Mono&family=Instrument+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./caloriesCSS.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0f1a" />
+    <meta name="description" content="Estimate meal calories and track nutrition with the FITIFY calorie calculator." />
+    <title>FITIFY | Calorie Tracker</title>
+    <link rel="icon" href="./favicon-32x32.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./indexCSS.css" />
+    <link rel="stylesheet" href="./caloriesCSS.css" />
+    <script src="https://kit.fontawesome.com/fd6cc398e6.js" crossorigin="anonymous"></script>
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF52CWD314"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <body class="calorie-page">
+    <header><div data-navbar></div></header>
+    <main class="calorie-main">
+      <section class="calorie-hero" aria-labelledby="calorie-heading">
+        <p class="calorie-eyebrow"><span></span> NUTRITION, MADE A LITTLE SIMPLER</p>
+        <h1 id="calorie-heading">Track what <span>fuels you.</span></h1>
+        <p class="calorie-intro">Add a meal and serving size to estimate its calories and key nutrients. Keep a running total as you go.</p>
+      </section>
 
-    gtag('config', 'G-TF52CWD314');
-  </script>
-  <body>
-    <header>
-      <div data-navbar></div>
-    </header>
-    <main>
-      <p>*The nutritional data is being fetched from <a id="edamam-path" href="https://www.edamam.com/" target="_blank">EDAMAM API</a></p>
-      <div class="tracker">
-        <h2 id="heading">CALORIE CALCULATOR</h2>
-        <label for="meal">Meal Name: </label><input name="meal" id="meal_name" type="text" placeholder="Enter Meal"><br>
-        <label for="serving">Serving Size: </label><input type="text" name="serving" id="serving_size" placeholder="Enter Serving Size"><br>
-        <label for="size-type">Serving Type: </label>
-        <select name="size-type">
-          <option value="counts">Pieces/Counts</option>
-          <option value="grams">Gram</option>
-          <option value="ounces">Oz</option>
-          <option value="tablespoon">Tablespoon</option>
-          <option value="cups">Cup</option>
-          <option value="bowls">Bowl</option>
-        </select><br>
-        <button type="button" class="btn btn-dark submit-btn">TRACK</button><br>
-        <span class="loader"></span>
+      <div class="calorie-layout">
+        <section class="calorie-form-card" aria-labelledby="meal-form-heading">
+          <div class="calorie-card-heading">
+            <span class="calorie-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></span>
+            <div><p class="calorie-card-kicker">START WITH A MEAL</p><h2 id="meal-form-heading">What did you eat?</h2></div>
+          </div>
+          <form id="meal-form" novalidate>
+            <div class="calorie-field">
+              <label for="meal_name">Meal or ingredient</label>
+              <input name="meal" id="meal_name" type="text" placeholder="e.g. grilled chicken breast" autocomplete="off" required />
+            </div>
+            <div class="calorie-serving-row">
+              <div class="calorie-field">
+                <label for="serving_size">Amount</label>
+                <input type="number" name="serving" id="serving_size" inputmode="decimal" min="0.1" step="0.1" placeholder="e.g. 150" required />
+              </div>
+              <div class="calorie-field">
+                <label for="serving_type">Serving unit</label>
+                <select id="serving_type" name="size-type">
+                  <option value="counts">Pieces / counts</option>
+                  <option value="grams">Grams</option>
+                  <option value="ounces">Ounces</option>
+                  <option value="tablespoon">Tablespoons</option>
+                  <option value="cups">Cups</option>
+                  <option value="bowls">Bowls</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" id="track-button" class="calorie-submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add to today</button>
+            <p class="calorie-status" id="calorie-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <aside class="calorie-tip-card">
+          <span class="calorie-tip-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+          <p class="calorie-card-kicker">A HELPFUL NOTE</p>
+          <h2>Small details make a better estimate.</h2>
+          <p>Use a specific food and a measured serving when you can. Nutrition values are estimates and can vary by brand, recipe, and preparation.</p>
+          <a href="https://www.edamam.com/" target="_blank" rel="noopener noreferrer">Nutrition data by Edamam <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        </aside>
       </div>
-      <div class="tracked">
-        <div class="tracked-chart">
-            <h2>MEALS TRACKED</h2>
+
+      <section class="tracked-card" id="tracked" aria-labelledby="tracked-heading" hidden>
+        <div class="tracked-heading-row">
+          <div><p class="calorie-card-kicker">YOUR RUNNING TOTAL</p><h2 id="tracked-heading">Today’s nutrition</h2></div>
+          <button type="button" id="clear-meals" class="clear-meals">Clear meals</button>
+        </div>
+        <div class="nutrition-summary" aria-label="Combined nutrition totals">
+          <article class="nutrition-stat nutrition-stat-calories"><span class="nutrition-stat-label">Calories</span><strong id="calories">0</strong><span class="nutrition-stat-unit">kcal</span></article>
+          <article class="nutrition-stat"><span class="nutrition-stat-label">Protein</span><strong id="protein">0</strong><span class="nutrition-stat-unit">grams</span></article>
+          <article class="nutrition-stat"><span class="nutrition-stat-label">Carbohydrates</span><strong id="carbs">0</strong><span class="nutrition-stat-unit">grams</span></article>
+          <article class="nutrition-stat"><span class="nutrition-stat-label">Fat</span><strong id="fat">0</strong><span class="nutrition-stat-unit">grams</span></article>
+          <article class="nutrition-stat"><span class="nutrition-stat-label">Fibre</span><strong id="fibre">0</strong><span class="nutrition-stat-unit">grams</span></article>
+        </div>
+        <div class="meal-list-wrap">
+          <h3>Meals added</h3>
+          <div class="meal-table-scroll">
             <table id="meal-table">
-              <tr>
-                <th>Meal</th>
-                <th>Serving Size</th>
-                <th>Calories</th>
-              </tr>
+              <thead><tr><th scope="col">Meal</th><th scope="col">Serving</th><th scope="col">Calories</th></tr></thead>
+              <tbody id="meal-entries"></tbody>
             </table>
+          </div>
         </div>
-        <div class="nutrition-chart">
-            <h2>NUTRITION DETAILS</h2><br>
-            <table id="nutrition-table">
-              <tr><td>CALORIES</td><td id="calories">0</td></tr>
-              <tr><td>PROTEIN(g)</td><td id="protein">0</td></tr>
-              <tr><td>FAT(g)</td><td id="fat">0</td></tr>
-              <tr><td>CARBOHYDRATES(g)</td><td id="carbs">0</td></tr>
-              <tr><td>FIBRE(g)</td><td id="fibre">0</td></tr>
-            </table>
-        </div>
-      </div>
+      </section>
     </main>
-    <!--Bootstrap Scripts(JAVASCRIPT AND POPPER)-->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="./components/navbar.js"></script>
-        <script src="./calories.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./components/navbar.js"></script>
+    <script src="./calories.js"></script>
   </body>
 </html>

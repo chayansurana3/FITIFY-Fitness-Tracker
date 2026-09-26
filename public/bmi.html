@@ -1,137 +1,186 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-     <title> FITIFY || BMI Calculator</title>
-     <link rel="icon" href="favicon-32x32.png" type="image/svg+xml">
-
-     <!--Bootstrap Scripts(CSS)-->
-     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65' crossorigin='anonymous'>
-     <!--Awesome Fonts-->
-     <script src='https://kit.fontawesome.com/fd6cc398e6.js' crossorigin='anonymous'></script>
-     <!--Google Fonts-->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Roboto+Mono&display=swap" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="./bmiCSS.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0f1a" />
+    <meta name="description" content="Calculate an estimate of your body mass index with the FITIFY BMI calculator." />
+    <title>FITIFY | BMI Calculator</title>
+    <link rel="icon" href="./favicon-32x32.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./indexCSS.css" />
+    <link rel="stylesheet" href="./bmiCSS.css" />
+    <script src="https://kit.fontawesome.com/fd6cc398e6.js" crossorigin="anonymous"></script>
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF52CWD314"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <body class="bmi-page">
+    <header><div data-navbar></div></header>
+    <main class="bmi-main">
+      <section class="bmi-hero" aria-labelledby="bmi-heading">
+        <p class="bmi-eyebrow">A QUICK CHECK-IN</p>
+        <h1 class="bmi-heading" id="bmi-heading">Know your <span>BMI</span></h1>
+        <p class="bmi-intro">Enter your height and weight for a quick BMI estimate. Choose the units you’re most comfortable with.</p>
+      </section>
 
-    gtag('config', 'G-TF52CWD314');
-  </script>
-  <body>
-    <header>
-      <div data-navbar></div>
-    </header>
-    <main>
-      <h1>BMI CALCULATOR</h1>
-      <div class="calculator">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Standard</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Metric</button>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><br>
-            <h6 style="margin-right: 0.2rem;">Your Height</h6>
-            <input type="text" id="foot" placeholder="Feet">
-            <input type="text" id="inches" placeholder="Inches"><br><br>
-            <h6>Your Weight</h6>
-            <input type="text" id="kgsS" placeholder="Kilograms"><br>
-            <button type="button" class="btn btn1 btn-primary">CALCULATE</button>
-            <button type="button" class="btn btn-danger reset_btn">RESET</button><br><br>
-            <!-- <button class="btns btn1">CALCULATE</button> -->
-            <!-- <button class="reset_btn">RESET</button><br><br> -->
-            <h6 style="margin-right: 1.3rem;">Your BMI</h6>
-            <input type="text" id="resultS" placeholder="BMI" readonly><br><br>
+      <div class="bmi-layout">
+        <section class="bmi-card" aria-label="Calculate your BMI">
+          <div class="bmi-unit-tabs" role="tablist" aria-label="Measurement units">
+            <button class="bmi-unit-tab" id="standard-tab" type="button" role="tab" aria-selected="true" aria-controls="standard-panel">Feet &amp; inches</button>
+            <button class="bmi-unit-tab" id="metric-tab" type="button" role="tab" aria-selected="false" aria-controls="metric-panel" tabindex="-1">Metric</button>
           </div>
-          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"><br>
-            <h6>Your Height</h6>
-            <input type="text" id="cms" placeholder="Centimeters"><br><br>
-            <h6>Your Weight</h6>
-            <input type="text" id="kgsM" placeholder="Kilograms"><br>
-            <button type="button" class="btn btn2 btn-primary">CALCULATE</button>
-            <button type="button" class="btn btn-danger reset_btn">RESET</button><br><br>
-            <!-- <button class="btns btn2">CALCULATE</button> -->
-            <!-- <button class="reset_btn">RESET</button><br><br> -->
-            <h6 style="margin-right: 1.4rem;">Your BMI</h6>
-            <input type="text" id="resultM" placeholder="BMI" readonly><br><br>
+
+          <div class="bmi-unit-panel" id="standard-panel" role="tabpanel" aria-labelledby="standard-tab">
+            <div class="bmi-field">
+              <label for="feet">Height</label>
+              <div class="bmi-input-row">
+                <input id="feet" type="number" inputmode="decimal" min="0" max="8" step="1" placeholder="Feet" autocomplete="off" />
+                <input id="inches" type="number" inputmode="decimal" min="0" max="11.9" step="0.1" placeholder="Inches" autocomplete="off" />
+              </div>
+            </div>
+            <div class="bmi-field">
+              <label for="weight-standard">Weight</label>
+              <input id="weight-standard" type="number" inputmode="decimal" min="1" max="700" step="0.1" placeholder="Kilograms" autocomplete="off" />
+            </div>
+            <div class="bmi-form-actions">
+              <button class="bmi-button bmi-button-primary" type="button" data-calculate="standard">Calculate BMI <span aria-hidden="true">&#8594;</span></button>
+              <button class="bmi-button bmi-button-reset" type="button" data-reset>Reset</button>
+            </div>
           </div>
-          <input id="feedback" readonly>
-        </div>
+
+          <div class="bmi-unit-panel" id="metric-panel" role="tabpanel" aria-labelledby="metric-tab" hidden>
+            <div class="bmi-field">
+              <label for="height-cm">Height</label>
+              <input id="height-cm" type="number" inputmode="decimal" min="50" max="250" step="0.1" placeholder="Centimeters" autocomplete="off" />
+            </div>
+            <div class="bmi-field">
+              <label for="weight-metric">Weight</label>
+              <input id="weight-metric" type="number" inputmode="decimal" min="1" max="700" step="0.1" placeholder="Kilograms" autocomplete="off" />
+            </div>
+            <div class="bmi-form-actions">
+              <button class="bmi-button bmi-button-primary" type="button" data-calculate="metric">Calculate BMI <span aria-hidden="true">&#8594;</span></button>
+              <button class="bmi-button bmi-button-reset" type="button" data-reset>Reset</button>
+            </div>
+          </div>
+
+          <p class="bmi-error" id="bmi-error" role="alert"></p>
+          <section class="bmi-result" id="bmi-result" aria-live="polite" aria-atomic="true">
+            <p class="bmi-result-label">Your estimated BMI</p>
+            <p class="bmi-result-value" id="bmi-value"></p>
+            <p class="bmi-result-category" id="bmi-category"></p>
+          </section>
+        </section>
+
+        <aside class="bmi-info-card" aria-labelledby="bmi-info-heading">
+          <div class="bmi-info-icon" aria-hidden="true"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h2 id="bmi-info-heading">Understanding your result</h2>
+          <p>BMI is a screening measure based on height and weight. For adults, these ranges are commonly used as a general guide:</p>
+          <ul class="bmi-range-list">
+            <li><span>Below the usual range</span><strong>&lt; 18.5</strong></li>
+            <li><span>Usual range</span><strong>18.5–24.9</strong></li>
+            <li><span>Above the usual range</span><strong>25–29.9</strong></li>
+            <li><span>Higher range</span><strong>30+</strong></li>
+          </ul>
+          <p class="bmi-disclaimer">BMI is only one measure and does not diagnose health or account for every individual difference. For personal guidance, speak with a healthcare professional.</p>
+        </aside>
       </div>
-    <p>The Body Mass Index (BMI) is a measure used to estimate the amount of body fat a person has based on their weight and height. It is calculated using the following formula:  BMI = weight (kg) / (height (m))<sup>2</sup>. Ideal BMI as per WHO standards is between 18.5 and 24.9</p>
     </main>
-     <!--js scripts-->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-djgx1+45ZveJq3/GA/YM+6U/Jo6UjGpUus++/4C1cX+I6ZCJbUzLG0kS5yJc2yFG" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
-     <script src="./components/navbar.js"></script>
-     <script>
-        const resetBtns = document.querySelectorAll('.reset_btn');
-        const btn1 = document.querySelector('.btn1');
-        const btn2 = document.querySelector('.btn2');
-        const main_box = document.getElementsByClassName('calculator');
-        const para = document.getElementsByTagName('p')[0];
-        const underWeight = "😔 You are Under-Weight!!";
-        const normal = "🎉 You are in the normal weight range!! 🎉";
-        const overWeight = "😔 You are Over-Weight!!";
-        const obese = "😔 You are Obese!!";
 
-        btn1.addEventListener('click',function(){
-            console.log("Standard calculations going on");
-            let foot = document.getElementById('foot').value;
-            let inches = document.getElementById('inches').value;
-            if (!inches) inches = 0;
-            if (!foot) foot = 0;
-            let weight = document.getElementById('kgsS').value;
-            let height = (parseInt(12 * foot) + parseInt(inches)) / 39.3700787;
-            let displayFeedback = document.getElementById('feedback');
-            let bmi = (parseFloat(weight)/parseFloat(height * height));
-            document.getElementById('resultS').value = bmi.toFixed(2);
-            displayFeedback.style.display = "block";
-            displayFeedback.style.width = "80%";
-            displayFeedback.style.marginLeft = "10%";
-            if (bmi < 18.5) displayFeedback.value = underWeight;
-            else if (bmi >= 18.5 && bmi <= 25) displayFeedback.value = normal;
-            else if (bmi <= 30) displayFeedback.value = overWeight;
-            else displayFeedback.value = obese;
-            displayFeedback.style.textAlign = "center";
-            para.scrollIntoView({ behavior: 'smooth' });
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./components/navbar.js"></script>
+    <script>
+      const unitTabs = [...document.querySelectorAll('.bmi-unit-tab')];
+      const panels = [...document.querySelectorAll('.bmi-unit-panel')];
+      const errorMessage = document.getElementById('bmi-error');
+      const result = document.getElementById('bmi-result');
+
+      function selectUnits(tab) {
+        unitTabs.forEach((item) => {
+          const selected = item === tab;
+          item.setAttribute('aria-selected', String(selected));
+          item.tabIndex = selected ? 0 : -1;
+        });
+        panels.forEach((panel) => { panel.hidden = panel.id !== tab.getAttribute('aria-controls'); });
+        errorMessage.textContent = '';
+      }
+
+      unitTabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectUnits(tab));
+        tab.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+            event.preventDefault();
+            const direction = event.key === 'ArrowRight' ? 1 : -1;
+            const next = unitTabs[(index + direction + unitTabs.length) % unitTabs.length];
+            selectUnits(next);
+            next.focus();
+          }
+        });
+      });
+
+      function showError(message, fields) {
+        errorMessage.textContent = message;
+        result.classList.remove('is-visible', 'is-red', 'is-yellow', 'is-green');
+        fields.forEach((field) => field.setAttribute('aria-invalid', 'true'));
+        fields.find((field) => !field.value || Number(field.value) <= 0)?.focus();
+      }
+
+      function calculateBMI(unit) {
+        const fields = unit === 'standard'
+          ? [document.getElementById('feet'), document.getElementById('inches'), document.getElementById('weight-standard')]
+          : [document.getElementById('height-cm'), document.getElementById('weight-metric')];
+        fields.forEach((field) => field.removeAttribute('aria-invalid'));
+        errorMessage.textContent = '';
+
+        let heightInMeters;
+        let weight;
+        if (unit === 'standard') {
+          const feet = Number(fields[0].value || 0);
+          const inches = Number(fields[1].value || 0);
+          weight = Number(fields[2].value);
+          if ((!fields[0].value && !fields[1].value) || inches >= 12 || feet < 0 || inches < 0 || weight <= 0) {
+            showError('Enter a valid height and a weight greater than zero. Inches must be less than 12.', fields);
+            return;
+          }
+          heightInMeters = (feet * 12 + inches) * 0.0254;
+        } else {
+          const centimeters = Number(fields[0].value);
+          weight = Number(fields[1].value);
+          if (centimeters <= 0 || weight <= 0) {
+            showError('Enter a height and weight greater than zero.', fields);
+            return;
+          }
+          heightInMeters = centimeters / 100;
+        }
+
+        const bmi = weight / (heightInMeters * heightInMeters);
+        if (!Number.isFinite(bmi) || bmi <= 0) {
+          showError('Those values don’t look right. Please check them and try again.', fields);
+          return;
+        }
+        const tone = bmi < 18.5 || bmi >= 30 ? 'is-red' : bmi < 25 ? 'is-green' : 'is-yellow';
+        const category = bmi < 18.5 ? 'Below the usual range' : bmi < 25 ? 'Within the usual range' : bmi < 30 ? 'Above the usual range' : 'Higher range';
+        document.getElementById('bmi-value').textContent = bmi.toFixed(1);
+        document.getElementById('bmi-category').textContent = category;
+        result.classList.remove('is-red', 'is-yellow', 'is-green');
+        result.classList.add(tone);
+        result.classList.add('is-visible');
+      }
+
+      document.querySelectorAll('[data-calculate]').forEach((button) => {
+        button.addEventListener('click', () => calculateBMI(button.dataset.calculate));
+      });
+
+      document.querySelectorAll('[data-reset]').forEach((button) => {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.bmi-field input').forEach((field) => {
+            field.value = '';
+            field.removeAttribute('aria-invalid');
           });
-          
-        btn2.addEventListener('click',function(){
-            console.log("Metric calculations going on");
-            let height = document.getElementById('cms').value / 100;
-            let weight = document.getElementById('kgsM').value;
-            let displayFeedback = document.getElementById('feedback');
-            let bmi = parseFloat(weight) / parseFloat(height * height);
-            document.getElementById('resultM').value = bmi.toFixed(2);
-            displayFeedback.style.display = "block";
-            displayFeedback.style.width = "80%";
-            displayFeedback.style.marginLeft = "10%";
-            if (bmi < 18.5) displayFeedback.value = underWeight;
-            else if (bmi >= 18.5 && bmi <= 25) displayFeedback.value = normal;
-            else if (bmi <= 30) displayFeedback.value = overWeight;
-            else displayFeedback.value = obese;
-            displayFeedback.style.textAlign = "center";
-            para.scrollIntoView({ behavior: 'smooth' });
+          errorMessage.textContent = '';
+          result.classList.remove('is-visible', 'is-red', 'is-yellow', 'is-green');
         });
-
-        resetBtns.forEach(btn => {
-            btn.addEventListener('click', function(){
-                console.log("Page is being reset");
-                location.reload();
-            })
-        });
-     </script>
+      });
+    </script>
   </body>
 </html>

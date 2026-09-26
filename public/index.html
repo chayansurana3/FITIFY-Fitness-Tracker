@@ -165,45 +165,61 @@
       <main id="main">
           <div class="main-box">
             <div class="main-text-box">
-              <h2>Transform yourself today.</h2>
-              <p id="main-para">"Welcome to Fitify — a powerful fitness companion with a powerful UI and tools that keep you on track. Calculate BMI, track calories, set smart goals, and discover recipes in seconds. Start today and make every workout count."</p>
-              <button id="to-features" type="button">GET FIT</button>
+              <p class="hero-kicker"><span></span> YOUR EVERYDAY WELLNESS TOOLKIT</p>
+              <h1>Small steps.<br><span>Stronger you.</span></h1>
+              <p id="main-para">Make your next healthy choice a little easier. Check your BMI, plan your nutrition, set a goal, and find recipes—all in one place.</p>
+              <button id="to-features" type="button">Explore your tools <span aria-hidden="true">&#8594;</span></button>
+              <p class="hero-note"><i class="fa-solid fa-sparkles" aria-hidden="true"></i> Simple tools. A more intentional you.</p>
             </div>
             <div class="main-image-box">
-              <img src="./diet.webp" id="main-img" alt="Display Image">
+              <div class="hero-art">
+                <img src="./diet.webp" id="main-img" alt="Illustration celebrating healthy food and an active lifestyle">
+                <div class="hero-art-label"><span class="hero-art-dot"></span> YOUR WELLNESS, IN ONE PLACE</div>
+                <div class="hero-art-chip hero-art-chip-top"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> Move with purpose</div>
+                <div class="hero-art-chip hero-art-chip-bottom"><i class="fa-solid fa-leaf" aria-hidden="true"></i> Find your balance</div>
+              </div>
             </div>
           </div>
           <div class="features-box">
             <div class="features">
-              <div id="feature-heading">FEATURES</div>
+              <div class="features-intro">
+                <p class="section-kicker">MADE FOR YOUR NEXT STEP</p>
+                <h2 id="feature-heading">Your wellness, <span>made simpler.</span></h2>
+                <p class="features-subtitle">A few thoughtful tools to help you understand your body, make nourishing choices, and keep moving forward.</p>
+              </div>
               <a class="feature-card" href="./bmi.html" aria-label="BMI Calculator">
                 <i class="fa-solid fa-dumbbell" aria-hidden="true"></i>
                 <span class="feature-links">BMI Calculator</span>
-                <p class="features-para">Calculate your Body Mass Index (BMI) to know your health status right away</p>
+                <p class="features-para">Get a quick BMI estimate and a clearer starting point for your wellness journey.</p>
+                <span class="feature-action">Explore tool <span aria-hidden="true">&#8594;</span></span>
               </a>
 
               <a class="feature-card" href="./calories.html" aria-label="Track Calories">
                 <i class="fa-solid fa-utensils" aria-hidden="true"></i>
-                <span class="feature-links">Track Calories</span>
-                <p class="features-para">Gain control over your nutrition by effortlessly tracking your daily calorie intake</p>
+                <span class="feature-links">Calorie Calculator</span>
+                <p class="features-para">Keep an eye on your daily intake and make more informed food choices.</p>
+                <span class="feature-action">Explore tool <span aria-hidden="true">&#8594;</span></span>
               </a>
 
               <a class="feature-card" href="./goal.html" aria-label="Ideal Weight">
                 <i class="fa-solid fa-person-dress" aria-hidden="true"></i>
                 <span class="feature-links">Ideal Weight</span>
-                <p class="features-para">Discover your path to a healthier you by calculating your ideal weight based on your unique measurements</p>
+                <p class="features-para">See an estimated healthy weight range based on your height.</p>
+                <span class="feature-action">Explore tool <span aria-hidden="true">&#8594;</span></span>
               </a>
 
               <a class="feature-card" href="./recipe.html" aria-label="Recipe Finder">
                 <i class="fa-solid fa-carrot" aria-hidden="true"></i>
                 <span class="feature-links">Recipe Finder</span>
-                <p class="features-para">Looking for culinary inspiration? Our Recipe Finder is your kitchen companion!</p>
+                <p class="features-para">Find fresh meal inspiration with recipes matched to what sounds good.</p>
+                <span class="feature-action">Explore tool <span aria-hidden="true">&#8594;</span></span>
               </a>
 
               <a class="feature-card" href="./basic_redirect.html" aria-label="Store Details">
                 <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-                <span class="feature-links">Store Details</span>
-                <p class="features-para">Unlock the convenience of storing your essential information securely in our database</p>
+                <span class="feature-links">Your Details</span>
+                <p class="features-para">Save and manage your personal details for a more connected experience.</p>
+                <span class="feature-action">Manage details <span aria-hidden="true">&#8594;</span></span>
               </a>
             </div>
           </div>
@@ -212,25 +228,9 @@
       <script src="./components/navbar.js"></script>
       <script>
         const button = document.getElementById('to-features');
-        const feature_box = document.getElementsByClassName('features')[0];
-        const paragraph = document.getElementById("main-para");
-        let para_text = paragraph.textContent;
-        let speed = 40, i = 0;
         const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-
-        if (!prefersReducedMotion) {
-          paragraph.textContent = "";
-          const completePara = () => {
-            if (i < para_text.length) {
-              paragraph.textContent += para_text.charAt(i++);
-              setTimeout(completePara, speed);
-            }
-          };
-          setTimeout(completePara, 100);
-        }
-
-        paragraph.style.visibility = "visible";
-        button.addEventListener("click", () => feature_box.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" }));
+        const feature_box = document.querySelector('.features-intro');
+        button.addEventListener("click", () => feature_box.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" }));
       </script>
     </body>
 </html>

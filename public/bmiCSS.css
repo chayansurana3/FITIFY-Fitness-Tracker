@@ -1,189 +1,194 @@
-body {
-    background-image: url(./scale.avif);
-    background-size: cover;
-    background-repeat: no-repeat; 
-    background-attachment: fixed; 
+.bmi-page {
+  min-height: 100vh;
+  padding-bottom: 72px;
+  color: rgba(255, 255, 255, 0.92);
+  background:
+    radial-gradient(1200px 800px at 15% 10%, rgba(124, 58, 237, 0.28), transparent 55%),
+    radial-gradient(900px 600px at 80% 20%, rgba(34, 197, 94, 0.18), transparent 60%),
+    radial-gradient(1200px 900px at 60% 90%, rgba(59, 130, 246, 0.14), transparent 60%),
+    linear-gradient(180deg, #070a12, #0b0f1a);
 }
 
-a {
-    text-decoration: none;
-    color: white;
-    margin: 4%;
+.bmi-page .navbar {
+  background: rgba(10, 12, 18, 0.66) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-h1 {
-    display: inline-block;
-    font-size: 3em;
-    font-weight: bold;
-    color: white;
-    margin: 8% 32% 0% 34%;
+.bmi-main {
+  width: min(1120px, calc(100% - 40px));
+  margin: 26px auto 0;
 }
 
-#brand {
-    font-family: 'Open Sans', 'sans serif';
-    color: gold;
-    font-size: 2.4rem;
-    font-weight: bold;
+.bmi-hero {
+  max-width: 720px;
+  margin: 0 auto 24px;
+  text-align: center;
 }
 
-h6 {
-    display: inline-block;
+.bmi-eyebrow {
+  margin: 0 0 12px;
+  color: #bda7ff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
 }
 
-p {
-    color: black; /* Set the text color to red */
-    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bolder;
-    letter-spacing: 0.5px;
-    margin: 2% 10% 0% 10%;
+.bmi-heading {
+  margin: 0 0 12px;
+  color: rgba(255,255,255,.96);
+  font-size: clamp(2.7rem, 5.4vw, 4.1rem);
+  font-weight: 850;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+  text-wrap: balance;
 }
 
-.calculator {
-    background-color: #FAF1E4;
-    margin: 4% 30% 0% 30%;
-    border-radius: 2%;
-    border-color: black;
-    border-style: solid;
-    padding: 0.5%;
-    color: black;
+.bmi-heading span {
+  background: linear-gradient(100deg, #c4a7ff, #62e2b0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.btn1, .btn2 {
-    margin: 1rem 0 0 6rem;
+.bmi-intro {
+  max-width: 58ch;
+  margin: 0 auto;
+  color: rgba(255,255,255,.68);
+  font-size: 1.04rem;
+  line-height: 1.7;
 }
 
-.reset_btn {
-    margin: 1rem 0 0 0;
+.bmi-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(270px, .8fr);
+  gap: 20px;
+  align-items: stretch;
 }
 
-.btnTop {
-    background-color: #19376D;
-    border-color: black;
-    color: white;
+.bmi-card,
+.bmi-info-card {
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(25,28,42,.92), rgba(14,18,30,.88));
+  box-shadow: 0 24px 70px rgba(0,0,0,.35);
+  backdrop-filter: blur(16px);
 }
 
-.btnTop:hover {
-    background-color: green;
-    font-weight: bold;
+.bmi-card { padding: clamp(20px, 4vw, 36px); }
+
+.bmi-unit-tabs {
+  display: inline-flex;
+  gap: 5px;
+  padding: 5px;
+  margin-bottom: 28px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 14px;
+  background: rgba(255,255,255,.045);
 }
 
-.nav-brand {
-    margin: 1%;
-    color: white;
+.bmi-unit-tab {
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 16px;
+  color: rgba(255,255,255,.68);
+  background: transparent;
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 750;
+  transition: background 160ms ease, color 160ms ease;
 }
 
-.nav-links {
-    width: 40%;
-    margin-right: 0%;
+.bmi-unit-tab[aria-selected="true"] {
+  color: white;
+  background: linear-gradient(120deg, rgba(124,58,237,.85), rgba(56,189,248,.48));
+  box-shadow: 0 5px 18px rgba(124,58,237,.2);
 }
 
-.nav-link{
-    color: black;
-    font-style: bolder;
-    font-size: large;
+.bmi-unit-panel[hidden] { display: none; }
+.bmi-field { margin-bottom: 20px; }
+.bmi-field label { display: block; margin-bottom: 9px; color: rgba(255,255,255,.88); font-size: .92rem; font-weight: 700; }
+.bmi-input-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+.bmi-field input {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px;
+  padding: 0 14px;
+  color: white;
+  background: rgba(3,6,14,.45);
+  font: inherit;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.dropdown {
-    display: inline;
+.bmi-field input::placeholder { color: rgba(255,255,255,.38); }
+.bmi-field input:focus { border-color: rgba(167,139,250,.9); box-shadow: 0 0 0 3px rgba(124,58,237,.2); }
+.bmi-field input[aria-invalid="true"] { border-color: #fb7185; }
+
+.bmi-form-actions { display: flex; gap: 10px; margin-top: 8px; }
+.bmi-button { min-height: 46px; border-radius: 12px; padding: 0 18px; font: inherit; font-weight: 800; cursor: pointer; transition: transform 160ms ease, filter 160ms ease; }
+.bmi-button:hover { transform: translateY(-1px); filter: brightness(1.08); }
+.bmi-button-primary { border: 0; color: white; background: linear-gradient(120deg, #7c3aed, #258f95); box-shadow: 0 12px 30px rgba(124,58,237,.24); }
+.bmi-button-reset { border: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.78); background: rgba(255,255,255,.05); }
+
+.bmi-result {
+  display: none;
+  margin-top: 28px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px;
+  background: rgba(255,255,255,.045);
+}
+.bmi-result.is-visible { display: block; animation: bmiReveal 300ms ease both; }
+.bmi-result-label { margin: 0 0 4px; color: rgba(255,255,255,.6); font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.bmi-result-value { margin: 0; color: white; font-size: clamp(2.6rem, 6vw, 3.6rem); font-weight: 850; letter-spacing: -.05em; line-height: 1.05; }
+.bmi-result-category { margin: 7px 0 0; color: #a9f0ce; font-size: 1rem; font-weight: 750; }
+.bmi-result.is-green { border-color: rgba(74, 222, 128, .38); background: linear-gradient(135deg, rgba(34, 197, 94, .12), rgba(255,255,255,.035)); }
+.bmi-result.is-green .bmi-result-value,
+.bmi-result.is-green .bmi-result-category { color: #86efac; }
+.bmi-result.is-yellow { border-color: rgba(250, 204, 21, .4); background: linear-gradient(135deg, rgba(234, 179, 8, .13), rgba(255,255,255,.035)); }
+.bmi-result.is-yellow .bmi-result-value,
+.bmi-result.is-yellow .bmi-result-category { color: #fde047; }
+.bmi-result.is-red { border-color: rgba(248, 113, 113, .42); background: linear-gradient(135deg, rgba(239, 68, 68, .14), rgba(255,255,255,.035)); }
+.bmi-result.is-red .bmi-result-value,
+.bmi-result.is-red .bmi-result-category { color: #fca5a5; }
+.bmi-error { min-height: 1.4em; margin: 12px 0 0; color: #fda4af; font-size: .88rem; }
+
+.bmi-info-card { padding: clamp(22px, 3vw, 30px); }
+.bmi-info-icon { display: grid; width: 48px; height: 48px; margin-bottom: 20px; place-items: center; border: 1px solid rgba(255,255,255,.13); border-radius: 15px; color: #c4a7ff; background: rgba(124,58,237,.16); font-size: 1.25rem; }
+.bmi-info-card h2 { margin: 0 0 10px; color: white; font-size: 1.3rem; font-weight: 800; letter-spacing: -.03em; }
+.bmi-info-card > p { margin: 0 0 20px; color: rgba(255,255,255,.64); line-height: 1.65; }
+.bmi-range-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+.bmi-range-list li { display: flex; justify-content: space-between; gap: 12px; padding: 11px 12px; border: 1px solid rgba(255,255,255,.08); border-radius: 11px; color: rgba(255,255,255,.76); background: rgba(255,255,255,.035); font-size: .9rem; }
+.bmi-range-list strong { color: rgba(255,255,255,.95); font-weight: 750; }
+.bmi-disclaimer { margin: 18px 0 0 !important; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.1); font-size: .8rem; }
+
+@keyframes bmiReveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 800px) {
+  .bmi-main { margin-top: 22px; }
+  .bmi-layout { grid-template-columns: 1fr; }
+  .bmi-info-card { display: grid; grid-template-columns: 52px 1fr; column-gap: 16px; }
+  .bmi-info-icon { grid-row: span 2; }
+  .bmi-info-card h2 { align-self: end; }
+  .bmi-info-card > p { grid-column: 2; }
+  .bmi-range-list, .bmi-disclaimer { grid-column: 1 / -1; }
 }
 
-.dropdown-item{
-    font-family: 'Stylish', sans-serif;
+@media (max-width: 560px) {
+  .bmi-main { width: min(100% - 28px, 540px); margin-top: 20px; }
+  .bmi-hero { margin-bottom: 22px; }
+  .bmi-card { padding: 20px 16px; border-radius: 20px; }
+  .bmi-info-card { display: block; }
+  .bmi-unit-tabs { display: flex; width: 100%; }
+  .bmi-unit-tab { flex: 1; }
+  .bmi-input-row { gap: 8px; }
 }
 
-#feedback {
-    display: none;
-}
-
-input {
-    background-color: white;
-    color: black;
-    padding: 2px 2px;
-    margin: 0px 4px 8px 0px;
-    border-radius: 4px;
-}
-
-#resultM,
-#resultS {
-    text-align: center;
-}
-
-@media screen and (max-width: 1200px) {
-    h2 {
-        font-size: 2rem;
-        margin-right: 0%;
-    }
-
-    a {
-        margin: 2%;
-        font-size: 80%;
-    }
-
-    .btnTop {
-        font-size: 80%;
-    }
-
-    .nav-links {
-        margin: 0%;
-        width: 45%;
-    }
-
-    h1 {
-        font-size: 4rem;
-        margin: 40% 20% 2% 25%;
-    }
-
-    .calculator {
-        width: 70%;
-        margin: 1% 2% 0% 15%;
-        font-size: 1.5rem;
-        font-weight: bolder;
-    }
-
-    p {
-        font-size: 2rem;
-        color: black;
-        font-weight: bolder;
-    }
-}
-
-@media screen and (min-width: 1851px) and (max-width: 2560px) {
-
-    /* 4k */
-    h2 {
-        font-size: 4rem;
-        margin-right: 0%;
-    }
-
-    a {
-        margin: 3%;
-        font-size: 3rem;
-    }
-
-    .btnTop {
-        font-size: 3rem;
-    }
-
-    .nav-links {
-        margin: 0%;
-        width: 50%;
-    }
-
-    h1 {
-        font-size: 5rem;
-        margin: 10% 5% 2% 35%;
-    }
-
-    .calculator {
-        width: 30%;
-        margin: 1% 2% 0% 35%;
-        font-size: 1.5rem;
-        font-weight: bolder;
-    }
-
-    p {
-        font-size: 2rem;
-    }
+@media (prefers-reduced-motion: reduce) {
+  .bmi-result.is-visible { animation: none; }
+  .bmi-button, .bmi-unit-tab, .bmi-field input { transition: none; }
 }

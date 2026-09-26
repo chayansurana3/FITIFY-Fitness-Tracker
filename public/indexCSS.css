@@ -1,9 +1,3 @@
-/* =========================================================
-   FITIFY Home (2026 polish)
-   This file intentionally overrides some Bootstrap defaults
-   for a premium, modern landing experience.
-   ========================================================= */
-
 :root {
   --maxw: 1120px;
   --pad: clamp(16px, 3vw, 28px);
@@ -100,7 +94,7 @@ button,
   font-family: "Open Sans", var(--font);
   font-weight: 800;
   letter-spacing: 0.06em;
-  font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+  font-size: clamp(1.45rem, 2.5vw, 1.9rem);
   background: linear-gradient(90deg, rgba(255,255,255,0.96), rgba(124,58,237,0.92), rgba(34,197,94,0.85));
   -webkit-background-clip: text;
   background-clip: text;
@@ -372,7 +366,7 @@ h2 {
   font-weight: 900;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 2rem;
   color: rgba(255, 255, 255, 0.72);
   background: transparent;
 }
@@ -488,6 +482,184 @@ h2 {
   }
 }
 
+/* Homepage refresh */
+.main-text-box {
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px;
+  padding: clamp(8px, 1.4vw, 18px);
+}
+
+.main-text-box h1 {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.065em;
+  font-weight: 800;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.96);
+}
+
+.main-text-box h1 span,
+#feature-heading span {
+  background: linear-gradient(100deg, #c4a7ff 4%, #9a7bff 50%, #62e2b0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-kicker,
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  color: rgba(210, 197, 255, 0.92);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.hero-kicker span,
+.hero-art-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #68e0aa;
+  box-shadow: 0 0 16px rgba(104, 224, 170, 0.8);
+}
+
+#main-para {
+  max-width: 46ch;
+  font-size: clamp(1.02rem, 1.45vw, 1.2rem);
+  line-height: 1.7;
+  color: rgba(236, 235, 246, 0.76);
+  visibility: visible;
+  font-weight: 450;
+  text-wrap: pretty;
+}
+
+#to-features {
+  position: relative;
+  margin-top: 4px;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  transform: none;
+  text-transform: none;
+}
+
+#to-features:hover { transform: translateY(-2px); }
+#to-features:active { transform: translateY(0) scale(0.99); }
+
+.main-image-box {
+  align-items: center;
+  padding: clamp(12px, 2vw, 24px);
+}
+
+.hero-art {
+  position: relative;
+  width: 100%;
+  max-width: 610px;
+  isolation: isolate;
+}
+
+.hero-art::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 12% -5% -6% 10%;
+  border-radius: 32px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.6), rgba(34, 197, 94, 0.4));
+  filter: blur(36px);
+  opacity: 0.55;
+}
+
+#main-img {
+  max-width: 610px;
+  border-radius: 24px;
+  margin-top: 0;
+  animation: artFloat 7s ease-in-out infinite;
+}
+
+.hero-art-label,
+.hero-art-chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(10, 12, 20, 0.78);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.hero-art-label {
+  left: 18px;
+  bottom: 18px;
+  padding: 10px 13px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.hero-art-chip { padding: 12px 15px; border-radius: 14px; font-size: 0.84rem; font-weight: 700; }
+.hero-art-chip i { color: #8ee4bc; }
+.hero-art-chip-top { top: 12%; right: -12px; }
+.hero-art-chip-bottom { bottom: 17%; right: -20px; }
+.hero-note { margin: 0; color: rgba(231, 230, 242, 0.58); font-size: 0.84rem; }
+.hero-note i { margin-right: 6px; color: #b5a0ff; }
+
+@keyframes artFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.features-box { padding-top: 20px; }
+.features { gap: 16px; padding: clamp(18px, 3vw, 32px); }
+.features-intro { grid-column: 1 / -1; max-width: 680px; margin: 0 auto 12px; text-align: center; }
+.features-intro .section-kicker { justify-content: center; margin-bottom: 12px; }
+
+#feature-heading {
+  margin: 0 auto 10px;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.features-subtitle { max-width: 58ch; margin: 0 auto; color: rgba(255, 255, 255, 0.65); line-height: 1.65; }
+.feature-card { min-height: 164px; padding: 20px; gap: 8px 16px; }
+.feature-action { grid-column: 2; display: inline-flex; align-items: center; gap: 6px; margin-top: 2px; color: rgba(195, 177, 255, 0.9); font-size: 0.82rem; font-weight: 800; transition: color 180ms ease, gap 180ms ease; }
+.feature-card:hover .feature-action,
+.feature-card:focus-visible .feature-action { color: #a9f0ce; gap: 10px; }
+
+@media (max-width: 980px) {
+  .hero-art-chip-top { right: -4px; }
+  .hero-art-chip-bottom { right: -8px; }
+}
+
+@media (max-width: 600px) {
+  .main-box { margin-top: 24px; }
+  .main-text-box { gap: 14px; }
+  .main-text-box h1 { font-size: clamp(2.8rem, 13vw, 4.2rem); }
+  .main-image-box { padding: 10px 8px 20px; }
+  #main-img { border-radius: 18px; }
+  .hero-art-chip { padding: 9px 11px; font-size: 0.72rem; }
+  .hero-art-chip-top { top: 8%; }
+  .hero-art-chip-bottom { bottom: 13%; }
+  .hero-art-label { left: 10px; bottom: 10px; font-size: 0.55rem; }
+  .feature-card { min-height: 0; padding: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main-img, .feature-card { animation: none; }
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .main-box {
@@ -503,4 +675,8 @@ h2 {
   .features {
     grid-template-columns: 1fr;
   }
+}
+
+@media (max-width: 600px) {
+  .main-box { margin-top: 24px; }
 }

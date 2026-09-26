@@ -1,56 +1,66 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
   <head>
-    <title> FITIFY || RECIPE FINDER</title>
-    <link rel="icon" href="favicon-32x32.png" type="image/svg+xml">
-
-    <!--Bootstrap Scripts(CSS)-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!--Google Fonts-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Roboto+Mono&family=Instrument+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Stylish&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Recursive:wght@700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="./recipeCSS.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0f1a" />
+    <meta name="description" content="Discover recipes and step-by-step cooking inspiration with the FITIFY recipe finder." />
+    <title>FITIFY | Recipe Finder</title>
+    <link rel="icon" href="./favicon-32x32.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./indexCSS.css" />
+    <link rel="stylesheet" href="./recipeCSS.css" />
+    <script src="https://kit.fontawesome.com/fd6cc398e6.js" crossorigin="anonymous"></script>
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TF52CWD314"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <body class="recipe-page">
+    <header><div data-navbar></div></header>
+    <main class="recipe-main">
+      <section class="recipe-hero" aria-labelledby="recipe-heading">
+        <p class="recipe-eyebrow"><span></span> A LITTLE INSPIRATION FOR YOUR TABLE</p>
+        <h1 id="recipe-heading">Find your next <span>favorite.</span></h1>
+        <p class="recipe-intro">Search for a dish and discover the ingredients and steps to make it at home.</p>
 
-    gtag('config', 'G-TF52CWD314');
-  </script>
-  <body>
-    <header>
-      <div data-navbar></div>
-    </header>  
-    <main>
-      <p>*The recipe data is being fetched from <a id="spoonacular-path" href="https://spoonacular.com/food-api" target="_blank">SPOONACULAR API</a></p>
-      <div class="search-box">
-        <h2>RECIPE FINDER</h2>
-        <input type="text" placeholder="Enter Recipe Name"><br>
-        <div id="suggestionDropdown" class="suggestions-dropdown"></div>
-        <button type="button" class="btn btn-success">Search</button><br>
-        <span class="loader"></span>
-      </div>
-      <div class="result-box">
-        <h2 id="recipe-title"></h2>
-        <img id="recipe-image" src="" alt="Recipe Image Not Found">
-        <div id="ingredients">
-          <h4>Ingredients: </h4>
+        <form class="recipe-search" role="search" autocomplete="off">
+          <label class="visually-hidden" for="recipe-query">What would you like to cook?</label>
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="recipe-query" type="search" placeholder="Try “creamy tomato pasta”" aria-controls="suggestionDropdown" aria-autocomplete="list" />
+          <button type="submit" id="search-button">Find a recipe <span aria-hidden="true">&#8594;</span></button>
+          <div id="suggestionDropdown" class="suggestions-dropdown" role="listbox" aria-label="Recipe suggestions" hidden></div>
+        </form>
+        <p class="recipe-status" id="recipe-status" role="status" aria-live="polite">Recipe ideas powered by Spoonacular.</p>
+      </section>
+
+      <section class="result-box" id="result-box" aria-live="polite" aria-atomic="false" hidden>
+        <div class="recipe-result-topline">
+          <p class="recipe-eyebrow">YOUR RECIPE</p>
+          <button type="button" class="recipe-again" id="search-again"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Search again</button>
         </div>
-        <div id="recipe-steps-box">
-          <h4>Recipe:</h4>
-          <ol id="recipe-steps"></ol>
+        <div class="recipe-overview">
+          <div class="recipe-image-wrap"><img id="recipe-image" src="" alt="" /></div>
+          <div class="recipe-overview-copy">
+            <h2 id="recipe-title"></h2>
+            <p id="recipe-summary"></p>
+            <div class="recipe-meta" id="recipe-meta"></div>
+            <a class="recipe-source" id="recipe-source" href="https://spoonacular.com/food-api" target="_blank" rel="noopener noreferrer">Recipe data by Spoonacular <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </div>
         </div>
-      </div>
+        <div class="recipe-details-grid">
+          <section class="recipe-detail-card" aria-labelledby="ingredients-heading">
+            <div class="recipe-detail-heading"><span class="recipe-detail-icon"><i class="fa-solid fa-basket-shopping" aria-hidden="true"></i></span><div><p class="recipe-eyebrow">WHAT YOU’LL NEED</p><h3 id="ingredients-heading">Ingredients</h3></div></div>
+            <ul id="ingredients-list" class="ingredients-list"></ul>
+          </section>
+          <section class="recipe-detail-card recipe-method-card" aria-labelledby="steps-heading">
+            <div class="recipe-detail-heading"><span class="recipe-detail-icon"><i class="fa-solid fa-list-check" aria-hidden="true"></i></span><div><p class="recipe-eyebrow">LET’S GET COOKING</p><h3 id="steps-heading">Method</h3></div></div>
+            <ol id="recipe-steps" class="recipe-steps"></ol>
+          </section>
+        </div>
+      </section>
     </main>
-    <!--Bootstrap Scripts(JAVASCRIPT AND POPPER)-->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js" integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i" crossorigin="anonymous"></script>
-        <script src="./components/navbar.js"></script>
-        <script src="./recipe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./components/navbar.js"></script>
+    <script src="./recipe.js"></script>
   </body>
 </html>
