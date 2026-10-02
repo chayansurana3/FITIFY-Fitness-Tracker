@@ -6,12 +6,13 @@
   "scripts": {
     "start": "node netlify/functions/recipe.js",
     "frontend": "lite-server --baseDir=public",
-    "dev": "nodemon netlify/functions/recipe.js",
+    "dev": "npx netlify-cli dev",
+    "dev:recipe": "nodemon netlify/functions/recipe.js",
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "serve": "npm run dev"
   },
   "author": "Chayan Surana",
   "license": "ISC",

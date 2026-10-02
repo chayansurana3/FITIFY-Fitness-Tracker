@@ -41,7 +41,7 @@
             </div>
             <div class="bmi-field">
               <label for="weight-standard">Weight</label>
-              <input id="weight-standard" type="number" inputmode="decimal" min="1" max="700" step="0.1" placeholder="Kilograms" autocomplete="off" />
+              <input id="weight-standard" type="number" inputmode="decimal" min="10" max="500" step="0.1" placeholder="Kilograms" autocomplete="off" />
             </div>
             <div class="bmi-form-actions">
               <button class="bmi-button bmi-button-primary" type="button" data-calculate="standard">Calculate BMI <span aria-hidden="true">&#8594;</span></button>
@@ -52,11 +52,11 @@
           <div class="bmi-unit-panel" id="metric-panel" role="tabpanel" aria-labelledby="metric-tab" hidden>
             <div class="bmi-field">
               <label for="height-cm">Height</label>
-              <input id="height-cm" type="number" inputmode="decimal" min="50" max="250" step="0.1" placeholder="Centimeters" autocomplete="off" />
+            <input id="height-cm" type="number" inputmode="decimal" min="50" max="260" step="0.1" placeholder="Centimeters" autocomplete="off" />
             </div>
             <div class="bmi-field">
               <label for="weight-metric">Weight</label>
-              <input id="weight-metric" type="number" inputmode="decimal" min="1" max="700" step="0.1" placeholder="Kilograms" autocomplete="off" />
+            <input id="weight-metric" type="number" inputmode="decimal" min="10" max="500" step="0.1" placeholder="Kilograms" autocomplete="off" />
             </div>
             <div class="bmi-form-actions">
               <button class="bmi-button bmi-button-primary" type="button" data-calculate="metric">Calculate BMI <span aria-hidden="true">&#8594;</span></button>
@@ -69,6 +69,9 @@
             <p class="bmi-result-label">Your estimated BMI</p>
             <p class="bmi-result-value" id="bmi-value"></p>
             <p class="bmi-result-category" id="bmi-category"></p>
+            <button class="bmi-button bmi-button-primary bmi-save-result" id="bmi-save-result" type="button" hidden>Save to my dashboard <span aria-hidden="true">&#8594;</span></button>
+            <p class="bmi-save-status" id="bmi-save-status" role="status" aria-live="polite"></p>
+            <a class="bmi-save-signin" id="bmi-save-signin" href="./account.html" hidden>Sign in to save your BMI history</a>
           </section>
         </section>
 
@@ -94,6 +97,10 @@
       const panels = [...document.querySelectorAll('.bmi-unit-panel')];
       const errorMessage = document.getElementById('bmi-error');
       const result = document.getElementById('bmi-result');
+      const saveButton = document.getElementById('bmi-save-result');
+      const saveStatus = document.getElementById('bmi-save-status');
+      const signInLink = document.getElementById('bmi-save-signin');
+      let latestBmiRecord = null;
 
       function selectUnits(tab) {
         unitTabs.forEach((item) => {
@@ -138,16 +145,20 @@
           const feet = Number(fields[0].value || 0);
           const inches = Number(fields[1].value || 0);
           weight = Number(fields[2].value);
-          if ((!fields[0].value && !fields[1].value) || inches >= 12 || feet < 0 || inches < 0 || weight <= 0) {
-            showError('Enter a valid height and a weight greater than zero. Inches must be less than 12.', fields);
+          if ((!fields[0].value && !fields[1].value) || inches >= 12 || feet < 0 || inches < 0 || weight < 10 || weight > 500) {
+            showError('Enter a height from 50 to 260 cm and a weight from 10 to 500 kg. Inches must be less than 12.', fields);
             return;
           }
           heightInMeters = (feet * 12 + inches) * 0.0254;
+          if (heightInMeters * 100 < 50 || heightInMeters * 100 > 260) {
+            showError('Enter a height from 50 to 260 cm and a weight from 10 to 500 kg.', fields);
+            return;
+          }
         } else {
           const centimeters = Number(fields[0].value);
           weight = Number(fields[1].value);
-          if (centimeters <= 0 || weight <= 0) {
-            showError('Enter a height and weight greater than zero.', fields);
+          if (centimeters < 50 || centimeters > 260 || weight < 10 || weight > 500) {
+            showError('Enter a height from 50 to 260 cm and a weight from 10 to 500 kg.', fields);
             return;
           }
           heightInMeters = centimeters / 100;
@@ -162,10 +173,52 @@
         const category = bmi < 18.5 ? 'Below the usual range' : bmi < 25 ? 'Within the usual range' : bmi < 30 ? 'Above the usual range' : 'Higher range';
         document.getElementById('bmi-value').textContent = bmi.toFixed(1);
         document.getElementById('bmi-category').textContent = category;
+        latestBmiRecord = { heightCm: Number((heightInMeters * 100).toFixed(2)), weightKg: weight };
+        saveStatus.textContent = '';
+        signInLink.hidden = true;
+        saveButton.hidden = false;
+        saveButton.disabled = false;
+        saveButton.innerHTML = 'Save to my dashboard <span aria-hidden="true">&#8594;</span>';
         result.classList.remove('is-red', 'is-yellow', 'is-green');
         result.classList.add(tone);
         result.classList.add('is-visible');
       }
+
+      saveButton.addEventListener('click', async () => {
+        if (!latestBmiRecord) return;
+        saveButton.disabled = true;
+        saveStatus.textContent = 'Saving your private result…';
+        signInLink.hidden = true;
+        try {
+          const response = await fetch('/.netlify/functions/bmi-history', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(latestBmiRecord), cache: 'no-store',
+          });
+          const contentType = response.headers.get('content-type') || '';
+          if (!contentType.toLowerCase().includes('application/json')) {
+            throw new Error('The account service did not respond. Start FITIFY with “npm run serve” so Netlify Functions are available.');
+          }
+          let data;
+          try {
+            data = await response.json();
+          } catch {
+            throw new Error('The account service returned an unreadable response. Please try again.');
+          }
+          if (response.status === 401) {
+            saveStatus.textContent = 'Your result is ready, but saving it requires an account.';
+            signInLink.hidden = false;
+            return;
+          }
+          if (!response.ok) throw new Error(data.error || 'We could not save this result. Please try again.');
+          saveStatus.textContent = 'Saved to your private dashboard.';
+          saveButton.textContent = 'Saved';
+        } catch (error) {
+          saveStatus.textContent = error instanceof TypeError
+            ? 'We couldn’t reach the account service. Start FITIFY with “npm run serve” and try again.'
+            : error.message || 'We could not save this result. Please try again.';
+          saveButton.disabled = false;
+        }
+      });
 
       document.querySelectorAll('[data-calculate]').forEach((button) => {
         button.addEventListener('click', () => calculateBMI(button.dataset.calculate));
@@ -178,6 +231,10 @@
             field.removeAttribute('aria-invalid');
           });
           errorMessage.textContent = '';
+          latestBmiRecord = null;
+          saveStatus.textContent = '';
+          signInLink.hidden = true;
+          saveButton.hidden = true;
           result.classList.remove('is-visible', 'is-red', 'is-yellow', 'is-green');
         });
       });

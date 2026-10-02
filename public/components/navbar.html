@@ -13,12 +13,23 @@
           <li><a class="dropdown-item rounded-2" href="./bmi.html">BMI Calculator</a></li>
           <li><a class="dropdown-item rounded-2" href="./calories.html">Track Calories</a></li>
           <li><a class="dropdown-item rounded-2" href="./goal.html">Know Your Goal</a></li>
-          <li><a class="dropdown-item rounded-2" href="./basic_redirect.html">Store Your Details</a></li>
+          <li><a class="dropdown-item rounded-2" href="./dashboard.html">My Dashboard</a></li>
           <li><a class="dropdown-item rounded-2" href="./recipe.html">Recipe Finder</a></li>
         </ul>
       </div>
       <a class="nav-link" href="./about.html" data-nav="about">About</a>
       <a class="nav-link" href="./contacts.html" data-nav="contact">Contact</a>
+      <div class="dropdown">
+        <button class="nav-link dropdown-toggle nav-cta" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-nav="account">
+          Account
+        </button>
+        <ul class="dropdown-menu gap-1 p-2 rounded-3 mx-0 shadow w-220px" data-bs-theme="dark">
+          <li data-account-item="signed-out"><a class="dropdown-item rounded-2" href="./account.html">Sign in</a></li>
+          <li data-account-item="signed-out"><a class="dropdown-item rounded-2" href="./register.html">Create account</a></li>
+          <li data-account-item="signed-in" hidden><a class="dropdown-item rounded-2" href="./dashboard.html">My Dashboard</a></li>
+          <li data-account-item="signed-in" hidden><button class="dropdown-item rounded-2" type="button" data-sign-out>Sign out</button></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

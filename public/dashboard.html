@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0f1a" />
+    <title>FITIFY | My Dashboard</title>
+    <link rel="icon" href="./favicon-32x32.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./indexCSS.css" />
+    <link rel="stylesheet" href="./accountCSS.css" />
+    <script src="https://kit.fontawesome.com/fd6cc398e6.js" crossorigin="anonymous"></script>
+  </head>
+  <body class="account-page dashboard-page">
+    <header><div data-navbar></div></header>
+    <main class="dashboard-main" id="dashboard-content" hidden>
+      <section class="dashboard-welcome">
+        <div><p class="account-eyebrow">YOUR PRIVATE SPACE</p><h1>Welcome back, <span id="welcome-name">there</span>.</h1><p>Keep your fitness details in one place and update them whenever they change.</p></div>
+        <button type="button" id="sign-out" class="account-secondary"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Sign out</button>
+      </section>
+
+      <section class="dashboard-stats" aria-label="Your current profile snapshot">
+        <article class="dashboard-stat"><span class="dashboard-stat-icon"><i class="fa-solid fa-ruler-vertical" aria-hidden="true"></i></span><p>Height</p><strong id="stat-height">Not added</strong></article>
+        <article class="dashboard-stat"><span class="dashboard-stat-icon"><i class="fa-solid fa-weight-scale" aria-hidden="true"></i></span><p>Current weight</p><strong id="stat-weight">Not added</strong></article>
+        <article class="dashboard-stat dashboard-stat-highlight"><span class="dashboard-stat-icon"><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i></span><p>Estimated BMI</p><strong id="stat-bmi">—</strong><small id="bmi-note">Add height and weight to calculate</small></article>
+      </section>
+
+      <div class="dashboard-columns">
+        <section class="dashboard-card" aria-labelledby="profile-settings-title">
+          <div class="account-section-heading"><div><p class="account-eyebrow">PROFILE SETTINGS</p><h2 id="profile-settings-title">Your details</h2></div><span class="dashboard-section-icon"><i class="fa-solid fa-user-pen" aria-hidden="true"></i></span></div>
+          <form id="profile-settings-form" novalidate>
+            <div class="account-field"><label for="profile-name">Name</label><input id="profile-name" name="displayName" type="text" minlength="2" maxlength="80" required /></div>
+            <div class="account-field"><label for="profile-email">Account email</label><input id="profile-email" type="email" readonly aria-describedby="email-help" /><small id="email-help">Email changes will be available in account settings.</small></div>
+            <div class="account-field"><label for="preferred-units">Preferred units</label><select id="preferred-units" name="preferredUnits"><option value="metric">Metric (cm, kg)</option><option value="imperial">Imperial (ft/in, lb)</option></select></div>
+            <div class="dashboard-measurements">
+              <div class="account-field"><label id="profile-height-label" for="profile-height-cm">Height</label>
+                <div class="profile-unit-inputs" id="height-metric-wrap"><input id="profile-height-cm" type="number" inputmode="decimal" min="50" max="260" step="0.1" placeholder="Centimeters (optional)" /></div>
+                <div class="profile-unit-inputs profile-imperial-inputs" id="height-imperial-wrap" hidden><input id="profile-height-ft" type="number" inputmode="numeric" min="0" max="8" step="1" placeholder="Feet" /><input id="profile-height-in" type="number" inputmode="decimal" min="0" max="11.9" step="0.1" placeholder="Inches" /></div>
+              </div>
+              <div class="account-field"><label id="profile-weight-label" for="profile-weight-kg">Current weight</label>
+                <div class="profile-unit-inputs" id="weight-metric-wrap"><input id="profile-weight-kg" type="number" inputmode="decimal" min="10" max="500" step="0.1" placeholder="Kilograms (optional)" /></div>
+                <div class="profile-unit-inputs" id="weight-imperial-wrap" hidden><input id="profile-weight-lb" type="number" inputmode="decimal" min="22" max="1100" step="0.1" placeholder="Pounds (optional)" /></div>
+              </div>
+            </div>
+            <div class="account-field"><label for="daily-calorie-target">Daily calorie goal <span class="unit-hint">(optional)</span></label><input id="daily-calorie-target" type="number" min="500" max="10000" step="50" placeholder="e.g. 2200 kcal" /><small>A personal planning target, not a medical recommendation.</small></div>
+            <div class="account-field"><label for="fitness-focus">Fitness focus</label><select id="fitness-focus" name="fitnessGoal"><option value="general">General wellness</option><option value="consistency">Build consistency</option><option value="strength">Build strength</option><option value="endurance">Improve endurance</option></select></div>
+            <button class="account-primary" id="save-profile" type="submit">Save changes <span aria-hidden="true">&#8594;</span></button>
+            <p class="account-status" id="profile-status" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <aside class="dashboard-card dashboard-side-card">
+          <span class="dashboard-side-icon"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></span>
+          <p class="account-eyebrow">YOUR DATA, YOUR CHOICE</p>
+          <h2>Keep your profile up to date.</h2>
+          <p>Your measurements are used to show this personal snapshot. BMI is an estimate based on height and weight, not a diagnosis or a complete measure of health.</p>
+          <a href="./bmi.html">Open BMI calculator <span aria-hidden="true">&#8594;</span></a>
+          <a href="./calories.html">Track a meal <span aria-hidden="true">&#8594;</span></a>
+        </aside>
+      </div>
+      <section class="dashboard-card dashboard-history" aria-labelledby="bmi-history-title">
+        <div class="account-section-heading"><div><p class="account-eyebrow">YOUR PROGRESS</p><h2 id="bmi-history-title">BMI history</h2></div><span class="dashboard-section-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></span></div>
+        <p class="dashboard-history-intro">Results you choose to save from the BMI calculator appear here, newest first.</p>
+        <p id="bmi-history-empty" class="dashboard-history-empty" hidden>No saved results yet. Use the BMI calculator and choose “Save to my dashboard” to start your history.</p>
+        <ol id="bmi-history-list" class="bmi-history-list" aria-live="polite"></ol>
+        <p id="bmi-history-error" class="account-status is-error" role="status" hidden>We couldn’t load your BMI history right now.</p>
+      </section>
+
+      <section class="dashboard-card dashboard-history" aria-labelledby="weight-history-title">
+        <div class="account-section-heading"><div><p class="account-eyebrow">MEASURED OVER TIME</p><h2 id="weight-history-title">Weight history</h2></div><span class="dashboard-section-icon"><i class="fa-solid fa-weight-scale" aria-hidden="true"></i></span></div>
+        <p class="dashboard-history-intro">Add one check-in per day. A new entry for the same date replaces that day’s value.</p>
+        <form id="weight-log-form" class="weight-log-form"><div class="account-field"><label for="weight-log-date">Date</label><input id="weight-log-date" type="date" required /></div><div class="account-field"><label id="weight-log-label" for="weight-log-value">Weight</label><input id="weight-log-value" type="number" min="10" max="500" step="0.1" required /></div><button class="account-primary" type="submit" id="weight-log-submit">Save check-in <span aria-hidden="true">→</span></button></form>
+        <p id="weight-log-status" class="account-status" role="status" aria-live="polite"></p><div id="weight-chart" class="weight-chart" aria-label="Weight trend chart"></div><ol id="weight-history-list" class="bmi-history-list"></ol><p id="weight-history-empty" class="dashboard-history-empty" hidden>No check-ins yet. Add your first weight above.</p>
+      </section>
+      <section class="dashboard-card dashboard-history" aria-labelledby="meal-history-title">
+        <div class="account-section-heading"><div><p class="account-eyebrow">DAILY NUTRITION</p><h2 id="meal-history-title">Recent calorie totals</h2></div><span class="dashboard-section-icon"><i class="fa-solid fa-bowl-food" aria-hidden="true"></i></span></div>
+        <p class="dashboard-history-intro">Saved meals are grouped by date and compared with your optional daily goal.</p><div id="calorie-history-list" class="calorie-history-list"></div><p id="calorie-history-empty" class="dashboard-history-empty" hidden>No saved meals yet. Track a meal to start your nutrition history.</p><p id="calorie-history-error" class="account-status is-error" role="status" hidden>We couldn’t load your meal history right now.</p><a class="dashboard-inline-link" href="./calories.html">Open meal tracker <span aria-hidden="true">→</span></a>
+      </section>
+      <section class="dashboard-card dashboard-history" aria-labelledby="security-title">
+        <div class="account-section-heading"><div><p class="account-eyebrow">ACCOUNT MANAGEMENT</p><h2 id="security-title">Security &amp; account</h2></div><span class="dashboard-section-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span></div>
+        <div class="dashboard-columns security-columns"><form id="change-password-form"><h3>Change password</h3><div class="account-field"><label for="current-password">Current password</label><input id="current-password" type="password" autocomplete="current-password" required /></div><div class="account-field"><label for="new-password">New password</label><input id="new-password" type="password" minlength="12" maxlength="128" autocomplete="new-password" required /><small>At least 12 characters. Other sessions will be signed out.</small></div><button class="account-secondary" type="submit" id="change-password-submit">Update password</button><p class="account-status" id="password-status" role="status" aria-live="polite"></p></form>
+        <form id="delete-account-form" class="delete-account-panel"><h3>Delete account</h3><p>This permanently deletes your profile, BMI results, weight check-ins, and saved meal history.</p><div class="account-field"><label for="delete-password">Confirm with your password</label><input id="delete-password" type="password" autocomplete="current-password" required /></div><div class="account-field"><label for="delete-confirmation">Type DELETE to confirm</label><input id="delete-confirmation" type="text" autocomplete="off" required /></div><button class="account-danger" type="submit" id="delete-account-submit">Delete my account</button><p class="account-status" id="delete-status" role="status" aria-live="polite"></p></form></div>
+      </section>
+      <p class="dashboard-error account-status" id="dashboard-error" role="alert"></p>
+    </main>
+    <div class="dashboard-loading" id="dashboard-loading" role="status"><span class="account-loader" aria-hidden="true"></span><p>Loading your private dashboard…</p></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./components/navbar.js"></script>
+    <script src="./dashboard.js"></script>
+  </body>
+</html>

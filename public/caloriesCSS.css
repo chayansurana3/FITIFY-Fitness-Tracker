@@ -93,3 +93,5 @@
   .calorie-spinner { animation: none; }
   .calorie-submit { transition: none; }
 }
+.calorie-save-note a { color: #c4a7ff; }
+#meal-date { color-scheme: dark; }

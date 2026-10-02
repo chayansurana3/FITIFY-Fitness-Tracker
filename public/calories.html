@@ -52,8 +52,9 @@
                 </select>
               </div>
             </div>
+            <div class="calorie-field"><label for="meal-date">Log date</label><input type="date" id="meal-date" required /></div>
             <button type="submit" id="track-button" class="calorie-submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add to today</button>
-            <p class="calorie-status" id="calorie-status" role="status" aria-live="polite"></p>
+            <p class="calorie-status" id="calorie-status" role="status" aria-live="polite"></p><p class="calorie-save-note" id="calorie-save-note"></p>
           </form>
         </section>
 
@@ -68,7 +69,7 @@
 
       <section class="tracked-card" id="tracked" aria-labelledby="tracked-heading" hidden>
         <div class="tracked-heading-row">
-          <div><p class="calorie-card-kicker">YOUR RUNNING TOTAL</p><h2 id="tracked-heading">Today’s nutrition</h2></div>
+          <div><p class="calorie-card-kicker">YOUR SAVED DAILY TOTAL</p><h2 id="tracked-heading">Nutrition for this date</h2></div>
           <button type="button" id="clear-meals" class="clear-meals">Clear meals</button>
         </div>
         <div class="nutrition-summary" aria-label="Combined nutrition totals">
