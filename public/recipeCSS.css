@@ -17,7 +17,7 @@
 }
 
 .recipe-main { width: min(1120px, calc(100% - 40px)); margin: 34px auto 0; }
-.recipe-hero { max-width: 760px; margin: 0 auto 46px; text-align: center; }
+.recipe-hero { position: relative; z-index: 5; max-width: 760px; margin: 0 auto 46px; text-align: center; }
 .recipe-eyebrow { margin: 0 0 12px; color: #c4b5fd; font-size: .72rem; font-weight: 800; letter-spacing: .16em; }
 .recipe-hero .recipe-eyebrow { display: flex; justify-content: center; align-items: center; gap: 10px; }
 .recipe-eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: #68e0aa; box-shadow: 0 0 14px rgba(104,224,170,.75); }
@@ -27,6 +27,7 @@
 
 .recipe-search {
   position: relative;
+  z-index: 6;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -51,13 +52,13 @@
 .recipe-status.is-error { color: #fda4af; }
 .recipe-status.is-loading { color: #c4b5fd; }
 
-.suggestions-dropdown { position: absolute; z-index: 20; top: calc(100% + 8px); left: 0; right: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; background: rgba(15,18,29,.97); box-shadow: 0 20px 48px rgba(0,0,0,.5); text-align: left; }
+.suggestions-dropdown { position: absolute; z-index: 30; top: calc(100% + 8px); left: 0; right: 0; max-height: min(320px, 45vh); overflow-y: auto; border: 1px solid rgba(255,255,255,.14); border-radius: 14px; background: rgba(15,18,29,.97); box-shadow: 0 20px 48px rgba(0,0,0,.5); text-align: left; }
 .suggestions-dropdown[hidden] { display: none; }
 .suggestion-item { display: block; width: 100%; padding: 13px 16px; border: 0; border-bottom: 1px solid rgba(255,255,255,.07); color: rgba(255,255,255,.86); background: transparent; text-align: left; font: inherit; cursor: pointer; }
 .suggestion-item:last-child { border-bottom: 0; }
 .suggestion-item:hover, .suggestion-item:focus-visible, .suggestion-item[aria-selected="true"] { outline: 0; color: white; background: rgba(124,58,237,.2); }
 
-.result-box { margin-top: 46px; animation: recipeIn 380ms ease both; }
+.result-box { position: relative; z-index: 1; margin-top: 46px; animation: recipeIn 380ms ease both; }
 .result-box[hidden] { display: none; }
 .recipe-result-topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .recipe-result-topline .recipe-eyebrow { margin: 0; }

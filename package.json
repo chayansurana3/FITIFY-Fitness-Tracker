@@ -24,6 +24,7 @@
     "mongoose": "^7.2.0",
     "netlify-lambda": "^2.0.16",
     "node.js": "^0.0.1-security",
+    "nodemailer": "^10.0.13",
     "nodemon": "^2.0.22",
     "react-scripts": "^2.1.3",
     "request": "^2.88.2",

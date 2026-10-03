@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const nodemailer = require('nodemailer');
 const crypto = require('node:crypto');
 const { promisify } = require('node:util');
 const { Account, Session, BmiEntry, AccountToken, WeightEntry, MealEntry } = require('./accountModels');
@@ -7,6 +8,7 @@ const scrypt = promisify(crypto.scrypt);
 const SESSION_COOKIE = 'fitify_session';
 const SESSION_DAYS = 14;
 let connectionPromise;
+let accountEmailTransport;
 
 async function connectDatabase() {
   if (mongoose.connection.readyState === 1) return;
@@ -42,7 +44,7 @@ function serviceError(error, fallback) {
     return json(503, { error: 'MongoDB is not configured. Add MONGODB_URI or both MONGODB_USERNAME and MONGODB_PASSWORD to the project-root .env file, then restart with “npm run serve”.' });
   }
   if (error?.code === 'FITIFY_EMAIL_NOT_CONFIGURED') {
-    return json(503, { error: 'Email delivery is not configured. Add RESEND_API_KEY and EMAIL_FROM to your environment settings before using verification or password recovery.' });
+    return json(503, { error: 'Email delivery is not configured. Add SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD, and EMAIL_FROM to your environment settings before using verification or password recovery.' });
   }
   if (error?.code === 'FITIFY_EMAIL_DELIVERY_FAILED') {
     return json(503, { error: 'We could not send the email right now. Check the email provider settings and try again.' });
@@ -126,26 +128,36 @@ function siteBaseUrl(event) {
   return `${proto}://${host}`;
 }
 
-async function sendAccountEmail({ to, subject, html, text }) {
-  if (!process.env.RESEND_API_KEY || !process.env.EMAIL_FROM) {
-    const error = new Error('Email delivery is not configured.');
+function getAccountEmailTransport() {
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } = process.env;
+  const port = Number(SMTP_PORT || 587);
+  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASSWORD || !Number.isInteger(port) || port < 1 || port > 65535 || !process.env.EMAIL_FROM) {
+    const error = new Error('SMTP email delivery is not configured.');
     error.code = 'FITIFY_EMAIL_NOT_CONFIGURED';
     throw error;
   }
-  let response;
-  try {
-    response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: process.env.EMAIL_FROM, to: [to], subject, html, text }),
+  if (!accountEmailTransport) {
+    accountEmailTransport = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port,
+      secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE.toLowerCase() === 'true' : port === 465,
+      auth: { user: SMTP_USER, pass: SMTP_PASSWORD },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 15000,
+      tls: { minVersion: 'TLSv1.2' },
     });
-  } catch {
-    const error = new Error('Email delivery failed.');
-    error.code = 'FITIFY_EMAIL_DELIVERY_FAILED';
-    throw error;
   }
-  if (!response.ok) {
-    const error = new Error('Email provider rejected the message.');
+  return accountEmailTransport;
+}
+
+async function sendAccountEmail({ to, subject, html, text }) {
+  try {
+    await getAccountEmailTransport().sendMail({ from: process.env.EMAIL_FROM, to, subject, html, text });
+  } catch (cause) {
+    if (cause?.code === 'FITIFY_EMAIL_NOT_CONFIGURED') throw cause;
+    console.error('SMTP email delivery failed with code:', cause?.code || 'unknown');
+    const error = new Error('SMTP email delivery failed.');
     error.code = 'FITIFY_EMAIL_DELIVERY_FAILED';
     throw error;
   }

@@ -50,7 +50,8 @@ async function updateSuggestions(query) {
         input.value = recipe.title;
         selectedRecipeId = recipe.id;
         closeSuggestions();
-        searchForm.requestSubmit();
+        setStatus('Recipe selected. Click “Find a recipe” when you’re ready.');
+        button.focus();
       });
       suggestionDropdown.appendChild(option);
     });
@@ -171,8 +172,10 @@ async function findRecipe(query) {
 
 input.addEventListener('input', () => {
   selectedRecipeId = null;
+  resultBox.hidden = true;
   window.clearTimeout(suggestionTimer);
   const query = input.value;
+  if (query.trim().length >= 2) setStatus('Choose a suggestion or search for this phrase.');
   suggestionTimer = window.setTimeout(() => updateSuggestions(query), 260);
 });
 

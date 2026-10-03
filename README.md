@@ -45,15 +45,21 @@ npm run dev
 npm run serve
 ```
 
-This uses Netlify CLI to serve the `public` folder and functions from `netlify/functions`. The local environment needs `MONGODB_URI` (or both `MONGODB_USERNAME` and `MONGODB_PASSWORD`) in `.env`. New account verification and password recovery also need a Resend API key and a verified sender address. Keep all secrets out of source control. The BMI and ideal-weight calculators work without an account; account creation, sign-in, and dashboard access require the database connection.
+This uses Netlify CLI to serve the `public` folder and functions from `netlify/functions`. The local environment needs `MONGODB_URI` (or both `MONGODB_USERNAME` and `MONGODB_PASSWORD`) in `.env`. New account verification and password recovery also need working SMTP credentials. Gmail SMTP is documented below as a low-volume development option. Keep all secrets out of source control. The BMI and ideal-weight calculators work without an account; account creation, sign-in, and dashboard access require the database connection.
 
 Copy `.env.example` to `.env`, then fill in the values locally and restart `npm run serve`:
 
 - `MONGODB_URI`: MongoDB Atlas connection string. URL-encode special characters in the password. The application stores account data in the `FITIFY_PROFILES` database and collections prefixed `fitify_`.
-- `RESEND_API_KEY`: create an API key in Resend.
-- `EMAIL_FROM`: sender identity on a domain verified in Resend (for example, `FITIFY <no-reply@your-domain.com>`). Resend's sandbox sender only allows delivery to authorized test recipients; verify your own domain for real account emails.
+- `SMTP_HOST`, `SMTP_PORT`, and `SMTP_SECURE`: Gmail settings are `smtp.gmail.com`, `465`, and `true`.
+- `SMTP_USER`: the Gmail address sending account email.
+- `SMTP_PASSWORD`: a Google App Password, not your regular Google password. Google requires 2-Step Verification to create an App Password. Create one under [Google Account → Security → App passwords](https://support.google.com/accounts/answer/185833).
+- `EMAIL_FROM`: set to the same Gmail address, for example `FITIFY <your-account@gmail.com>`. Gmail may rewrite sender addresses that do not match the authenticated account.
+
 - `SITE_URL`: the public origin used to construct verification and password-reset links. Keep `http://localhost:8888` for local development; set the deployed site URL in Netlify environment variables.
 - `EDAMAM_API_ID` and `EDAMAM_API_KEY`: used by the nutrition lookup endpoint.
+- `SPOONACULAR_API_KEY`: used by recipe search.
+
+Gmail SMTP is suitable for a small demo, not a high-volume production mail system. Google can block suspicious automated logins, and personal Gmail has sending limits. For a public production service, use an email provider with a sender identity or domain you control.
 
 Never commit `.env` or share its values in screenshots or chat.
 
