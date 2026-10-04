@@ -20,8 +20,8 @@ exports.handler = async function (event) {
     await sendAccountEmail({
       to: email,
       subject: 'Verify your FITIFY account',
-      html: `<p>Verify your email to activate your FITIFY account.</p><p><a href="${link}">Verify email</a></p><p>This link expires in 24 hours.</p>`,
-      text: `Verify your FITIFY account using this link: ${link}\nThis link expires in 24 hours.`,
+      html: `<p>Verify your email to make account recovery easier.</p><p><a href="${link}">Verify email</a></p><p>This link expires in 24 hours.</p>`,
+      text: `Verify your FITIFY email to make account recovery easier: ${link}\nThis link expires in 24 hours.`,
     });
     await keepOnlyAccountToken(user._id, 'verify_email', token);
     return genericResponse();

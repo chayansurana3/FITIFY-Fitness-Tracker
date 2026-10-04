@@ -25,7 +25,6 @@ exports.handler = async function (event) {
 
     const matches = await verifyPassword(password, user.passwordHash);
     if (user.lockedUntil && user.lockedUntil > new Date()) return json(401, { error: 'Email or password is incorrect.' });
-    if (matches && user.emailVerified === false) return json(403, { code: 'EMAIL_NOT_VERIFIED', error: 'Verify your email before signing in.' });
     if (!matches) {
       const updated = await Account.findByIdAndUpdate(user._id, { $inc: { failedLoginCount: 1 } }, { new: true }).select('+failedLoginCount');
       if (updated?.failedLoginCount >= 5) {

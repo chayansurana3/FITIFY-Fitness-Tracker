@@ -1,5 +1,5 @@
 const {
-  Account, AccountToken, connectDatabase, createAccountToken, hashPassword, json, keepOnlyAccountToken, parseBody, sameOrigin,
+  Account, AccountToken, connectDatabase, createAccountToken, createSession, hashPassword, json, keepOnlyAccountToken, parseBody, publicAccount, sameOrigin,
   sendAccountEmail, serviceError, siteBaseUrl,
 } = require('../lib/accountUtils');
 
@@ -25,21 +25,29 @@ exports.handler = async function (event) {
     await connectDatabase();
     const passwordHash = await hashPassword(password);
     user = await Account.create({ displayName, email, passwordHash, emailVerified: false });
-    const token = await createAccountToken(user._id, 'verify_email', 24 * 60 * 60 * 1000);
-    const link = `${siteBaseUrl(event)}/verify-email.html?token=${encodeURIComponent(token)}`;
-    const safeName = escapeHtml(displayName);
-    await sendAccountEmail({
-      to: email,
-      subject: 'Verify your FITIFY account',
-      html: `<p>Hi ${safeName},</p><p>Verify your email to activate your FITIFY account.</p><p><a href="${link}">Verify email</a></p><p>This link expires in 24 hours. If you did not create this account, ignore this message.</p>`,
-      text: `Hi ${displayName}, verify your FITIFY account using this link: ${link}\nThis link expires in 24 hours. If you did not create this account, ignore this message.`,
-    });
-    await keepOnlyAccountToken(user._id, 'verify_email', token);
-    return json(201, { verificationRequired: true, message: 'Your account is created. Check your email for a verification link before signing in.' });
+    const cookie = await createSession(user, event);
+
+    // Email verification is an optional account security feature. Signup and the
+    // initial session must still succeed when SMTP is unavailable or delivery fails.
+    try {
+      const token = await createAccountToken(user._id, 'verify_email', 24 * 60 * 60 * 1000);
+      const link = `${siteBaseUrl(event)}/verify-email.html?token=${encodeURIComponent(token)}`;
+      const safeName = escapeHtml(displayName);
+      await sendAccountEmail({
+        to: email,
+        subject: 'Verify your FITIFY account',
+        html: `<p>Hi ${safeName},</p><p>Your FITIFY account is ready. You can verify your email to make account recovery easier.</p><p><a href="${link}">Verify email</a></p><p>This link expires in 24 hours. If you did not create this account, ignore this message.</p>`,
+        text: `Hi ${displayName}, your FITIFY account is ready. You can verify your email to make account recovery easier: ${link}\nThis link expires in 24 hours. If you did not create this account, ignore this message.`,
+      });
+      await keepOnlyAccountToken(user._id, 'verify_email', token);
+    } catch (emailError) {
+      console.warn('Optional signup verification email was not sent:', emailError?.code || 'delivery unavailable');
+    }
+
+    return json(201, { account: publicAccount(user), message: 'Your account is ready. You are signed in.' }, { 'Set-Cookie': cookie });
   } catch (error) {
     if (user) {
       await AccountToken.deleteMany({ userId: user._id }).catch(() => {});
-      await Account.deleteOne({ _id: user._id }).catch(() => {});
     }
     if (error.code === 11000) return json(409, { error: 'An account with that email already exists. Sign in instead.' });
     console.error('Account registration failed:', error);

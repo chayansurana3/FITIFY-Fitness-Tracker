@@ -72,6 +72,7 @@ function renderAccount(account) {
   document.getElementById('welcome-name').textContent = account.displayName || 'there';
   document.getElementById('profile-name').value = account.displayName || '';
   document.getElementById('profile-email').value = account.email || '';
+  document.getElementById('email-verification-controls').hidden = account.emailVerified !== false;
   unitsSelect.value = units;
   document.getElementById('fitness-focus').value = account.fitnessGoal || 'general';
   document.getElementById('daily-calorie-target').value = account.dailyCalorieTarget ?? '';
@@ -250,6 +251,26 @@ document.getElementById('sign-out').addEventListener('click', async () => {
 });
 
 loadDashboard();
+
+document.getElementById('send-verification-email').addEventListener('click', async (event) => {
+  const button = event.currentTarget;
+  button.disabled = true;
+  setStatusById('verification-status', 'Sending a verification link…');
+  try {
+    const response = await fetch('/.netlify/functions/auth-resend-verification', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: document.getElementById('profile-email').value }),
+      cache: 'no-store',
+    });
+    await readApiResponse(response);
+    setStatusById('verification-status', 'If email delivery is configured, a fresh link is on its way.', 'success');
+  } catch (error) {
+    setStatusById('verification-status', error.message || 'Could not request a verification link.', 'error');
+  } finally {
+    button.disabled = false;
+  }
+});
 
 
 function localDateString(date = new Date()) {
