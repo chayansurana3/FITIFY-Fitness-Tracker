@@ -1,77 +1,115 @@
-# 🚀 FITIFY - Fitness Tracking Website 🚀
+<div align="center">
+  <h1>FITIFY</h1>
+  <p><strong>Small steps. Stronger you.</strong></p>
+  <p>A personal wellness toolkit for checking in, making informed food choices, and building consistent habits.</p>
+  <p>
+    <a href="https://fitify-fitness-tracker.netlify.app/"><strong>Open FITIFY ↗</strong></a>
+    &nbsp; · &nbsp;
+    <a href="https://github.com/chayansurana3/FITIFY-Fitness-Tracker">View the source</a>
+  </p>
+  <p>
+    <img src="https://img.shields.io/badge/HTML5-markup-e34f26?logo=html5&logoColor=white" alt="HTML5" />
+    <img src="https://img.shields.io/badge/CSS3-styling-1572b6?logo=css3&logoColor=white" alt="CSS3" />
+    <img src="https://img.shields.io/badge/JavaScript-interactions-f7df1e?logo=javascript&logoColor=111" alt="JavaScript" />
+    <img src="https://img.shields.io/badge/Node.js-functions-339933?logo=nodedotjs&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/MongoDB-storage-47a248?logo=mongodb&logoColor=white" alt="MongoDB" />
+  </p>
+</div>
 
-FITIFY is a fitness tracking website built using HTML, CSS, Javascript, Node.js, Express. It provides various features for calculating, tracking and managing your fitness-related information. It is designed to help you in your fitness journey by providing powerful tools to track your progress. 
+---
 
-## Table of Contents
-- [Screenshorts](#screenshorts)
-- [Features](#features)
-- [Built With](#built-with)
-- [Links](#links)
-- [Author](#author)
+## A clearer picture of your progress
 
-## Screenshorts
-![ScreenShot](./ScreenShot3.png)
-![ScreenShot](./ScreenShot2.png)
+FITIFY brings a set of practical wellness tools into one calm, easy-to-use experience. Visitors can explore the calculators, estimate nutrition, and find recipes without creating an account. An account adds a private dashboard for keeping profile details and tracking selected measurements and meals over time.
 
-## Features
+> FITIFY is an informational wellness project. BMI and weight-range results are general estimates, not medical advice or a diagnosis.
 
-The website includes the following features:
+## Explore the experience
 
-- **BMI Calculator**: Calculate your Body Mass Index (BMI) based on your height and weight.
-- **Calorie Calculator**: Calculate your calorie intake and other nutritional data by tracking your meals.
-- **Ideal Weight Calculation**: Calculate your ideal weight based on your height and bmi.
-- **Recipe Finder**: Find delicious recipes to satisfy your cravings.
-- **Private FITIFY Dashboard**: Create an account, save profile preferences, and view a BMI estimate based on saved height and weight.
-- **External API Integrations**: Utilize the SPOONACULAR API & EDAMAM API for retrieving nutritional information and tracking calories.  
+<table>
+  <tr>
+    <td width="50%" align="center">
+      <a href="./Screenshot1.png"><img src="./Screenshot1.png" alt="FITIFY home page with wellness introduction and hero artwork" width="100%" /></a><br />
+      <strong>Home</strong><br />A welcoming starting point for the FITIFY toolkit.
+    </td>
+    <td width="50%" align="center">
+      <a href="./Screenshot2.png"><img src="./Screenshot2.png" alt="FITIFY feature overview with links to wellness tools" width="100%" /></a><br />
+      <strong>Wellness tools</strong><br />A quick overview of the calculators, recipe finder, and dashboard.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <a href="./Screenshot3.png"><img src="./Screenshot3.png" alt="FITIFY BMI calculator with unit controls and result guidance" width="100%" /></a><br />
+      <strong>BMI calculator</strong><br />A quick estimate with metric and imperial inputs and explanatory ranges.
+    </td>
+    <td width="50%" align="center">
+      <a href="./Screenshot4.png"><img src="./Screenshot4.png" alt="FITIFY calorie tracker meal form and nutrition estimate" width="100%" /></a><br />
+      <strong>Calorie tracker</strong><br />Estimate calories and key nutrients for a meal and serving size.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" align="center">
+      <a href="./Screenshot5.png"><img src="./Screenshot5.png" alt="FITIFY healthy weight range calculator" width="100%" /></a><br />
+      <strong>Healthy-weight estimate</strong><br />Explore a height-based range using general adult BMI guidance.
+    </td>
+    <td width="50%" align="center">
+      <a href="./Screenshot6.png"><img src="./Screenshot6.png" alt="FITIFY recipe finder showing recipe details" width="100%" /></a><br />
+      <strong>Recipe finder</strong><br />Search for meal inspiration, ingredients, and cooking steps.
+    </td>
+  </tr>
+</table>
 
-## Built With
+## What you can do
 
-- HTML
-- CSS
-- Bootstrap
-- JavaScript
-- Node.js
-- Express
-- Mongoose (MongoDB)
-- Integrations with SPOONACULAR API AND EDAMAM API
+### Understand your measurements
 
-## Local development
+- **BMI calculator** — enter height and weight in metric or imperial units and get a general screening estimate with category guidance.
+- **Healthy-weight estimate** — see an estimated weight range for a given height, based on an adult BMI reference range.
+- **Color-coded feedback** — interpret calculator results at a glance while keeping the context that these measures are limited estimates.
 
-Run the complete site, including Netlify Functions, with either command:
+### Make food choices with more context
 
-```sh
-npm run dev
-# or
-npm run serve
+- **Calorie and nutrition tracker** — look up a food and serving size to estimate calories, protein, carbohydrates, fat, and fibre.
+- **Date-based meal journal** — review meal logs grouped by date, with the newest dates first.
+- **Guest mode** — meal logs are saved in the browser’s local storage on that device. They remain available without an account, but do not sync across browsers or devices.
+- **Recipe finder** — discover recipes with ingredients, summaries, preparation details, and cooking steps.
+
+### Keep a private progress history
+
+- **FITIFY account and dashboard** — manage profile details, preferred units, fitness focus, and an optional daily calorie goal.
+- **Weight and BMI history** — save check-ins and calculator results to revisit changes over time.
+- **Account security controls** — verify email, recover or change a password, sign out, and delete an account with its saved FITIFY history.
+- **Private meal history** — signed-in meal logs are stored with the account and can be viewed from the tracker and dashboard.
+
+## How the data works
+
+FITIFY keeps guest and account tracking separate. Guest meal entries stay in that browser’s local storage. When signed in, saved measurements and meals are associated with the account in MongoDB. External nutrition and recipe information comes from Edamam and Spoonacular respectively.
+
+## Built with
+
+| Layer | Technology |
+| --- | --- |
+| Front end | HTML, CSS, JavaScript, Bootstrap |
+| Server functions | Node.js and Netlify Functions |
+| Account and history storage | MongoDB with Mongoose |
+| Nutrition estimates | Edamam API |
+| Recipe search and details | Spoonacular API |
+| Transactional email | SMTP with Nodemailer |
+
+## Project layout
+
+```text
+public/                 Pages, styles, and browser-side interactions
+netlify/functions/      Serverless endpoints for account and wellness features
+netlify/lib/            Shared account models and server utilities
 ```
 
-This uses Netlify CLI to serve the `public` folder and functions from `netlify/functions`. The local environment needs `MONGODB_URI` (or both `MONGODB_USERNAME` and `MONGODB_PASSWORD`) in `.env`. New account verification and password recovery also need working SMTP credentials. Gmail SMTP is documented below as a low-volume development option. Keep all secrets out of source control. The BMI and ideal-weight calculators work without an account; account creation, sign-in, and dashboard access require the database connection.
+## Project
 
-Copy `.env.example` to `.env`, then fill in the values locally and restart `npm run serve`:
-
-- `MONGODB_URI`: MongoDB Atlas connection string. URL-encode special characters in the password. The application stores account data in the `FITIFY_PROFILES` database and collections prefixed `fitify_`.
-- `SMTP_HOST`, `SMTP_PORT`, and `SMTP_SECURE`: Gmail settings are `smtp.gmail.com`, `465`, and `true`.
-- `SMTP_USER`: the Gmail address sending account email.
-- `SMTP_PASSWORD`: a Google App Password, not your regular Google password. Google requires 2-Step Verification to create an App Password. Create one under [Google Account → Security → App passwords](https://support.google.com/accounts/answer/185833).
-- `EMAIL_FROM`: set to the same Gmail address, for example `FITIFY <your-account@gmail.com>`. Gmail may rewrite sender addresses that do not match the authenticated account.
-
-- `SITE_URL`: the public origin used to construct verification and password-reset links. Keep `http://localhost:8888` for local development; set the deployed site URL in Netlify environment variables.
-- `EDAMAM_API_ID` and `EDAMAM_API_KEY`: used by the nutrition lookup endpoint.
-- `SPOONACULAR_API_KEY`: used by recipe search.
-
-Gmail SMTP is suitable for a small demo, not a high-volume production mail system. Google can block suspicious automated logins, and personal Gmail has sending limits. For a public production service, use an email provider with a sender identity or domain you control.
-
-Never commit `.env` or share its values in screenshots or chat.
-
-New accounts are stored in `fitify_accounts`; sessions and short-lived email tokens are stored in `fitify_sessions` and `fitify_account_tokens`. Saved BMI, weight, and meal entries live in `fitify_bmi_history`, `fitify_weight_history`, and `fitify_meal_history`. All history is scoped to the signed-in account. The dashboard includes recent BMI and weight entries and recent daily calorie totals. BMI and weight logs update the current profile snapshot. Account deletion removes the account and its associated saved data. The previous four-digit-code profile endpoints have been retired; existing legacy profile documents are not automatically imported into new accounts.
-
-## Links
-
-- Live Site: [Click Here](https://fitify-fitness-tracker.netlify.app/)
-- Source Code Repo: [Click Here](https://github.com/chayansurana3/FITIFY-Fitness-Tracker.git)
+- **Live website:** [fitify-fitness-tracker.netlify.app](https://fitify-fitness-tracker.netlify.app/)
+- **Source repository:** [FITIFY-Fitness-Tracker](https://github.com/chayansurana3/FITIFY-Fitness-Tracker)
 
 ## Author
 
-- Chayan Surana
-- [Linkedin](https://www.linkedin.com/in/chayan-surana-a93857136/)
-- Email - chayan.surana3@gmail.com
+**Chayan Surana**<br />
+[LinkedIn](https://www.linkedin.com/in/chayan-surana-a93857136/) · [Email](mailto:chayan.surana3@gmail.com)
