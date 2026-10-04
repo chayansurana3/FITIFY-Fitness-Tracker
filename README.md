@@ -33,7 +33,7 @@ FITIFY brings a set of practical wellness tools into one calm, easy-to-use exper
       <strong>Home</strong><br />A welcoming starting point for the FITIFY toolkit.
     </td>
     <td width="50%" align="center">
-      <a href="./Screenshot2.png"><img src="./Screenshot2.png" alt="FITIFY feature overview with links to wellness tools" width="100%" /></a><br />
+      <a href="./ScreenShot2.png"><img src="./ScreenShot2.png" alt="FITIFY feature overview with links to wellness tools" width="100%" /></a><br />
       <strong>Wellness tools</strong><br />A quick overview of the calculators, recipe finder, and dashboard.
     </td>
   </tr>
