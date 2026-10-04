@@ -39,7 +39,7 @@ FITIFY brings a set of practical wellness tools into one calm, easy-to-use exper
   </tr>
   <tr>
     <td width="50%" align="center">
-      <a href="./Screenshot3.png"><img src="./Screenshot3.png" alt="FITIFY BMI calculator with unit controls and result guidance" width="100%" /></a><br />
+      <a href="./ScreenShot3.png"><img src="./ScreenShot3.png" alt="FITIFY BMI calculator with unit controls and result guidance" width="100%" /></a><br />
       <strong>BMI calculator</strong><br />A quick estimate with metric and imperial inputs and explanatory ranges.
     </td>
     <td width="50%" align="center">
