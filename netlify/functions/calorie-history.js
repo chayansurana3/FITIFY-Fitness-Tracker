@@ -21,6 +21,10 @@ exports.handler = async (event) => {
     const date = event.queryStringParameters?.date || new Date().toISOString().slice(0, 10);
     if (!isDate(date)) return json(400, { error: 'Choose a valid date that is not in the future.' });
     if (event.httpMethod === 'GET') {
+      if (event.queryStringParameters?.history === '1') {
+        const entries = await MealEntry.find({ userId: user._id }).sort({ loggedOn: -1, createdAt: -1 }).limit(1000).lean();
+        return json(200, { entries: entries.map(({ _id, loggedOn, mealName, amount, servingUnit, calories, protein, carbs, fat, fibre, createdAt }) => ({ id: String(_id), loggedOn, mealName, amount, servingUnit, calories, protein, carbs, fat, fibre, createdAt })) });
+      }
       const entries = await MealEntry.find({ userId: user._id, loggedOn: date }).sort({ createdAt: 1 }).lean();
       return json(200, { date, entries: entries.map(({ _id, mealName, amount, servingUnit, calories, protein, carbs, fat, fibre, createdAt }) => ({ id: String(_id), mealName, amount, servingUnit, calories, protein, carbs, fat, fibre, createdAt })), totals: daySummary(entries) });
     }

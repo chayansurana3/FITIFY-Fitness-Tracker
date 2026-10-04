@@ -53,7 +53,7 @@
               </div>
             </div>
             <div class="calorie-field"><label for="meal-date">Log date</label><input type="date" id="meal-date" required /></div>
-            <button type="submit" id="track-button" class="calorie-submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add to today</button>
+            <button type="submit" id="track-button" class="calorie-submit"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add to this day</button>
             <p class="calorie-status" id="calorie-status" role="status" aria-live="polite"></p><p class="calorie-save-note" id="calorie-save-note"></p>
           </form>
         </section>
@@ -87,6 +87,18 @@
               <tbody id="meal-entries"></tbody>
             </table>
           </div>
+        </div>
+      </section>
+
+      <section class="meal-history-card" aria-labelledby="meal-history-heading">
+        <div class="meal-history-heading">
+          <div class="meal-history-title-group"><span class="calorie-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span><div><p class="calorie-card-kicker">YOUR FOOD JOURNAL</p><h2 id="meal-history-heading">A record of what fuels you.</h2></div></div>
+          <button type="button" id="toggle-meal-history" class="meal-history-toggle" aria-expanded="false" aria-controls="meal-history-content"><i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i><span id="meal-history-toggle-label">Show logs</span><span class="meal-history-count" id="meal-history-count">0</span></button>
+        </div>
+        <div class="meal-history-content" id="meal-history-content" hidden>
+          <div class="meal-history-toolbar"><div><p class="meal-history-description" id="meal-history-description">Your dated meal entries, newest first.</p><p class="meal-history-storage" id="meal-history-storage"></p></div><div class="meal-history-actions"><label class="visually-hidden" for="meal-history-filter">Filter logs by date</label><input type="date" id="meal-history-filter" aria-label="Filter logs by date" /><button type="button" id="clear-local-history" class="clear-meals" hidden>Clear this-device history</button></div></div>
+          <p class="meal-history-empty" id="meal-history-empty" hidden>No meal logs match this date yet.</p>
+          <div class="meal-history-days" id="meal-history-days" aria-live="polite"></div>
         </div>
       </section>
     </main>

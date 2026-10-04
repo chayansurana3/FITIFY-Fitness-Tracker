@@ -95,3 +95,46 @@
 }
 .calorie-save-note a { color: #c4a7ff; }
 #meal-date { color-scheme: dark; }
+.meal-history-card { margin-top: 20px; padding: clamp(20px,3vw,30px); border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background: linear-gradient(145deg,rgba(25,28,42,.92),rgba(14,18,30,.88)); box-shadow: 0 24px 70px rgba(0,0,0,.28); backdrop-filter: blur(16px); }
+.meal-history-heading, .meal-history-title-group, .meal-history-toolbar, .meal-history-day-heading, .meal-history-entry { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.meal-history-title-group { justify-content: flex-start; }
+.meal-history-title-group .calorie-icon { flex-basis: 48px; }
+.meal-history-title-group .calorie-card-kicker { margin-bottom: 4px; }
+.meal-history-title-group h2 { margin: 0; color: #fff; font-size: clamp(1.2rem,2.5vw,1.55rem); font-weight: 800; letter-spacing: -.04em; }
+.meal-history-toggle { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 9px; min-height: 42px; padding: 0 13px; border: 1px solid rgba(196,167,255,.25); border-radius: 11px; color: #e7ddff; background: rgba(124,58,237,.12); font: inherit; font-size: .82rem; font-weight: 750; cursor: pointer; transition: background 150ms ease,border-color 150ms ease; }
+.meal-history-toggle:hover { border-color: rgba(196,167,255,.5); background: rgba(124,58,237,.22); }
+.meal-history-count { display: grid; min-width: 23px; height: 23px; padding: 0 5px; place-items: center; border-radius: 999px; color: #d8cbff; background: rgba(255,255,255,.09); font-size: .7rem; }
+.meal-history-content { margin-top: 22px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.09); }
+.meal-history-content[hidden] { display: none; }
+.meal-history-toolbar { align-items: flex-start; margin-bottom: 16px; }
+.meal-history-description, .meal-history-storage { margin: 0; color: rgba(255,255,255,.63); font-size: .85rem; line-height: 1.5; }
+.meal-history-storage { margin-top: 4px; color: rgba(255,255,255,.42); font-size: .75rem; }
+.meal-history-actions { display: flex; align-items: center; justify-content: flex-end; gap: 9px; }
+.meal-history-actions input { min-height: 40px; max-width: 175px; padding: 0 10px; border: 1px solid rgba(255,255,255,.13); border-radius: 10px; color: rgba(255,255,255,.8); background: rgba(3,6,14,.48); color-scheme: dark; font: inherit; font-size: .78rem; }
+.meal-history-actions .clear-meals { min-height: 40px; white-space: nowrap; }
+.meal-history-days { display: grid; gap: 12px; }
+.meal-history-day { overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 15px; background: rgba(255,255,255,.035); }
+.meal-history-day-heading { padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.025); }
+.meal-history-day-heading h3 { margin: 0; color: rgba(255,255,255,.9); font-size: .9rem; font-weight: 750; }
+.meal-history-day-total { color: #c4b5fd; font-size: .78rem; font-weight: 750; white-space: nowrap; }
+.meal-history-entry-list { margin: 0; padding: 0 16px; list-style: none; }
+.meal-history-entry { padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+.meal-history-entry:last-child { border-bottom: 0; }
+.meal-history-entry-detail { display: grid; gap: 3px; min-width: 0; }
+.meal-history-entry-detail strong { overflow: hidden; color: rgba(255,255,255,.88); font-size: .87rem; text-overflow: ellipsis; }
+.meal-history-entry-detail > span { color: rgba(255,255,255,.53); font-size: .75rem; }
+.meal-history-entry-detail small { color: rgba(255,255,255,.4); font-size: .68rem; }
+.meal-history-entry > b { flex: 0 0 auto; color: white; font-size: .83rem; }
+.meal-history-empty { margin: 0; padding: 24px 14px; border: 1px dashed rgba(255,255,255,.14); border-radius: 13px; color: rgba(255,255,255,.55); font-size: .85rem; text-align: center; }
+@media(max-width:650px) {
+  .meal-history-card { padding: 18px 15px; }
+  .meal-history-heading { align-items: flex-start; flex-direction: column; }
+  .meal-history-toggle { align-self: stretch; justify-content: center; }
+  .meal-history-toolbar { flex-direction: column; }
+  .meal-history-actions { width: 100%; justify-content: stretch; }
+  .meal-history-actions input { flex: 1; max-width: none; min-width: 0; }
+  .meal-history-actions .clear-meals { padding: 8px; font-size: .7rem; }
+  .meal-history-day-heading { align-items: flex-start; flex-direction: column; gap: 5px; }
+  .meal-history-entry-list { padding-right: 11px; padding-left: 11px; }
+}
+@media(prefers-reduced-motion:reduce) { .meal-history-toggle { transition: none; } }
